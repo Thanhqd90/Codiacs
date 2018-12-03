@@ -36,7 +36,7 @@ body,
     width:20rem;
 }
 #navbar{
-    background-color: rgba(134, 134, 134, 0.521);
+    background-color: rgba(59, 59, 59, 0.637);
 }
 /* style for the search bar */
 .active-cyan input[type=text] {
@@ -48,7 +48,19 @@ button{
     background-color: white;
     color: black;
 }
+/* body of the blog data */
 #blog-body{
-    background-color: rgba(134, 134, 134, 0.521);
+    background-color: rgba(59, 59, 59, 0.637);
     color: white;
+    font-weight: bold;
+}
+/* image for each bloger */
+#avatar{
+    height:10rem; 
+    width: 10rem;
+}
+#blog{
+    border-style: solid;
+    border-color: rgb(255, 255, 255);
+    border-width: 5px;
 }
