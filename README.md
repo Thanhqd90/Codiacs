@@ -2,21 +2,22 @@
 
 ### Overview Of Application
 ```
-This application will help the backpackers to :
-    * look for the places available for backpacking and,
-    * read,write and share the blog about their backpacking experiences
+This application will help the travellers to :
+    * look for the places available for travelling based on some criteria like adventure,trails,theme parks etc and,
+    * read,write and share the blog about their travelling experiences
 
 ```
 
 ### Working of Application
 ```
-* Any user can check out the website for reading the backpacking experiences.
-* All the backpacking blogs will provide the following information to the users:
+* Any user can check out the website for reading the travelling experiences.
+* All the travellers blogs will provide the following information to the users:
     1. Best Season to visit the place
     2. Must Haves for that place
-    3. What areas to explore and
-    4. Blogger Experience
-* If any user wants to publish their backpacking experience then the user:
+    3. What areas to explore 
+    4. Blogger Experience and
+    5. Maximum Amount
+* If any user wants to publish their travelling experience then the user:
     1. needs to sign up
     2. Login
     3. write blogs
