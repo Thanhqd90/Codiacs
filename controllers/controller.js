@@ -6,15 +6,8 @@ var db = require("../models");
 
 // Home page
 router.get("/", function(req, res) {
-  db.Model.findAll({})
-    .then(function(dbModel) {
-      var hbsObject = {
-        model: dbModel
-      };
-      console.log("Test")
-      return res.render("index", hbsObject);
-    });
+       res.render("index");
+    // });
 });
-
 
 module.exports = router;
