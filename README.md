@@ -15,8 +15,10 @@ This application will help the travellers to :
     1. Best Season to visit the place
     2. Must Haves for that place
     3. What areas to explore 
-    4. Blogger Experience and
-    5. Maximum Amount
+    4. Blogger Experience 
+    5. Maximum Amount 
+    6. Days Spent and
+    7.Categories like adventure,sports,trails,etc.
 * If any user wants to publish their travelling experience then the user:
     1. needs to sign up
     2. Login
