@@ -1,0 +1,13 @@
+#login-form{
+    width: 20rem;
+    height: 25rem;
+    margin-top: 50px;
+    background-color: rgba(59, 59, 59, 0.664);
+    font-weight: bold;
+}
+.page-footer{
+    background-color: rgba(59, 59, 59, 0.918);
+    margin-top: 30px;
+    position: fixed;
+    width: 100%;
+}

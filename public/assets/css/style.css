@@ -64,6 +64,7 @@ button{
     border-color: rgb(255, 255, 255);
     border-width: 5px;
 }
+<<<<<<< HEAD
 
 /*
     DEMO STYLE
@@ -289,3 +290,8 @@ a.article, a.article:hover {
     }
 
 }
+=======
+.page-footer{
+    background-color: rgba(59, 59, 59, 0.918);
+}
+>>>>>>> d95988426e2e95e902a003997f49455c4be54a10
