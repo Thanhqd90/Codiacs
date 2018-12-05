@@ -1,0 +1,66 @@
+/* responsive mediaqueries for different screens */
+#body-style{
+    background-image: url('/assets/images/citybg2.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+html,
+body,
+ {
+  height: 100%;
+}
+@media (max-width: 740px) {
+  html,
+  body,
+  header,
+  .intro-2 {
+    height: 1100px;
+  }
+}
+@media (min-width: 800px) and (max-width: 850px) {
+  html,
+  body,
+  header,
+  .intro-2 {
+    height: 950px;
+  }
+}
+/* top image at the beginning of page */
+#intro-bg{
+    background-image: url('/assets/images/compass2.jpg');
+    background-size: cover;
+    background-position: center;
+    height:20rem;
+    width:20rem;
+}
+#navbar{
+    background-color: rgba(59, 59, 59, 0.637);
+}
+/* style for the search bar */
+.active-cyan input[type=text] {
+    border-bottom: 1px solid #4dd0e1;
+    box-shadow: 0 1px 0 0 #4dd0e1;
+    }
+/* all buttons to give them a clean look */
+button{
+    background-color: white;
+    color: black;
+}
+/* body of the blog data */
+#blog-body{
+    background-color: rgba(59, 59, 59, 0.637);
+    color: white;
+    font-weight: bold;
+}
+/* image for each bloger */
+#avatar{
+    height:10rem; 
+    width: 10rem;
+}
+#blog{
+    border-style: solid;
+    border-color: rgb(255, 255, 255);
+    border-width: 5px;
+}
