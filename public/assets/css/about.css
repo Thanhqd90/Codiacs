@@ -1,6 +1,14 @@
 /* entire body layout style */
 #body-container{
-
+color: white;
+background-color: rgba(0, 0, 0, 0.89);
+}
+#body-style{
+    background-image: url('/assets/images/aboutbg.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 /* card style */
 .card{
