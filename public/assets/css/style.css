@@ -64,7 +64,6 @@ button{
     border-color: rgb(255, 255, 255);
     border-width: 5px;
 }
-<<<<<<< HEAD
 
 /*
     DEMO STYLE
@@ -93,11 +92,14 @@ a, a:hover, a:focus {
 
 .navbar {
     padding: 15px 10px;
-    background: #fff;
     border: none;
     border-radius: 0;
-    margin-bottom: 40px;
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.nav-link{
+    color:white;
+
 }
 
 .navbar-btn {
@@ -128,7 +130,6 @@ a, a:hover, a:focus {
 #sidebar {
     min-width: 250px;
     max-width: 250px;
-    background: #7386D5;
     color: #fff;
     transition: all 0.6s cubic-bezier(0.945, 0.020, 0.270, 0.665);
     transform-origin: bottom left;
@@ -141,7 +142,6 @@ a, a:hover, a:focus {
 
 #sidebar .sidebar-header {
     padding: 20px;
-    background: #6d7fcc;
 }
 
 #sidebar ul.components {
@@ -256,6 +256,13 @@ a.article, a.article:hover {
     margin: 5px auto;
 }
 
+#registerBody{
+    margin: auto;
+    margin-bottom: 15px;
+    width:50%;
+    background: #f5f5f5;
+}
+
 
 /* ---------------------------------------------------
     MEDIAQUERIES
@@ -290,8 +297,3 @@ a.article, a.article:hover {
     }
 
 }
-=======
-.page-footer{
-    background-color: rgba(59, 59, 59, 0.918);
-}
->>>>>>> d95988426e2e95e902a003997f49455c4be54a10
