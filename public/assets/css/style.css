@@ -64,3 +64,6 @@ button{
     border-color: rgb(255, 255, 255);
     border-width: 5px;
 }
+.page-footer{
+    background-color: rgba(59, 59, 59, 0.918);
+}
