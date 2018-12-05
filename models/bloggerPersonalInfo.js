@@ -54,18 +54,18 @@ module.exports = function(sequelize, DataTypes) {
                 }
             },
             password: {
-                type: Datatypes.STRING,
+                type: DataTypes.STRING,
                 allowNull: false,
                 validate: {
                     length: [7, 10]
                 }
             },
             securityQuestion: {
-                type: Datatypes.STRING,
+                type: DataTypes.STRING,
                 allowNull: false
             },
             answer: {
-                type: Datatypes.STRING,
+                type: DataTypes.STRING,
                 allowNull: false,
                 validate: {
                     length: [1]
