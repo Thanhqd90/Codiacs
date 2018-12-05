@@ -21,7 +21,6 @@ app.engine("handlebars", exphbs({
 app.set("view engine", "handlebars");
 
 var routes = require("./controllers/controller");
-
 app.use(routes);
 
 db.sequelize.sync().then(function() {
