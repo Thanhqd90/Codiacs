@@ -1,3 +1,8 @@
+/* entire body layout style */
+#body-container{
+
+}
+/* card style */
 .card{
     width: 12rem;
     height: 20rem;
@@ -6,4 +11,9 @@
 }
 #social-button{
     border-radius: 40px;
+}
+/* FOOTER STYLE */
+.page-footer{
+    width: 100%;
+    background-color: rgba(59, 59, 59, 0.918);
 }
