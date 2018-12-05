@@ -1,0 +1,9 @@
+.card{
+    width: 12rem;
+    height: 20rem;
+    margin: 10px;
+    color: white;
+}
+#social-button{
+    border-radius: 40px;
+}
