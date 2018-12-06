@@ -1,6 +1,6 @@
 <div id="registerBody">
     <!-- Default form register -->
-    <form class="text-center border border-light p-5">
+    <form id="newUser" action="/register/create" method="POST" class="text-center border border-light p-5">
 
         <p class="h4 mb-4">Sign up</p>
 
@@ -15,6 +15,9 @@
             </div>
         </div>
 
+        {{!-- Username --}}
+        <input type="text" id="defaultRegisterFormUsername" class="form-control mb-4" placeholder="Username">
+
         <!-- E-mail -->
         <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail">
 
@@ -26,20 +29,19 @@
         </small>
 
         <!-- Phone number -->
-        <input type="text" id="defaultRegisterPhonePassword" class="form-control" placeholder="Phone number"
-            aria-describedby="defaultRegisterFormPhoneHelpBlock">
+        <input type="text" id="defaultRegisterPhone" class="form-control" placeholder="Phone number" aria-describedby="defaultRegisterFormPhoneHelpBlock">
         <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
             Optional - for two step authentication
         </small>
 
         <!-- Newsletter -->
         <div class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input" id="defaultRegisterFormNewsletter">
-            <label class="custom-control-label" for="defaultRegisterFormNewsletter">I agree to terms of service</label>
+            <input type="checkbox" class="custom-control-input" id="defaultCheckbox">
+            <label class="custom-control-label" for="defaultCheckbox">I agree to terms of service</label>
         </div>
 
         <!-- Sign up button -->
-        <button class="btn btn-info my-4 btn-block" type="submit">Sign in</button>
+        <button class="btn btn-info my-4 btn-block" type="submit">Sign up</button>
 
         <!-- Social register -->
         <p>or sign up with:</p>
