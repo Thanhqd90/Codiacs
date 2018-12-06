@@ -54,16 +54,23 @@ button{
     color: white;
     font-weight: bold;
 }
-/* image for each bloger */
+/* image for each blogger */
 #avatar{
     height:10rem; 
     width: 10rem;
 }
+/* individual blog style */
 #blog{
     border-style: solid;
     border-color: rgb(255, 255, 255);
     border-width: 5px;
 }
+/* FOOTER STYLE */
 .page-footer{
     background-color: rgba(59, 59, 59, 0.918);
+}
+
+/* modal style */
+.modal-header{
+    background-color: blue;
 }
