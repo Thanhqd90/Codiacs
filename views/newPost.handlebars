@@ -1,0 +1,86 @@
+<div id="registerBody">
+    <!-- Default form register -->
+    <form id="newUser" action="/blog/create" method="POST" class="text-center border border-light p-5">
+
+        <p class="h4 mb-4">Sign up</p>
+
+        <div class="form-row mb-4">
+            <div class="col">
+                <!-- First name -->
+                <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="First name">
+            </div>
+            <div class="col">
+                <!-- Last name -->
+                <input type="text" id="defaultRegisterFormLastName" class="form-control" placeholder="Last name">
+            </div>
+        </div>
+
+        {{!-- Username --}}
+        <input type="text" id="defaultRegisterFormUsername" class="form-control mb-4" placeholder="Username">
+
+        <!-- E-mail -->
+        <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail">
+
+        <!-- Password -->
+        <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Password"
+            aria-describedby="defaultRegisterFormPasswordHelpBlock">
+        <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
+            At least 8 characters and 1 digit
+        </small>
+
+        <!-- Phone number -->
+        <input type="text" id="defaultRegisterPhone" class="form-control" placeholder="Phone number" aria-describedby="defaultRegisterFormPhoneHelpBlock">
+        <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
+            Optional - for two step authentication
+        </small>
+
+        <!-- Newsletter -->
+        <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="defaultCheckbox">
+            <label class="custom-control-label" for="defaultCheckbox">I agree to terms of service</label>
+        </div>
+
+        <!-- Sign up button -->
+        <button class="btn btn-info my-4 btn-block" type="submit">Sign up</button>
+
+        <!-- Social register -->
+        <p>or sign up with:</p>
+
+        <a class="tw-ic mr-3 blue-text" role="button"><i class="fa fa-lg fa-twitter"></i></a>
+        <!--Google +-->
+        <a class="gplus-ic mr-3 red-text" role="button"><i class="fa fa-lg fa-google-plus"></i></a>
+        <!--Facebook-->
+        <a class="fb-ic mr-3 blue-text" role="button"><i class="fa fa-lg fa-facebook"></i></a>
+
+        <hr>
+
+        <!-- Terms of service -->
+        <p>By clicking
+            <em>Sign up</em> you agree to our
+            <a href="" target="_blank">terms of service</a>
+
+    </form>
+    <!-- Default form register -->
+</div>
+
+<!-- Reply section (logged in user) -->
+<section class="my-5">
+
+  <div class="card-header border-0 font-weight-bold">Leave a reply (logged in user)</div>
+
+  <div class="d-md-flex flex-md-fill mt-4 px-1">
+    <div class="d-flex justify-content-center mr-md-5">
+      <img class="card-img-100 z-depth-1 mb-4" src="https://mdbootstrap.com/img/Photos/Avatars/img (32).jpg"
+        alt="avatar">
+    </div>
+    <textarea class="form-control pl-3 pt-3" id="exampleFormControlTextarea1" rows="6" placeholder="Write something here..."></textarea>
+  </div>
+  <div class="text-center mt-4">
+    <button class="btn btn-primary btn-md">Submit</button>
+  </div>
+
+</section>
+<!-- Reply section (logged in user) -->
+
+<!-- Custom Script -->
+<script src="js/register.js" type="text/javascript"></script>
