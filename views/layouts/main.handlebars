@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Codiacs</title>
+  <title>Codiacs Project 2</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Font Awesome -->
@@ -15,21 +15,24 @@
 </head>
 
 <body id="body-style">
-  <div class="wrapper">
-    <!-- Sidebar Holder -->
-    <nav id="sidebar">
+  <div class="wrapper"> <!--Content wrapper-->
+    <nav id="sidebar"> <!-- Sidebar Start -->
       <div class="sidebar-header">
-        <h3>Codiacs</h3>
+        <h3><a href="/home">Clickable Logo</a></h3>
       </div>
-
-      <!-- Side nav -->
-      <section class="mt-5 pt-4">
-        <!-- Side nav Links -->
-        <div class="container-fluid text-center text-md-left">
-          <ul class="list-unstyled components">
+    <section> <!-- Sidebar Contents -->
+      <div class="container-fluid text-center text-md-left">
+        <ul class="list-unstyled components">
+          <div class="avatar mx-auto">
+              <img id="avatar" src="https://dafb3cv85j5xj.cloudfront.net/blog/wp-content/uploads/2016/07/bananya_feat.jpg" alt="avatar mx-auto white" class="mx-auto rounded-circle img-fluid">
+          </div>
+            <p>Currently logged in as<br>
+                BananaCat100</p>
             <p>You are not signed in<br>
-              Click <a href="/login">here</a> to sign in</p>
-              Click <a href="/login">here</a> to create a new account</p>
+                Click <a href="/login"><u>here</u></a> to sign in<br>
+                Click <a href="/register"><u>here</u></a> to register<br>
+            </p>
+            <!-- Sidebar Nav Links-->
             <li>
               <a href="/home">Home</a>
             </li>
@@ -42,89 +45,69 @@
             <li>
               <a href="/blog/viewall">View posts made by me</a>
             </li>
-          </ul>
-          <div class="row justify-content-center">
-            <section id="img-bg">
-              <section id="intro-bg" class="mt-3">
-              </section>
-            </section>
-          </div>
-    </nav>
-    <!-- Page Content Holder -->
-    <div id="content">
+        </ul>
+      </nav> <!-- Sidebar end-->
 
+    <div id="content"> <!-- Start #Content -->
+      <div> <!-- Start Sidebar Button-->
+        <button type="button" id="sidebarCollapse" class="navbar-btn"> 
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div> <!-- End Sidebar Button-->
 
-      <button type="button" id="sidebarCollapse" class="navbar-btn">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+      {{{ body }}} <!--Handlebars generated body-->
 
-
-
-
-      {{{ body }}}
-    
-<!-- Footer -->
-     <footer class="page-footer font-small pt-4 mt-5">
-       <!-- Footer Links -->
-       <div class="container-fluid text-center text-md-left">
-         <!-- Grid row -->
-         <div class="row">
-           <!-- Grid column -->
-           <div class="col-md-6 mt-md-0 mt-3">
-             <!-- Content -->
-             <h5 class="text-uppercase">Footer Content</h5>
-             <p>Here you can use rows and columns here to organize your footer content.</p>
-           </div>
-           <!-- Grid column -->
-           <hr class="clearfix w-100 d-md-none pb-3">
-           <!-- Grid column -->
-           <div class="col-md-6 mb-md-0 mb-3">
-             <!-- Grid column -->
-             <div class="col-md-5 mb-md-0 mb-3">
-               <!-- Links -->
-               <h5 class="text-uppercase">Links</h5>
-               <ul class="list-unstyled">
-                 <li>
-                   <a href="#!">Meet The Devs!</a>
+    <footer class="page-footer font-small pt-4"> <!-- Footer -->
+      <div class="container-fluid text-md-left"> <!-- Footer Links -->
+        <div class="row text-center"> <!-- Start Row -->
+          <div class="col-md-6 mt-md-0 mt-3"> <!-- Start Column 1-->
+            <!-- Footer Content -->
+            <h5 class="text-uppercase">Footer Content</h5>
+              <p>Here you can use rows and columns here to organize your footer content.</p>
+          </div> <!-- End column 1 -->
+            
+    <hr class="clearfix w-100 d-md-none pb-3">
+      
+          <div class="col-md-6 mb-md-0 mb-3"> <!-- Start Column 2-->
+            <div class="col-md-5 mb-md-0 mb-3"> <!-- Start Links Column-->
+              <!-- Links -->
+              <h5 class="text-uppercase">Links</h5>
+              <ul class="list-unstyled">
+                <li>
+                  <a href="#!">Meet The Devs!</a>
+                </li>
+                <li>
+                  <a href="#!">Contact</a>
+                </li>
+                <li>
+                  <a href="#!"></a>
+                </li>
+                <li>
+                  <a href="#!"></a>
                  </li>
-                 <li>
-                   <a href="#!">Contact</a>
-                 </li>
-                 <li>
-                   <a href="#!"></a>
-                 </li>
-                 <li>
-                   <a href="#!"></a>
-                 </li>
-               </ul>
-             </div>
-             <!-- Grid column -->
-           </div>
-           <!-- Grid row -->
-         </div>
-         <!-- Footer Links -->
-         <!-- Copyright -->
-         <div class="footer-copyright text-center py-3">© 2018 Copyright:
-           <a href=""> The Codiacs</a>
-         </div>
-         <!-- Copyright -->
-     </footer>
-     <!-- Footer -->
+              </ul>
+            </div><!-- End Links column -->
+          </div><!-- End column 2 -->
 
-    
+          <!-- Copyright -->
+          <div class="footer-copyright text-center py-3">© 2018 Copyright:<a href=""> The Codiacs</a></div>
+        </div><!-- End row -->
+      </div><!-- End Footer Links -->
+    </footer><!--End Footer -->
+    </div> <!--End #Content-->
+  </div> <!--End Wrapper-->
 
-      {{!-- jQuery --}}
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-      <!-- Bootstrap tooltips -->
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
-      <!-- Bootstrap core JavaScript -->
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
-      <!-- MDB core JavaScript -->
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.15/js/mdb.min.js"></script>
-      {{!-- Custom Javascript --}}
-      <script src="/assets/js/script.js"></script>
+  {{!-- jQuery --}}
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  {{!-- Bootstrap tooltips --}}
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+  {{!-- Bootstrap core JavaScript --}}
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  {{!-- MDB core JavaScript --}}
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.15/js/mdb.min.js"></script>
+  {{!-- Custom Javascript --}}
+    <script src="/assets/js/script.js"></script>
 </body>
-
 </HTML>
