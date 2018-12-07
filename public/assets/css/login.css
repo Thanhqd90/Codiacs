@@ -1,0 +1,23 @@
+/* body bg image */
+#body-style{
+    background-image: url('/assets/images/citybg.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+/* login form style */
+#login-form{
+    width: 20rem;
+    height: 25rem;
+    margin-top: 50px;
+    background-color: rgba(134, 134, 134, 0.829);
+    font-weight: bold;
+}
+/* footer style */
+.page-footer{
+    background-color: rgba(59, 59, 59, 0.918);
+    margin-top: 30px;
+    position: fixed;
+    width: 100%;
+}

@@ -1,0 +1,29 @@
+/* entire body layout style */
+#body-container{
+color: white;
+background-color: rgba(0, 0, 0, 0.89);
+}
+#body-style{
+    background-image: url('/assets/images/aboutbg.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+/* card style */
+.card{
+    width: 12rem;
+    height: 20rem;
+    margin: 10px;
+    color: white;
+    background-color: rgba(59, 59, 59, 0.918);
+
+}
+#social-button{
+    border-radius: 40px;
+}
+/* FOOTER STYLE */
+.page-footer{
+    width: 100%;
+    background-color: rgba(59, 59, 59, 0.918);
+}
