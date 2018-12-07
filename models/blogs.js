@@ -2,37 +2,29 @@ module.exports = function(sequelize, DataTypes) {
     let blogs = sequelize.define(
         "blogs",
         {
-            blog_id: {
-                type: DataTypes.INTEGER,
-                autoIncrement: true,
-                primaryKey: true,
-                allowNull: false
-            },
-            blogger_id: {
+            /*             bloggerId: {
                 type: DataTypes.INTEGER,
                 references: {
-                    model: bloggerPersonalInfo,
-                    key: "blogger_id"
+                    model: "bloggerPersonalInfo",
+                    key: "id"
                 }
-            },
-            createdAt: {
-                type: DataTypes.DATETIME
-            },
-            updatedAt: {
-                type: DataTypes.DATETIME
+            }, */
+            title: {
+                type: DataTypes.STRING,
+                defaultValue: "My Experience"
             },
             isVisible: {
                 type: DataTypes.BOOLEAN,
                 defaultValue: false
             },
             mustHaves: {
-                type: DataTypes.VARCHAR
+                type: DataTypes.STRING
             },
             stayAt: {
-                type: DataTypes.VARCHAR
+                type: DataTypes.STRING
             },
             placesVisited: {
-                type: DataTypes.VARCHAR
+                type: DataTypes.STRING
             },
             photos: {
                 type: DataTypes.BLOB
@@ -41,16 +33,16 @@ module.exports = function(sequelize, DataTypes) {
                 type: DataTypes.TEXT
             },
             bestTime: {
-                type: DataTypes.VARCHAR
+                type: DataTypes.STRING
             },
             countryVisited: {
-                type: DataTypes.VARCHAR
+                type: DataTypes.STRING
             },
             cityVisited: {
-                type: DataTypes.VARCHAR
+                type: DataTypes.STRING
             },
             category: {
-                type: DataTypes.VARCHAR
+                type: DataTypes.STRING
             }
         },
         {
@@ -58,5 +50,13 @@ module.exports = function(sequelize, DataTypes) {
             tableName: "blogs"
         }
     );
+    blogs.associate = function(models) {
+        blogs.belongsTo(models.bloggerPersonalInfo, {
+            onDelete: "CASCADE",
+            foreignKey: {
+                allowNull: false
+            }
+        });
+    };
     return blogs;
 };

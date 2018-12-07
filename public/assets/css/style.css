@@ -6,6 +6,22 @@
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
+
+/* FOOTER STYLE */
+.page-footer{
+    width:100%;
+    background-color: rgba(59, 59, 59, 0.918);
+}
+.list-unstyled a{
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+}
+.list-unstyled a:hover{
+    color: #7386D5;
+    background: #fff;
+
+}
 /*html,
 body,
  {
@@ -27,7 +43,14 @@ body,
     height: 950px;
   }
 }
-
+/* top image at the beginning of page */
+#intro-bg{
+    background-image: url('/assets/images/compass2.jpg');
+    background-size: cover;
+    background-position: center;
+    height:20rem;
+    width:20rem;
+}
 #navbar{
     background-color: rgba(59, 59, 59, 0.637);
 }
@@ -58,10 +81,8 @@ button{
     border-color: rgb(255, 255, 255);
     border-width: 5px;
 }
-/* FOOTER STYLE */
-.page-footer{
-    background-color: rgba(59, 59, 59, 0.918);
-}
+
+
 /*
     DEMO STYLE
 */
@@ -109,7 +130,7 @@ a, a:hover, a:focus {
     width: 100%;
     height: 1px;
     border-bottom: 1px dashed #ddd;
-    margin: 40px 0;
+
 }
 
 /* ---------------------------------------------------
@@ -128,9 +149,10 @@ a, a:hover, a:focus {
     min-width: 250px;
     max-width: 250px;
     color: #fff;
+    background-image: url('/assets/images/sidenavbg3.jpg');
+    background-position: center;
     transition: all 0.6s cubic-bezier(0.945, 0.020, 0.270, 0.665);
     transform-origin: bottom left;
-    background-image: url('/assets/images/sidenavbg.jpg');
 }
 
 #sidebar.active {
@@ -246,14 +268,11 @@ a.article, a.article:hover {
 #sidebarCollapse span:last-of-type {
     transform: rotate(-45deg) translate(1px, -1px);
 }
-
-
 #sidebarCollapse.active span {
     transform: none;
     opacity: 1;
     margin: 5px auto;
 }
-
 #registerBody{
     margin: auto;
     margin-bottom: 15px;
@@ -293,6 +312,5 @@ a.article, a.article:hover {
     #sidebarCollapse.active span:last-of-type {
         transform: rotate(-45deg) translate(1px, -1px);
     }
-
 
 }

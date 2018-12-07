@@ -21,6 +21,7 @@ background-color: rgba(0, 0, 0, 0.89);
 }
 #social-button{
     border-radius: 40px;
+    color: black;
 }
 /* FOOTER STYLE */
 .page-footer{
