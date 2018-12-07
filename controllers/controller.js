@@ -9,18 +9,18 @@ router.get("/", function (req, res) {
 });
 
 router.get("/home", function (req, res) {
-    db.Blog.findAll({
-        include: [db.Blogger],
-        order: [
-            ["createdAt", "ASC"]
-        ]
-    }).then(function (dbBlog) {
-        var hbsObject = {
-            blog: dbBlog
-        };
-        res.render("index", hbsObject);
+    // db.Blog.findAll({
+    //     include: [db.Blogger],
+    //     order: [
+    //         ["createdAt", "ASC"]
+    //     ]
+    // }).then(function (dbBlog) {
+    //     var hbsObject = {
+    //         blog: dbBlog
+    //     };
+        res.render("index");
     });
-});
+// });
 // login page
 router.get("/login", function (req, res) {
     res.render("login");
