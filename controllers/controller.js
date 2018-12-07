@@ -78,6 +78,7 @@ router.post("/blog/create", function (req, res) {
             // loggedIn = true;
             res.redirect("/home");
         });
+    });
 // Home page
 router.get("/", function(req, res) {
     res.render("index");
