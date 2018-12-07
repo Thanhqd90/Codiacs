@@ -1,53 +1,54 @@
-var express = require("express");
+const express = require('express');
 
-var router = express.Router();
-var db = require("../models");
+const router = express.Router();
+const db = require('../models');
 
 // Home page
-router.get("/", function (req, res) {
-    res.redirect("/home");
+router.get('/', function (req, res) {
+    res.redirect('/home');
 });
 
-router.get("/home", function (req, res) {
+router.get('/home', function (req, res) {
     // db.Blog.findAll({
     //     include: [db.Blogger],
     //     order: [
-    //         ["createdAt", "ASC"]
+    //         ['createdAt', 'ASC']
     //     ]
     // }).then(function (dbBlog) {
-    //     var hbsObject = {
+    //     const hbsObject = {
     //         blog: dbBlog
     //     };
-        res.render("index");
-    });
+    res.render('index');
+});
 // });
 // login page
-router.get("/login", function (req, res) {
-    res.render("login");
+router.get('/login', function (req, res) {
+    res.render('login');
 });
 
-router.get("/register", function (req, res) {
-    res.render("register");
+router.get('/register', function (req, res) {
+    res.render('register');
 });
 
-router.get("/blog/author", function (req, res) {
-    res.render("author");
+router.get('/blog/author', function (req, res) {
+    res.render('author');
 });
 
-router.get("/blog/viewall", function (req, res) {
-    res.render("viewall");
+router.get('/blog/viewall', function (req, res) {
+    res.render('viewall');
 });
 
-router.get("/blog/single", function (req, res) {
-    res.render("single");
+router.get('/blog/single', function (req, res) {
+    res.render('single');
 });
 
-router.get("/blog/new", function (req, res) {
-    res.render("newPost");
+router.get('/blog/new', function (req, res) {
+    res.render('newPost');
 });
 
-router.post("/register/create", function (req, res) {
-    db.bloggerPersonalInfo.create({
+router.post('/register/create', function (req, res) {
+    db.bloggerPersonalInfo.create(
+        {
             firstName: firstName.val().trim(),
             lastName: lastName.val().trim(),
             username: username.val().trim(),
@@ -59,12 +60,13 @@ router.post("/register/create", function (req, res) {
         .then(function (newUser) {
             console.log(newUser);
             // loggedIn = true;
-            res.redirect("/home");
+            res.redirect('/home');
         });
 });
 
-router.post("/blog/create", function (req, res) {
-    db.blog.create({
+router.post('/blog/create', function (req, res) {
+    db.blog.create(
+        {
             firstName: firstName.val().trim(),
             lastName: lastName.val().trim(),
             username: username.val().trim(),
@@ -76,20 +78,20 @@ router.post("/blog/create", function (req, res) {
         .then(function (newUser) {
             console.log(newUser);
             // loggedIn = true;
-            res.redirect("/home");
+            res.redirect('/home');
         });
-    });
+});
 // Home page
-router.get("/", function(req, res) {
-    res.render("index");
+router.get('/', function (req, res) {
+    res.render('index');
 });
 // login page
-router.get("/login", function(req, res) {
-    res.render("login");
+router.get('/login', function (req, res) {
+    res.render('login');
 });
 // about us page
-router.get("/about", function(req, res) {
-    res.render("about");
+router.get('/about', function (req, res) {
+    res.render('about');
 });
 
 module.exports = router;

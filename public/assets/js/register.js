@@ -1,15 +1,15 @@
 $(document).ready(function () {
-    // jQuery references 
-    var firstName = $("#defaultRegisterFormFirstName");
-    var lastName = $("#defaultRegisterFormLastName");
-    var username = $("#defaultRegisterFormUsername");
-    var email = $("#defaultRegisterFormEmail");
-    var password = $("#defaultRegisterFormPassword");
-    var phone = $("#defaultRegisterPhone");
-    var checkbox = $("#defaultcheckbox");
-    var newUser = $("#newUser");
+    // jQuery references
+    const firstName = $('#defaultRegisterFormFirstName');
+    const lastName = $('#defaultRegisterFormLastName');
+    const username = $('#defaultRegisterFormUsername');
+    const email = $('#defaultRegisterFormEmail');
+    const password = $('#defaultRegisterFormPassword');
+    const phone = $('#defaultRegisterPhone');
+    const checkbox = $('#defaultcheckbox');
+    const newUser = $('#newUser');
     // Adding an event listener for when the form is submitted
-    $(newUser).on("submit", handleFormSubmit);
+    $(newUser).on('submit', handleFormSubmit);
 
     function handleFormSubmit(event) {
         event.preventDefault();
@@ -19,15 +19,15 @@ $(document).ready(function () {
             return;
         }
         // Constructing a newUser object to hand to the database
-        var bloggerPersonalInfo = {
-            firstName: firstName.val().trim(),
-            lastName: lastName.val().trim(),
-            username: username.val().trim(),
-            email: email.val().trim(),
-            password: password.val().trim(),
-            phone: phone.val().trim(),
-            checkbox: checkbox.val()
-        };
+        // const bloggerPersonalInfo = {
+        //     firstName: firstName.val().trim(),
+        //     lastName: lastName.val().trim(),
+        //     username: username.val().trim(),
+        //     email: email.val().trim(),
+        //     password: password.val().trim(),
+        //     phone: phone.val().trim(),
+        //     checkbox: checkbox.val()
+        // };
 
     }
 });

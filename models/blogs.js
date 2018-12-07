@@ -1,12 +1,12 @@
 module.exports = function (sequelize, DataTypes) {
-    var blogs = sequelize.define("blogs", {
-        blog_id: {
+    const blogs = sequelize.define('blogs', {
+        blogId: {
             type: DataTypes.INTEGER,
             autoIncrement: true,
             primaryKey: true,
             allowNull: false
         },
-        blogger_id: {
+        bloggerId: {
             type: DataTypes.INTEGER,
             references: {
                 model: bloggerPersonalInfo,
@@ -52,7 +52,7 @@ module.exports = function (sequelize, DataTypes) {
         }
     }, {
         freezeTableName: true,
-        tableName: "blogs"
+        tableName: 'blogs'
     });
     return blogs;
 };

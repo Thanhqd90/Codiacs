@@ -1,22 +1,22 @@
 module.exports = function(sequelize, DataTypes) {
     let bloggerPersonalInfo = sequelize.define(
-        "bloggerPersonalInfo",
+        'bloggerPersonalInfo',
         {
             firstName: {
                 type: DataTypes.STRING,
                 allowNull: false,
                 validate: {
                     is: {
-                        args: [["^[a-z]+$", "i"]],
-                        msg: "Numbers not allowed."
+                        args: [['^[a-z]+$', 'i']],
+                        msg: 'Numbers not allowed.'
                     },
                     min: {
                         args: [[2]],
-                        msg: "Name cannot be too short."
+                        msg: 'Name cannot be too short.'
                     },
                     max: {
                         args: [[20]],
-                        msg: "Name cannot be to long."
+                        msg: 'Name cannot be to long.'
                     }
                 }
             },
@@ -25,16 +25,16 @@ module.exports = function(sequelize, DataTypes) {
                 allowNull: false,
                 validate: {
                     is: {
-                        args: [["^[a-z]+$", "i"]],
-                        msg: "Numbers not allowed."
+                        args: [['^[a-z]+$', 'i']],
+                        msg: 'Numbers not allowed.'
                     },
                     min: {
                         args: [[2]],
-                        msg: "Name cannot be too short."
+                        msg: 'Name cannot be too short.'
                     },
                     max: {
                         args: [[20]],
-                        msg: "Name cannot be to long."
+                        msg: 'Name cannot be to long.'
                     }
                 }
             },
@@ -78,7 +78,7 @@ module.exports = function(sequelize, DataTypes) {
         },
         {
             freezeTableName: true,
-            tableName: "bloggerPersonalInfo"
+            tableName: 'bloggerPersonalInfo'
         }
     );
     bloggerPersonalInfo.associate = function(models) {
