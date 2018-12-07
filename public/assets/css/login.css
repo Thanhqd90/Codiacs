@@ -8,8 +8,8 @@
 }
 /* login form style */
 #login-form{
-    width: 20rem;
-    height: 25rem;
+    width: 40%;
+    height: 60%;
     margin-top: 50px;
     background-color: rgba(134, 134, 134, 0.829);
     font-weight: bold;
