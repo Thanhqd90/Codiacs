@@ -7,21 +7,19 @@ let db = require("../models");
 router.get("/", function(req, res) {
     res.render("index");
 });
-//about page
-router.get("/about", function(req, res) {
-    res.render("about");
-});
 
-// router.get("/home", function(req, res) {
-//     db.Blog.findAll({
-//         include: [db.Blogger],
-//         order: [["createdAt", "ASC"]]
-//     }).then(function(dbBlog) {
-//         let hbsObject = {
-//             blog: dbBlog
-//         };
-//         res.render("index", hbsObject);
-//     });
+router.get("/home", function(req, res) {
+    // db.Blog.findAll({
+    //     include: [db.Blogger],
+    //     order: [
+    //         ["createdAt", "ASC"]
+    //     ]
+    // }).then(function (dbBlog) {
+    //     var hbsObject = {
+    //         blog: dbBlog
+    //     };
+    res.render("index");
+});
 // });
 // login page
 router.get("/login", function(req, res) {
@@ -82,17 +80,17 @@ router.post("/blog/create", function(req, res) {
             // loggedIn = true;
             res.redirect("/home");
         });
-    // Home page
-    router.get("/", function(req, res) {
-        res.render("index");
-    });
-    // login page
-    router.get("/login", function(req, res) {
-        res.render("login");
-    });
-    // about us page
-    router.get("/about", function(req, res) {
-        res.render("about");
-    });
+});
+// Home page
+router.get("/", function(req, res) {
+    res.render("index");
+});
+// login page
+router.get("/login", function(req, res) {
+    res.render("login");
+});
+// about us page
+router.get("/about", function(req, res) {
+    res.render("about");
 });
 module.exports = router;
