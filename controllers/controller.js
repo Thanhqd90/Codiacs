@@ -5,7 +5,7 @@ let db = require("../models");
 
 // Home page
 router.get("/", function(req, res) {
-    res.render("index");
+    res.redirect("/home");
 });
 
 router.get("/home", function(req, res) {
@@ -93,4 +93,5 @@ router.get("/login", function(req, res) {
 router.get("/about", function(req, res) {
     res.render("about");
 });
+
 module.exports = router;

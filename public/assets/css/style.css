@@ -27,14 +27,7 @@ body,
     height: 950px;
   }
 }
-/* top image at the beginning of page */
-#intro-bg{
-    background-image: url('/assets/images/compass2.jpg');
-    background-size: cover;
-    background-position: center;
-    height:20rem;
-    width:20rem;
-}
+
 #navbar{
     background-color: rgba(59, 59, 59, 0.637);
 }
@@ -137,6 +130,7 @@ a, a:hover, a:focus {
     color: #fff;
     transition: all 0.6s cubic-bezier(0.945, 0.020, 0.270, 0.665);
     transform-origin: bottom left;
+    background-image: url('/assets/images/sidenavbg.jpg');
 }
 
 #sidebar.active {
@@ -300,8 +294,5 @@ a.article, a.article:hover {
         transform: rotate(-45deg) translate(1px, -1px);
     }
 
-/* modal style */
-.modal-header{
-    background-color: blue;
-}
+
 }
