@@ -2,13 +2,13 @@ module.exports = function(sequelize, DataTypes) {
     let blogs = sequelize.define(
         "blogs",
         {
-            bloggerId: {
+            /*             bloggerId: {
                 type: DataTypes.INTEGER,
                 references: {
                     model: "bloggerPersonalInfo",
                     key: "id"
                 }
-            },
+            }, */
             title: {
                 type: DataTypes.STRING,
                 defaultValue: "My Experience"

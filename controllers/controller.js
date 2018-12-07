@@ -7,17 +7,20 @@ let db = require("../models");
 router.get("/", function(req, res) {
     res.redirect("/home");
 });
-/* router.get("/home", function(req, res) {
-    db.Blog.findAll({
-        include: [db.blogs],
-        order: [["createdAt", "ASC"]]
-    }).then(function(dbBlog) {
-        let hbsObject = {
-            blog: dbBlog
-        };
-        res.render("index", hbsObject);
-    });
-}); */
+
+router.get("/home", function(req, res) {
+    // db.Blog.findAll({
+    //     include: [db.Blogger],
+    //     order: [
+    //         ["createdAt", "ASC"]
+    //     ]
+    // }).then(function (dbBlog) {
+    //     var hbsObject = {
+    //         blog: dbBlog
+    //     };
+    res.render("index");
+});
+// });
 // login page
 router.get("/login", function(req, res) {
     res.render("login");
@@ -42,6 +45,42 @@ router.get("/blog/single", function(req, res) {
 router.get("/blog/new", function(req, res) {
     res.render("newPost");
 });
+
+// router.post("/register/create", function(req, res) {
+//     db.bloggerPersonalInfo
+//         .create({
+//             firstName: firstName.val().trim(),
+//             lastName: lastName.val().trim(),
+//             username: username.val().trim(),
+//             email: email.val().trim(),
+//             password: password.val().trim(),
+//             phone: phone.val().trim(),
+//             checkbox: checkbox.val()
+//         })
+//         .then(function(newUser) {
+//             console.log(newUser);
+//             // loggedIn = true;
+//             res.redirect("/home");
+//         });
+// });
+
+// router.post("/blog/create", function(req, res) {
+//     db.blog
+//         .create({
+//             firstName: firstName.val().trim(),
+//             lastName: lastName.val().trim(),
+//             username: username.val().trim(),
+//             email: email.val().trim(),
+//             password: password.val().trim(),
+//             phone: phone.val().trim(),
+//             checkbox: checkbox.val()
+//         })
+//         .then(function(newUser) {
+//             console.log(newUser);
+//             // loggedIn = true;
+//             res.redirect("/home");
+//         });
+// });
 // Home page
 router.get("/", function(req, res) {
     res.render("index");

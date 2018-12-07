@@ -5,7 +5,7 @@ let session = require("express-session");
 let passport = require("./config/passport");
 let PORT = process.env.PORT || 8080;
 let exphbs = require("express-handlebars");
-// let db = require("./models");
+let db = require("./models");
 let app = express();
 app.use(express.static("public"));
 
@@ -31,11 +31,12 @@ app.set("view engine", "handlebars");
 let routes = require("./controllers/controller");
 
 app.use(routes);
-// db.sequelize.sync().then(function() {
-app.listen(PORT, function() {
-    console.log(
-        "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
-        PORT,
-        PORT
-    );
+db.sequelize.sync().then(function() {
+    app.listen(PORT, function() {
+        console.log(
+            "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
+            PORT,
+            PORT
+        );
+    });
 });
