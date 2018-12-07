@@ -6,11 +6,11 @@
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
-html,
+/*html,
 body,
  {
   height: 100%;
-}
+}*/
 @media (max-width: 740px) {
   html,
   body,
@@ -54,16 +54,18 @@ button{
     color: white;
     font-weight: bold;
 }
-/* image for each bloger */
+/* image for each blogger */
 #avatar{
     height:10rem; 
     width: 10rem;
 }
+/* individual blog style */
 #blog{
     border-style: solid;
     border-color: rgb(255, 255, 255);
     border-width: 5px;
 }
+
 
 /*
     DEMO STYLE
@@ -295,5 +297,14 @@ a.article, a.article:hover {
     #sidebarCollapse.active span:last-of-type {
         transform: rotate(-45deg) translate(1px, -1px);
     }
+
+/* FOOTER STYLE */
+.page-footer{
+    background-color: rgba(59, 59, 59, 0.918);
+}
+
+/* modal style */
+.modal-header{
+    background-color: blue;
 
 }
