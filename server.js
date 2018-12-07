@@ -31,7 +31,7 @@ app.set("view engine", "handlebars");
 let routes = require("./controllers/controller");
 
 app.use(routes);
-db.sequelize.sync().then(function() {
+// db.sequelize.sync().then(function() {
     app.listen(PORT, function() {
         console.log(
             "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
@@ -39,4 +39,4 @@ db.sequelize.sync().then(function() {
             PORT
         );
     });
-});
+// });
