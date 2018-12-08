@@ -10,11 +10,15 @@
 /* FOOTER STYLE */
 .page-footer{
     width:100%;
+
     background-color: rgba(61, 0, 0, 0.904);
  }
 
 .footer-copyright{
+
 width:100%;
+background-color: rgb(36, 0, 0);
+
 }
 
 .card-header {
@@ -90,6 +94,7 @@ a:focus {
 .navbar {
     background-color: rgb(36, 0, 0);
     padding: 15px;
+
 }
 .nav-link {
     color: white;
