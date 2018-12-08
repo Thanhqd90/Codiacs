@@ -1,11 +1,10 @@
 #blog-form{
     height: 100%;
-    background-color: white;
+    background-color: rgb(10, 32, 44);
+    color:white;
 }
 
 .border-focus .form-control:focus {
-    border: 1px solid rgb(1, 140, 253);
-    box-shadow: 0 0 0 0.2rem rgba(0, 96, 240, 0.26);
+    border: 2px solid rgb(255, 255, 255);
+    box-shadow: 0 0 14px rgb(255, 255, 255);
 }
-
-
