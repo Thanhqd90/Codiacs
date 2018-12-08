@@ -102,24 +102,24 @@ router.post("/blog/create", function(req, res) {
 //routes for Blogger
 router.post("/api/signup", function(req, res) {
     console.log(req.body);
-    db.bloggerPersonalInfo
-        .create({
-            firstName: req.body.firstName,
-            lastName: req.body.lastName,
-            username: req.body.username,
-            email: req.body.email,
-            password: req.body.password,
-            securityQuestion: req.body.securityQuestion,
-            answer: req.body.answer,
-            acceptTerm: req.body.acceptTerm
-        })
-        .then(function() {
-            res.redirect(307, "/loginPage");
-        })
-        .catch(function(err) {
-            console.log(err);
-            res.json(err);
-            // res.status(422).json(err.errors[0].message);
-        });
+    // db.bloggerPersonalInfo
+    //     .create({
+    //         firstName: req.body.firstName,
+    //         lastName: req.body.lastName,
+    //         username: req.body.username,
+    //         email: req.body.email,
+    //         password: req.body.password,
+    //         securityQuestion: req.body.securityQuestion,
+    //         answer: req.body.answer,
+    //         acceptTerm: req.body.acceptTerm
+    //     })
+    //     .then(function() {
+    //         res.redirect(307, "/login");
+    //     })
+    //     .catch(function(err) {
+    //         console.log(err);
+    //         res.json(err);
+    //         // res.status(422).json(err.errors[0].message);
+    //     });
 });
 module.exports = router;
