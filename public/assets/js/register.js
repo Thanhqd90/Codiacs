@@ -1,6 +1,4 @@
-
-   
-   // $(document).ready(function() {
+// $(document).ready(function() {
 //     // jQuery references
 //     let firstName = $("#defaultRegisterFormFirstName");
 //     let lastName = $("#defaultRegisterFormLastName");
