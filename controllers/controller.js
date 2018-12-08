@@ -1,29 +1,37 @@
 let express = require("express");
-
 let router = express.Router();
 let db = require("../models");
+let passport = require("../config/passport");
 
-// Home page
+// Home page for each author
 router.get("/", function(req, res) {
     res.redirect("/home");
 });
 
 router.get("/home", function(req, res) {
-    // db.Blog.findAll({
-    //     include: [db.Blogger],
-    //     order: [
-    //         ["createdAt", "ASC"]
-    //     ]
-    // }).then(function (dbBlog) {
-    //     var hbsObject = {
-    //         blog: dbBlog
-    //     };
-    res.render("index");
+    db.blogs
+        .findAll({
+            include: [db.bloggerPersonalInfo],
+            order: [["title", "DESC"]]
+        })
+        .then(function(dbBlogs) {
+            let hbsObject = {
+                blogs: dbBlogs
+            };
+            return res.render("index", hbsObject);
+        });
 });
 // });
+
 // login page
-router.get("/login", function(req, res) {
+router.get("/loginPage", function(req, res) {
     res.render("login");
+});
+
+//logout redirects back to homepage
+router.get("/logout", function(req, res) {
+    req.logout();
+    res.redirect("/");
 });
 
 router.get("/register", function(req, res) {
@@ -46,48 +54,8 @@ router.get("/blog/new", function(req, res) {
     res.render("newPost");
 });
 
-// router.post("/register/create", function(req, res) {
-//     db.bloggerPersonalInfo
-//         .create({
-//             firstName: firstName.val().trim(),
-//             lastName: lastName.val().trim(),
-//             username: username.val().trim(),
-//             email: email.val().trim(),
-//             password: password.val().trim(),
-//             phone: phone.val().trim(),
-//             checkbox: checkbox.val()
-//         })
-//         .then(function(newUser) {
-//             console.log(newUser);
-//             // loggedIn = true;
-//             res.redirect("/home");
-//         });
-// });
-
-// router.post("/blog/create", function(req, res) {
-//     db.blog
-//         .create({
-//             firstName: firstName.val().trim(),
-//             lastName: lastName.val().trim(),
-//             username: username.val().trim(),
-//             email: email.val().trim(),
-//             password: password.val().trim(),
-//             phone: phone.val().trim(),
-//             checkbox: checkbox.val()
-//         })
-//         .then(function(newUser) {
-//             console.log(newUser);
-//             // loggedIn = true;
-//             res.redirect("/home");
-//         });
-// });
-// Home page
-router.get("/", function(req, res) {
-    res.render("index");
-});
-// login page
-router.get("/login", function(req, res) {
-    res.render("login");
+router.post("api/login", passport.authenticate("local"), function(req, res) {
+    res.json("login");
 });
 // about us page
 router.get("/about", function(req, res) {
@@ -102,11 +70,26 @@ router.post("/blog/create", function(req, res) {
     });
 });
 //routes for Blogger
-router.post("/register/create", function(req, res) {
-    db.bloggerPersonalInfo.create(req.body).then(function(newUser) {
-        console.log(newUser);
-        res.json(newUser);
-        res.redirect("/login");
-    });
+router.post("/api/signup", function(req, res) {
+    console.log(req.body);
+    db.bloggerPersonalInfo
+        .create({
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            username: req.body.username,
+            email: req.body.email,
+            password: req.body.password,
+            securityQuestion: req.body.securityQuestion,
+            answer: req.body.answer,
+            acceptTerm: req.body.acceptTerm
+        })
+        .then(function() {
+            res.redirect(307, "/loginPage");
+        })
+        .catch(function(err) {
+            console.log(err);
+            res.json(err);
+            // res.status(422).json(err.errors[0].message);
+        });
 });
 module.exports = router;
