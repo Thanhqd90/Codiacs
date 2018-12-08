@@ -20,7 +20,6 @@
 .list-unstyled a:hover{
     color: #7386D5;
     background: #fff;
-
 }
 hr {
     background-color:white; 
@@ -28,11 +27,6 @@ hr {
 .footer-copyright{
 width:100%;
 }
-/*html,
-body,
- {
-  height: 100%;
-}*/
 @media (max-width: 740px) {
 
     html,
