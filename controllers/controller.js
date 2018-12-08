@@ -7,7 +7,6 @@ let passport = require("../config/passport");
 router.get("/", function(req, res) {
     res.redirect("/home");
 });
-
 router.get("/home", function(req, res) {
     db.blogs
         .findAll({

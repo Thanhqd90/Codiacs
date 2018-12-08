@@ -18,6 +18,7 @@ background-color: rgb(10, 32, 44);
     color: white;
     background-color: rgb(61, 0, 0);
 }
+/* style for social buttons on cards */
 #social-button{
     border-radius: 40px;
     color: black;
