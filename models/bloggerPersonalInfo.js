@@ -1,7 +1,7 @@
 let bcrypt = require("bcrypt-nodejs");
 module.exports = function(sequelize, DataTypes) {
     let bloggerPersonalInfo = sequelize.define(
-        "bloggerPersonalInfo",
+        'bloggerPersonalInfo',
         {
             firstName: {
                 type: DataTypes.STRING,
@@ -9,7 +9,7 @@ module.exports = function(sequelize, DataTypes) {
             },
             lastName: {
                 type: DataTypes.STRING,
-                allowNull: false
+                allowNull: false  
             },
             email: {
                 type: DataTypes.STRING,
@@ -42,7 +42,7 @@ module.exports = function(sequelize, DataTypes) {
         },
         {
             freezeTableName: true,
-            tableName: "bloggerPersonalInfo"
+            tableName: 'bloggerPersonalInfo'
         }
     );
     bloggerPersonalInfo.associate = function(models) {

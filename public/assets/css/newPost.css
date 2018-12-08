@@ -2,9 +2,18 @@
     height: 100%;
     background-color: rgb(10, 32, 44);
     color:white;
+<<<<<<< HEAD
  }
  
  .border-focus .form-control:focus {
     border: 2px solid rgb(255, 255, 255);
     box-shadow: 0 0 14px rgb(255, 255, 255);
  }
+=======
+}
+
+.border-focus .form-control:focus {
+    border: 2px solid rgb(255, 255, 255);
+    box-shadow: 0 0 14px rgb(255, 255, 255);
+}
+>>>>>>> d30db920168345f88af5f0ddaba9c5bf8b2a23a2
