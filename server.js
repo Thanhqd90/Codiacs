@@ -1,38 +1,62 @@
+require("dotenv").config();
+
+// =================================================================
+// Dependencies
+// =================================================================
 let express = require("express");
+//let path = require("path");
+//let favicon = require("static-favicon");
+let methodOverride = require("method-override");
 let bodyParser = require("body-parser");
+//let helpers = require("handlebars-helpers");
+// var Handlebars = require('handlebars');
+let cookieParser = require("cookie-parser");
 let session = require("express-session");
-let path = require("path");
-// Requiring passport as we've configured it
-let passport = require("./config/passport");
-let PORT = process.env.PORT || 8080;
-let exphbs = require("express-handlebars");
-let db = require("./models");
+var passport = require("passport");
+//app.use(express.static(__dirname + "/public"));
+let PORT = process.env.PORT || 3000;
 let app = express();
 
-//app.use(express.static(__dirname + "/public"));
+// =================================================================
+// Models for syncing
+// =================================================================
 
-// parse application/x-www-form-urlencoded
-app.use(
-    bodyParser.urlencoded({
-        extended: false
-    })
-);
-app.use(
-    session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
-);
+let db = require("./models");
+// Serve static content for the app from the public directory in the application directory
+
+app.use(express.static(__dirname + "/public"));
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+// Override with POST having ?_method=DELETE
+app.use(methodOverride("_method"));
+
+//set handlebars
+var exphbs = require("express-handlebars");
+aapp.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
+
+//Write cookies on header
+app.use(cookieParser());
+
+// create a session for user
+// app.set('trust proxy', 1) // trust first proxy
+app.use(session({
+    secret: "keyboard cat",
+    resave: false,
+    saveUninitialized: false,
+    cookie: {}
+}));
+// app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
-app.engine(
-    'handlebars',
-    exphbs({
-        defaultLayout: 'main'
-    })
-);
-app.set("view engine", "handlebars");
-app.use(express.static(path.join(__dirname, "/public")));
-let routes = require("./controllers/controller");
 
-app.use(routes);
+//import routes to give the server access to them.
+require("./controller/html-routes.js")(app);
+require("./controller/api-routes.js")(app);
+
+
 db.sequelize.sync().then(function() {
     app.listen(PORT, function() {
         console.log(

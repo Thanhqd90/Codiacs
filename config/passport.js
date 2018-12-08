@@ -8,13 +8,13 @@ passport.use(
     new LocalStrategy(
         // Our user will sign in using an  "username"
         {
-            usernameField: "username"
+            email: "email"
         },
-        function(username, password, done) {
+        function(email, password, done) {
             // When a user tries to sign in this code runs
-            db.User.findOne({
+            db.bloggerPersonalInfo.findOne({
                 where: {
-                    username: username
+                    email: email
                 }
             }).then(function(dbUser) {
                 // If there's no user with the given username

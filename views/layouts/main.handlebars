@@ -10,10 +10,10 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" />
   <!-- Material Design Bootstrap -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.11/css/mdb.min.css" rel="stylesheet" />
-  {{!-- <link href="/assets/css/style.css" rel="stylesheet"> --}}
-   {{#each customCSS}}
+  <link href="/assets/css/style.css" rel="stylesheet">
+   {{!-- {{#each customCSS}}
         <link rel="stylesheet" type="text/css" href="/assets/css/{{this}}.css">
-    {{/each}} 
+    {{/each}}  --}}
 </head>
 <body id="body-style">
   {{!-- modal contact form --}}
@@ -72,7 +72,7 @@
         <div class="container-fluid text-center text-md-left">
           <ul class="list-unstyled components">
             <p>You are not signed in<br>
-              <a href="/loginPage" id="here">LOGIN</a> <br>
+              <a href="/login" id="here">LOGIN</a> <br>
               {{!-- removing below because login has an option for sign up --}}
               Click <a href="/register" id="here">here</a> to sign up</p>
               {{!-- Can see below options only if user is loggedIn --}}
@@ -91,6 +91,10 @@
             <li>
               <a href="/blog/viewall">My Blogs</a>
             </li>
+                        <li>
+              <a href="/settings">Settings</a>
+            </li>
+
           </ul>
     </nav>
     <!-- Sidebar end-->
@@ -140,7 +144,7 @@
                    <a href="/register">SIGN UP</a>
                  </li>
                  <li>
-                   <a href="/loginPage">LOG IN</a>
+                   <a href="/login">LOG IN</a>
                  </li>
                  <li>
                    <a href="/blog/author">MY DASHBOARD</a>
@@ -195,6 +199,8 @@
         <script type="text/javascript" src="/assets/js/{{this}}.js"></script>
       {{/each}}
        <script type="text/javascript" src="/assets/js/script.js"></script>
+        <script type="text/javascript" src="/assets/js/login.js"></script>
+
 
 </body>
 </HTML>

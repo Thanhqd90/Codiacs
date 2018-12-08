@@ -25,7 +25,6 @@
         "no-unused-vars": "error",
         "camelcase": "error",
         "valid-jsdoc": "error",
-        "no-var": "error",
         "indent": [
             "error",
             4
@@ -36,7 +35,7 @@
         ],
         "quotes": [
             "error",
-            "single",
+            "double",
             {
                 "allowTemplateLiterals": true
             }

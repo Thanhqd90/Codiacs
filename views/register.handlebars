@@ -1,54 +1,47 @@
-<<<<<<< HEAD
-=======
-<head>
-    <!-- Custom Script -->
-<script src="js/register.js" type="text/javascript"></script>
-</head>
->>>>>>> ddec8363b1a257b53704c6f95c4ae94450a6d864
 
 <div id="registerBody">
     <!-- Default form register -->
-    <form id="newUser" method="POST" class="text-center border border-light p-5">
+    <form id="newUser" class="blog text-center border border-light p-5">
         <p class="h4 mb-4">Sign up</p>
         <div class="form-row mb-4">
             <div class="col">
                 <!-- First name -->
-                <input type="text" id="firstName" class="form-control" placeholder="First name" required>
+                <input type="text" name="firstName" id="firstName" class="form-control" placeholder="First name" required>
             </div>
             <div class="col">
                 <!-- Last name -->
-                <input type="text" id="lastName" class="form-control" placeholder="Last name" required>
+                <input type="text" name="lastName" id="lastName" class="form-control" placeholder="Last name" required>
             </div>
         </div>
         {{!-- Username --}}
-        <input type="text" id="username" class="form-control mb-4" placeholder="Username" required>
+        <input type="text" name="username" id="username" class="form-control mb-4" placeholder="Username" required>
         <!-- E-mail -->
-        <input type="email" id="email" class="form-control mb-4" placeholder="E-mail" required>
+        <input type="email" name="email" id="email" class="form-control mb-4" placeholder="E-mail" required>
         <!-- Password -->
-        <input type="password" id="password" class="form-control" placeholder="Password"
+        <input type="password" name="password" id="password" class="form-control" placeholder="Password"
             aria-describedby="defaultRegisterFormPasswordHelpBlock" required>
         <br>
-        <select class="browser-default custom-select" id="securityQs" required>
-            <option value="My favorite sport" selected>My Favorite sport</option>
-            <option value="My favorite dish">My favorite dish</option>
-            <option value="My first Pet">My first Pet</option>
-            <option value="Maiden Name">Maiden Name</option>
+        <select class="browser-default custom-select" id="securityQuestion" name="securityQuestion" required>
+            <option name="My favorite sport" value="My favorite sport" selected>My Favorite sport</option>
+            <option name="My favorite dish" value="My favorite dish">My favorite dish</option>
+            <option name="My first Pet" value="My first Pet">My first Pet</option>
+            <option name="Maiden Name" value="Maiden Name">Maiden Name</option>
         </select>
         <br><br>
         {{!-- Security ques answer --}}
-        <input type="text" id="answer" class="form-control mb-4" placeholder="Answer" required>
+        <input type="text" name="answer" id="answer" class="form-control mb-4" placeholder="Answer" required>
         <!-- Newsletter -->
-        <div class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input" id="acceptTerm" required>
+        {{!-- <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" name="acceptTerm" id="acceptTerm" required>
             <label class="custom-control-label" for="acceptTerm">I agree to terms of service</label>
-        </div>
+        </div> --}}
           <div style="display: none" id="alert" class="alert alert-danger" role="alert">
             <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
             <span class="sr-only">Error:</span> <span class="msg"></span>
           </div>
         <!-- Sign up button -->
         <button class="btn btn-info my-4 btn-block" type="submit">Sign up</button>
-        Have an account?<a href="/login" id="here"> Log in.</a>
+        <a href="/login">Have an account? Log in.</a>
         <hr>
         <!-- Terms of service -->
         <p>By clicking

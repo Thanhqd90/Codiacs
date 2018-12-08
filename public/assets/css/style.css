@@ -1,5 +1,5 @@
 /* responsive mediaqueries for different screens */
-#body-style{
+#body-style {
     background-image: url('/assets/images/citybg2.jpg');
     background-position: center;
     background-size: cover;
@@ -10,24 +10,24 @@
 /* FOOTER STYLE */
 .page-footer{
     width:100%;
-    background-color: rgba(59, 59, 59, 0.918);
-}
-.list-unstyled a{
-    padding: 10px;
-    font-size: 1.1em;
-    display: block;
-}
-.list-unstyled a:hover{
-    color: #7386D5;
-    background: #fff;
-}
-hr {
-    background-color:white; 
-}
-#footer-copyright{
+
+    background-color: rgba(61, 0, 0, 0.904);
+ }
+
+.footer-copyright{
+
 width:100%;
 background-color: rgb(36, 0, 0);
 
+}
+
+.card-header {
+    background-color: rgba(61, 0, 0);
+    border: 2px white solid;
+    color:white;
+}
+.expand {
+    min-width:100%;
 }
 @media (max-width: 740px) {
 
@@ -54,9 +54,13 @@ background-color: rgb(36, 0, 0);
     border-bottom: 1px solid #4dd0e1;
     box-shadow: 0 1px 0 0 #4dd0e1;
 }
+
+
+
 /* body of the blog data */
-#blog {
-    background-color: rgba(59, 59, 59, 0.637);
+.blog {
+    padding: 30px;
+    background-color: rgb(10, 32, 44);
     color: white;
     font-weight: bold;
     border-style: solid;
@@ -89,6 +93,8 @@ a:focus {
 }
 .navbar {
     background-color: rgb(36, 0, 0);
+    padding: 15px;
+
 }
 .nav-link {
     color: white;
@@ -111,6 +117,73 @@ a:focus {
     align-items: stretch;
     perspective: 1500px;
 }
+#loginHeading{
+    font-size:32px;
+    font-weight: bolder;
+    -webkit-animation:colorchange 5s infinite alternate;
+    font-family: 'Montserrat';
+}
+
+@-webkit-keyframes colorchange {
+    0% {
+      
+      color:crimson;
+    }
+    
+    10% {
+      
+      color:rgb(45, 45, 148);
+    }
+    
+    20% {
+      
+      color:deeppink;
+    }
+    
+    30% {
+      
+      color: #3560bb;
+    }
+    
+    40% {
+      
+      color:rgb(209, 209, 57);
+    }
+    
+    50% {
+      
+      color:chocolate;
+    }
+    
+    60% {
+      
+      color: rgb(78, 194, 194);
+    }
+    
+    70% {
+      
+      color: rgb(190, 15, 117);
+    }
+    80% {
+   
+      color: rgb(75, 12, 134);
+    }
+    
+    90% {
+   
+      color: #c22c38;
+    }
+    
+    100% {
+      
+      color:rgb(209, 58, 38);
+    }
+  }
+
+  #securityQuestion{
+    color: gray;
+  }
+
 /* ---------------------------------------------------
     SIDEBAR STYLE
 ----------------------------------------------------- */
@@ -118,9 +191,9 @@ a:focus {
     min-width: 250px;
     max-width: 250px;
     color: #fff;
-    background-image: url('/assets/images/sidenavbg.jpg');
-    background-position: center;
     /* background-image: url('/assets/images/sidenavbg.jpg'); */
+    background-color: rgb(36, 0, 0);
+    background-position: center;
     transition: all 0.6s cubic-bezier(0.945, 0.020, 0.270, 0.665);
     transform-origin: bottom left;
 }
@@ -144,6 +217,7 @@ a:focus {
     font-size: 1.1em;
     display: block;
 }
+
 #sidebar ul li a:hover {
     color: #7386D5;
     background: #fff;

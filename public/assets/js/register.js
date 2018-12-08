@@ -1,12 +1,11 @@
 $(document).ready(function() {
-    let firstName = $('#firstName');
+    let firstName = $("#firstName");
     let lastName = $("#lastName");
     let username = $("#username");
     let email = $("#email");
     let password = $("#password");
     let securityQuestion = $("#securityQs");
     let answer = $("#answer");
-    let acceptTerm = $("#acceptTerm").prop("checked");
     let signUpForm = $("form.newUser");
     signUpForm.on("submit", function(event) {
         event.preventDefault();
@@ -17,8 +16,7 @@ $(document).ready(function() {
             email: email.val().trim(),
             password: password.val().trim(),
             securityQuestion: securityQuestion.val().trim(),
-            answer: answer.val().trim(),
-            acceptTerm: $("#acceptTerm").prop("checked")
+            answer: answer.val().trim()
         };
         if (
             !(
@@ -28,8 +26,7 @@ $(document).ready(function() {
                 email.val().trim() ||
                 password.val().trim() ||
                 securityQuestion.val().trim() ||
-                answer.val().trim() ||
-                $("#acceptTerm").prop("checked")
+                answer.val().trim()
             )
         ) {
             return;
@@ -41,22 +38,14 @@ $(document).ready(function() {
 
     // Does a post to the signup route. If successful, we are redirected to the members page
     // Otherwise we log any errors
-    function signUpUser(email, password) {
-        $.post("/api/signup", {
-            firstName: firstName,
-            lastName: lastName,
-            username: username,
-            email: email,
-            password: password,
-            securityQuestion: securityQuestion,
-            answer: answer,
-            acceptTerm: acceptTerm
-        })
-            .then(function(data) {
-                console.log(data);
-                window.location.href = "/login";
-            })
-            .catch(handleLoginErr);
+    function signUpUser(userData) {
+        $.ajax({
+            method: "PUT",
+            url: "/api/signup",
+            data: userData
+        }).then(function(data) {
+            window.location.replace(data);
+        }).catch(handleLoginErr);
     }
 
     function handleLoginErr(err) {

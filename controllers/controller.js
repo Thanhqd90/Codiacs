@@ -18,7 +18,7 @@ router.get("/home", function(req, res) {
             let hbsObject = {
                 blogs: dbBlogs
             };
-            return res.render("index", hbsObject);
+            return res.render("index",hbsObject);
         });
 });
 // });
@@ -29,8 +29,9 @@ router.get("/login", function(req, res) {
 });
 
 router.post("/login", passport.authenticate("local"), function(req, res) {
+    console.log("this is: " +db.bloggerPersonalInfo);
     db.bloggerPersonalInfo
-        .findAll({
+        .findOne({
             attributes: ["id", "firstName", "lastName", "password"],
             where: { email: req.body.email }
         })
@@ -68,7 +69,13 @@ router.get("/logout", function(req, res) {
 });
 
 router.get("/register", function(req, res) {
-    res.render("register");
+    res.render("register",{
+        "customJavascript": ["register"],
+    });
+});
+
+router.get("/settings", function(req, res) {
+    res.render("settings");
 });
 
 router.get("/blog/author", function(req, res) {
@@ -88,8 +95,8 @@ router.get("/blog/new", function(req, res) {
 });
 
 // about us page
-router.get('/about', function (req, res) {
-    res.render('about');
+router.get("/about", function (req, res) {
+    res.render("about");
 });
 
 //routes for posting blogs
@@ -102,24 +109,23 @@ router.post("/blog/create", function(req, res) {
 //routes for Blogger
 router.post("/api/signup", function(req, res) {
     console.log(req.body);
-    // db.bloggerPersonalInfo
-    //     .create({
-    //         firstName: req.body.firstName,
-    //         lastName: req.body.lastName,
-    //         username: req.body.username,
-    //         email: req.body.email,
-    //         password: req.body.password,
-    //         securityQuestion: req.body.securityQuestion,
-    //         answer: req.body.answer,
-    //         acceptTerm: req.body.acceptTerm
-    //     })
-    //     .then(function() {
-    //         res.redirect(307, "/login");
-    //     })
-    //     .catch(function(err) {
-    //         console.log(err);
-    //         res.json(err);
-    //         // res.status(422).json(err.errors[0].message);
-    //     });
+    db.bloggerPersonalInfo
+        .create({
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            username: req.body.username,
+            email: req.body.email,
+            password: req.body.password,
+            securityQuestion: req.body.securityQuestion,
+            answer: req.body.answer
+        })
+        .then(function() {
+            res.redirect(307, "/login");
+        })
+        .catch(function(err) {
+            console.log(err);
+            res.json(err);
+            // res.status(422).json(err.errors[0].message);
+        });
 });
 module.exports = router;

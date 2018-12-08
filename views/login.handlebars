@@ -1,21 +1,17 @@
-<head>
-    <link rel="stylesheet" href="assets/css/login.css">
-    <script src="assets/js/login.js"></script>
-</head>
 <div class="container">
     <div class="row justify-content-center">
 
 <!-- Default form login -->
 
-<form id="login-form" class="text-center border border-light p-5">
+<form id="login-form" action="/login" method="POST" class=" blog text-center border border-light p-5">
 
     <p class="h4 mb-4" id="loginHeading">Let's Blog!</p>
 
     <!-- Email -->
-    <input type="email" id="email" class="form-control mb-4" placeholder="E-mail" required>
+    <input type="email" name="email" id="email" class="form-control mb-4" placeholder="E-mail" required>
 
     <!-- Password -->
-    <input type="password" id="password" class="form-control mb-4" placeholder="Password" required>
+    <input type="password" name="password" id="password" class="form-control mb-4" placeholder="Password" required>
 
 
     <!-- Sign in button -->
