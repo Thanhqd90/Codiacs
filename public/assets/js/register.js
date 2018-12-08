@@ -70,5 +70,5 @@
 //         emailInput.val("");
 //         passwordInput.val("");
 //         answer.val("");
-//     }
+
 // });
