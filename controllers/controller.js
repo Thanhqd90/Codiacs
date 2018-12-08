@@ -28,7 +28,7 @@ router.get("/login", function(req, res) {
     res.render("login");
 });
 
-app.post("/login", passport.authenticate("local"), function(req, res) {
+router.post("/login", passport.authenticate("local"), function(req, res) {
     db.bloggerPersonalInfo
         .findAll({
             attributes: ["id", "firstName", "lastName", "password"],
