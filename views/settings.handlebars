@@ -1,64 +1,25 @@
-<div id="registerBody">
-    <!-- Default form register -->
-    <form id="newUser" action="/register/create" method="POST" class="text-center border border-light p-5">
-
-        <p class="h4 mb-4">Sign up</p>
-
-        <div class="form-row mb-4">
-            <div class="col">
-                <!-- First name -->
-                <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="First name">
-            </div>
-            <div class="col">
-                <!-- Last name -->
-                <input type="text" id="defaultRegisterFormLastName" class="form-control" placeholder="Last name">
-            </div>
+<div class="container">
+<form class="border border-light p-5 blog">
+<h1 class="h1-responsive font-weight-bold text-white text-center mb-5 pt-2">Settings</h1>
+    <div class="input-group mb-4">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Update profile picture</span>
         </div>
-
-        {{!-- Username --}}
-        <input type="text" id="defaultRegisterFormUsername" class="form-control mb-4" placeholder="Username">
-
-        <!-- E-mail -->
-        <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail">
-
-        <!-- Password -->
-        <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Password"
-            aria-describedby="defaultRegisterFormPasswordHelpBlock">
-        <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
-            At least 8 characters and 1 digit
-        </small>
-
-       <p>Security questions</p>
-       <p>Answer</p>
-
-        <!-- Newsletter -->
-        <div class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input" id="defaultCheckbox">
-            <label class="custom-control-label" for="defaultCheckbox">I agree to terms of service</label>
+        <div class="custom-file">
+            <input type="file" class="custom-file-input" id="profilePic" aria-describedby="profilePic">
+            <label class="text-white custom-file-label" for="profilePic">Choose a profile picture</label>
         </div>
+    </div>
 
-        <!-- Sign up button -->
-        <button class="btn btn-info my-4 btn-block" type="submit">Sign up</button>
+    <label class="text-white" for="location">Location</label>
+    <input type="text" id="location" class="form-control mb-4" placeholder="City, State or Country">
 
-        <!-- Social register -->
-        <p>or sign up with:</p>
+    <label class="text-white" for="website">Personal website</label>
+    <input type="text" id="website" class="form-control mb-4" placeholder="Add your website here">
 
-        <a class="tw-ic mr-3 blue-text" role="button"><i class="fa fa-lg fa-twitter"></i></a>
-        <!--Google +-->
-        <a class="gplus-ic mr-3 red-text" role="button"><i class="fa fa-lg fa-google-plus"></i></a>
-        <!--Facebook-->
-        <a class="fb-ic mr-3 blue-text" role="button"><i class="fa fa-lg fa-facebook"></i></a>
+    <label class="text-white" for="aboutMe">About Me</label>
+    <textarea id="aboutMe" class="form-control mb-4" placeholder="Write something about yourself..."></textarea>
 
-        <hr>
-
-        <!-- Terms of service -->
-        <p>By clicking
-            <em>Sign up</em> you agree to our
-            <a href="" target="_blank">terms of service</a>
-
-    </form>
-    <!-- Default form register -->
+    <button class="btn btn-info btn-block my-4" type="submit">Save settings</button>
+</form>
 </div>
-
-<!-- Custom Script -->
-<script src="js/register.js" type="text/javascript"></script>

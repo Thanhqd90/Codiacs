@@ -8,16 +8,23 @@
 }
 
 /* FOOTER STYLE */
-.page-footer {
-    width: 100%;
-    background-color: rgba(39, 39, 39, 0.918);
-}
+.page-footer{
+    width:100%;
+    background-color: rgba(61, 0, 0, 0.904);
+ }
 
 .footer-copyright{
 width:100%;
 }
 
-
+.card-header {
+    background-color: rgba(61, 0, 0);
+    border: 2px white solid;
+    color:white;
+}
+.expand {
+    min-width:100%;
+}
 @media (max-width: 740px) {
 
     html,
@@ -47,8 +54,9 @@ width:100%;
 
 
 /* body of the blog data */
-#blog {
-    background-color: rgba(59, 59, 59, 0.637);
+.blog {
+    padding: 30px;
+    background-color: rgb(10, 32, 44);
     color: white;
     font-weight: bold;
     border-style: solid;
@@ -80,7 +88,8 @@ a:focus {
     transition: all 0.3s;
 }
 .navbar {
-    background-color: rgb(0, 71, 83);
+    background-color: rgb(36, 0, 0);
+    padding: 15px;
 }
 .nav-link {
     color: white;
@@ -103,6 +112,7 @@ a:focus {
     align-items: stretch;
     perspective: 1500px;
 }
+
 /* ---------------------------------------------------
     SIDEBAR STYLE
 ----------------------------------------------------- */
@@ -110,9 +120,9 @@ a:focus {
     min-width: 250px;
     max-width: 250px;
     color: #fff;
-    background-image: url('/assets/images/sidenavbg.jpg');
-    background-position: center;
     /* background-image: url('/assets/images/sidenavbg.jpg'); */
+    background-color: rgb(36, 0, 0);
+    background-position: center;
     transition: all 0.6s cubic-bezier(0.945, 0.020, 0.270, 0.665);
     transform-origin: bottom left;
 }
