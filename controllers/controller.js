@@ -88,8 +88,8 @@ router.get("/blog/new", function(req, res) {
 });
 
 // about us page
-router.get("/about", function(req, res) {
-    res.render("about");
+router.get('/about', function (req, res) {
+    res.render('about');
 });
 
 //routes for posting blogs

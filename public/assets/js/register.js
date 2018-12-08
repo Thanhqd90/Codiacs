@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    let firstName = $("#firstName");
+    let firstName = $('#firstName');
     let lastName = $("#lastName");
     let username = $("#username");
     let email = $("#email");
