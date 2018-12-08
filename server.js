@@ -1,13 +1,15 @@
 let express = require("express");
 let bodyParser = require("body-parser");
 let session = require("express-session");
+let path = require("path");
 // Requiring passport as we've configured it
 let passport = require("./config/passport");
 let PORT = process.env.PORT || 8080;
 let exphbs = require("express-handlebars");
 let db = require("./models");
 let app = express();
-app.use(express.static("public"));
+
+//app.use(express.static(__dirname + "/public"));
 
 // parse application/x-www-form-urlencoded
 app.use(
@@ -27,7 +29,7 @@ app.engine(
     })
 );
 app.set("view engine", "handlebars");
-
+app.use(express.static(path.join(__dirname, "/public")));
 let routes = require("./controllers/controller");
 
 app.use(routes);
