@@ -1,0 +1,55 @@
+ {{!-- end modal contact --}}
+  <div class="wrapper">
+    <!--Content wrapper-->
+    <nav id="sidebar">
+      <!-- Sidebar Start -->
+      <div class="sidebar-header">
+        <h3>
+          <a href="/home">Clickable Logo</a>
+        </h3>
+      </div>
+      <!-- Side nav -->
+      <section class="mt-5 pt-4">
+        <!-- Side nav Links -->
+        <div class="container-fluid text-center text-md-left">
+          <ul class="list-unstyled components">
+            <p>You are not signed in<br>
+              <a href="/login" id="here">LOGIN</a> <br>
+              {{!-- removing below because login has an option for sign up --}}
+              Click <a href="/register" id="here">here</a> to sign up</p>
+              {{!-- Can see below options only if user is loggedIn --}}
+            <li>
+              <a href="/home">Home</a>
+            </li>
+            <li>
+              <a href="/blog/author">
+                <i class="fa fa-id-card-o" aria-hidden="true"></i>
+                Dashboard</a>
+            </li>
+            <li>
+              <a href="/blog/new">
+                <i class="fa fa-edit" aria-hidden="true"></i> Create new post</a>
+            </li>
+            <li>
+              <a href="/blog/viewall">My Blogs</a>
+            </li>
+                        <li>
+              <a href="/settings">Settings</a>
+            </li>
+          </ul>
+    </nav>
+    <!-- Sidebar end-->
+    </div>
+    <div id="content">
+<nav class="navbar mb-3">
+        <button type="button" id="sidebarCollapse" class="navbar-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+  <form class="form-inline my-2 my-lg-0 ml-auto">
+    <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-white btn-md my-2 my-sm-0 ml-3" type="submit">Search</button>
+  </form>
+</nav>
+</div>

@@ -34,7 +34,7 @@ app.use(methodOverride("_method"));
 
 //set handlebars
 var exphbs = require("express-handlebars");
-aapp.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 //Write cookies on header
@@ -53,9 +53,11 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //import routes to give the server access to them.
-require("./controller/html-routes.js")(app);
-require("./controller/api-routes.js")(app);
-
+// require("./controllers/html-routes.js")(app);
+// require("./controllers/api-routes.js")(app);
+//require("./controllers/controller.js")(app);
+let routes = require("./controllers/controller");
+app.use(routes);
 
 db.sequelize.sync().then(function() {
     app.listen(PORT, function() {
