@@ -1,7 +1,7 @@
 /* entire body layout style */
 #body-container{
 color: white;
-background-color: rgba(0, 0, 0, 0.89);
+background-color: rgb(10, 32, 44);
 }
 #body-style{
     background-image: url('/assets/images/aboutbg.jpg');
@@ -16,14 +16,9 @@ background-color: rgba(0, 0, 0, 0.89);
     height: 20rem;
     margin: 10px;
     color: white;
-    background-color: rgba(59, 59, 59, 0.918);
+    background-color: rgb(61, 0, 0);
 }
 #social-button{
     border-radius: 40px;
     color: black;
-}
-/* FOOTER STYLE */
-.page-footer{
-    width: 100%;
-    background-color: rgba(59, 59, 59, 0.918);
 }

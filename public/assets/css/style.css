@@ -10,7 +10,7 @@
 /* FOOTER STYLE */
 .page-footer{
     width:100%;
-    background-color: rgba(59, 59, 59, 0.918);
+    background-color: rgba(61, 0, 0, 0.904);
 }
 .list-unstyled a{
     padding: 10px;
@@ -118,7 +118,8 @@ a:focus {
     min-width: 250px;
     max-width: 250px;
     color: #fff;
-    background-image: url('/assets/images/sidenavbg.jpg');
+    background-color: rgb(36, 0, 0);
+    /* background-image: url('/assets/images/sidenavbg.jpg'); */
     background-position: center;
     /* background-image: url('/assets/images/sidenavbg.jpg'); */
     transition: all 0.6s cubic-bezier(0.945, 0.020, 0.270, 0.665);
