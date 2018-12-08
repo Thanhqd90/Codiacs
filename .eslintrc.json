@@ -28,7 +28,6 @@
         "no-unused-vars": "error",
         "camelcase": "error",
         "valid-jsdoc": "error",
-        "arrow-parens": "error",
         "no-var": "error",
         "indent": [
             "error",

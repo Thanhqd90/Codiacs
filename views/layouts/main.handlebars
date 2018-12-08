@@ -12,8 +12,10 @@
   <!-- Material Design Bootstrap -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.11/css/mdb.min.css" rel="stylesheet" />
   <link href="/assets/css/style.css" rel="stylesheet">
+   {{!-- {{#each customCSS}}
+        <link rel="stylesheet" type="text/css" href="/assets/css/{{this}}.css">
+    {{/each}} --}}
 </head>
-
 <body id="body-style">
 
   {{!-- modal contact form --}}
@@ -71,21 +73,19 @@
           <a href="/home">Clickable Logo</a>
         </h3>
       </div>
-      <section>
-        <!-- Sidebar Contents -->
+
+      <!-- Side nav -->
+      <section class="mt-5 pt-4">
+        <!-- Side nav Links -->
         <div class="container-fluid text-center text-md-left">
           <ul class="list-unstyled components">
-            <div class="avatar mx-auto">
-              <img id="avatar" src="https://dafb3cv85j5xj.cloudfront.net/blog/wp-content/uploads/2016/07/bananya_feat.jpg" alt="avatar mx-auto white"
-                class="mx-auto rounded-circle img-fluid">
-            </div>
-            <p>Currently logged in as
-              <br> BananaCat100
-            </p>
-            <!-- Sidebar Nav Links-->
-            <li>
-              <a href="/home">
-                <i class="fa fa-home" aria-hidden="true"></i> Home</a>
+            <p>You are not signed in<br>
+              <a href="/login" id="here">LOGIN</a> <br>
+              {{!-- removing below because login has an option for sign up --}}
+              {{!-- Click <a href="/register" id="here">here</a> to sign up</p> --}}
+              {{!-- Can see below options only if user is loggedIn --}}
+            {{!-- <li>
+              <a href="/home">Home</a>
             </li>
             <li>
               <a href="/blog/author">
@@ -96,19 +96,12 @@
               <a href="/blog/new">
                 <i class="fa fa-edit" aria-hidden="true"></i> Create new post</a>
             </li>
-            <li>
-              <a href="/blog/viewall">
-                <i class="fa fa-list" aria-hidden="true"></i> View my posts</a>
-            </li>
-            <li>
-              <a href="/blog/viewall">
-                <i class="fa fa-wrench" aria-hidden="true"></i>
-                Settings</a>
-            </li>
-              <a href=""data-toggle="modal" data-target="#modalContactForm">
-                <i class="fa fa-envelope" aria-hidden="true"></i>
-                Help</a>
-            </li>
+
+             --}}
+            {{!-- <li>
+              <a href="/blog/viewall">My Blogs</a>
+            </li> --}}
+
           </ul>
           <p>You are not signed in
             <br> Click
@@ -124,82 +117,51 @@
     </nav>
     <!-- Sidebar end-->
     <div id="content">
-      <!-- Start #Content -->
-      <!--Navbar-->
-      <nav class="navbar navbar-dark">
-        <div>
-          <!-- Start Sidebar Button-->
-          <button type="button" id="sidebarCollapse" class="navbar-btn">
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
-        </div>
-        <!-- End Sidebar Button-->
-        <form class="form-inline my-2 my-lg-0 ml-auto">
 
-          <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-white btn-md my-2 my-sm-0 ml-3" type="submit">
-            <i class="fa fa-search" aria-hidden="true"></i>
-            Search</button>
-        </form>
-      </nav>
-      <!--/.Navbar-->
-
-
+      <button type="button" id="sidebarCollapse" class="navbar-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
       {{{ body }}}
-
-      <!--Handlebars generated body-->
-      <footer class="page-footer font-small pt-4">
-        <!-- Footer -->
-        <div class="container-fluid">
-          <!-- Footer Links -->
-          <div class="row justify-content-center text-center">
-            <hr class="clearfix w-100 d-md-none pb-3"> {{!-- row with link data --}}
-            <div class="row">
-              {{!-- col 1 --}}
-              <div class="col-md">
-                <!-- Links -->
-                <h3 class="text-uppercase text-underline">
-                  <u>LINK</u>
-                </h3>
-                <ul class="list-unstyled">
-                  <li>
-                    <a href="/signup">SIGN UP</a>
-                  </li>
-                  <li>
-                    <a href="/login">LOG IN</a>
-                  </li>
-                  <li>
-                    <a href="/blog/author">MY DASHBOARD</a>
-                  </li>
-                  <li>
-                    <a href="/blog/new">CREATE POST</a>
-                  </li>
-                </ul>
-              </div>
-              <!-- End col 1 -->
-              {{!-- col 2 --}}
-              <div class="col-md">
-                <!-- Links -->
-                <h3 class="text-uppercase">
-                  <u>CONTENT</u>
-                </h3>
-                <ul class="list-unstyled">
-                  <li>
-                    <a href="/home">HOME</a>
-                  </li>
-                  <li>
-                    <a href="/about">MEET THE DEVS</a>
-                  </li>
-                  <li>
-                    <a href="" data-toggle="modal" data-target="#modalContactForm">HELP</a>
-                  </li>
-                </ul>
-              </div>
-              <!-- End col 2 -->
+      <!-- Footer -->
+      <footer class="page-footer font-small pt-4 mt-5">
+        <!-- Footer Links -->
+        <div class="container-fluid text-center text-md-left">
+          <!-- Grid row -->
+          <div class="row">
+            <!-- Grid column -->
+            <div class="col-md-6 mt-md-0 mt-3">
+              <!-- Content -->
+              <h5 class="text-uppercase">Footer Content</h5>
+              <p>Here you can use rows and columns here to organize your footer content.</p>
             </div>
-            <!-- end of link row-->
+            <!-- Grid column -->
+            <hr class="clearfix w-100 d-md-none pb-3">
+            <!-- Grid column -->
+            <div class="col-md-6 mb-md-0 mb-3">
+              <!-- Grid column -->
+              <div class="col-md-5 mb-md-0 mb-3">
+                <!-- Links -->
+                <h5 class="text-uppercase">Links</h5>
+                <ul class="list-unstyled">
+                  <li>
+                    <a href="#!">Meet The Devs!</a>
+                  </li>
+                  <li>
+                    <a href="#!">Contact</a>
+                  </li>
+                  <li>
+                    <a href="#!"></a>
+                  </li>
+                  <li>
+                    <a href="#!"></a>
+                  </li>
+                </ul>
+              </div>
+              <!-- Grid column -->
+            </div>
+            <!-- Grid row -->
           </div>
           <!-- Footer Links -->
           <!-- Copyright -->
@@ -208,15 +170,21 @@
           </div>
           <!-- Copyright -->
       </footer>
-      <!--End Footer -->
-      </div>
-      <!--End Wrapper-->
-      {{!-- jQuery --}}
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> {{!-- Bootstrap tooltips --}}
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script> {{!-- Bootstrap core JavaScript --}}
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script> {{!-- MDB core JavaScript --}}
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.15/js/mdb.min.js"></script> {{!-- Custom Javascript --}}
-      <script src="/assets/js/script.js"></script>
-</body>
 
+      <!-- Footer -->
+      {{!-- jQuery --}}
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <!-- Bootstrap tooltips -->
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+      <!-- Bootstrap core JavaScript -->
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
+      <!-- MDB core JavaScript -->
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.15/js/mdb.min.js"></script>
+      {{!-- Custom Javascript
+      {{#each customJavascript}}
+        <script type="text/javascript" src="/assets/js/{{this}}.js"></script>
+      {{/each}}  --}}
+       <script type="text/javascript" src="/assets/js/script.js"></script>
+
+</body>
 </HTML>
