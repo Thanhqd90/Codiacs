@@ -12,6 +12,79 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
+<<<<<<< HEAD
+=======
+
+/* FOOTER STYLE */
+.page-footer{
+    width:100%;
+
+    background-color: rgba(61, 0, 0, 0.904);
+ }
+
+.footer-copyright{
+
+width:100%;
+background-color: rgb(36, 0, 0);
+
+}
+
+.card-header {
+    background-color: rgba(61, 0, 0);
+    border: 2px white solid;
+    color:white;
+}
+.expand {
+    min-width:100%;
+}
+@media (max-width: 740px) {
+
+    html,
+    body,
+    header,
+    .intro-2 {
+        height: 1100px;
+    }
+}
+
+@media (min-width: 800px) and (max-width: 850px) {
+
+    html,
+    body,
+    header,
+    .intro-2 {
+        height: 950px;
+    }
+}
+
+/* style for the search bar */
+.active-cyan input[type=text] {
+    border-bottom: 1px solid #4dd0e1;
+    box-shadow: 0 1px 0 0 #4dd0e1;
+}
+
+
+
+/* body of the blog data */
+.blog {
+    padding: 30px;
+    background-color: rgb(10, 32, 44);
+    color: white;
+    font-weight: bold;
+    border-style: solid;
+    border-color: rgb(255, 255, 255);
+    border-width: 2px;
+}
+/*
+    DEMO STYLE
+*/
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #fafafa;
+}
+
+>>>>>>> 4971386dbf9597553b21cacf9ec14a6677967f00
 p {
     font-family: 'Poppins', sans-serif;
     font-size: 1.1em;
@@ -29,6 +102,10 @@ a:focus {
 .navbar {
     background-color: rgb(36, 0, 0);
     padding: 15px;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4971386dbf9597553b21cacf9ec14a6677967f00
 }
 .nav-link {
     color: white;
