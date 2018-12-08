@@ -1,8 +1,8 @@
 /* ============================= */
-@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+@import "https://fonts.googleapis.com/css?family=Cardo";
 /* MAIN.HANDLEBARS STYLING */
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Cardo', serif;
 }
 /* responsive mediaqueries for different screens */
 #body-style {
@@ -13,7 +13,7 @@ body {
     background-attachment: fixed;
 }
 p {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Cardo', serif;
     font-size: 1.1em;
     font-weight: 300;
     line-height: 1.7em;
@@ -83,7 +83,7 @@ a:focus {
     display: block;
 }
 #sidebar ul li a:hover {
-    color: #7386D5;
+    color: black;
     background: #fff;
 }
 #sidebar ul li.active>a,
@@ -227,6 +227,15 @@ a.article:hover {
 .footer-copyright{
 width:100%;
 background-color: rgb(36, 0, 0);
+}
+.list-unstyled a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+}
+.list-unstyled a:hover {
+    color: black;
+    background: #fff;
 }
 /* end footer style */
 /* ============================= */
