@@ -1,3 +1,9 @@
+/* ============================= */
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+/* MAIN.HANDLEBARS STYLING */
+body {
+    font-family: 'Poppins', sans-serif;
+}
 /* responsive mediaqueries for different screens */
 #body-style {
     background-image: url('/assets/images/citybg2.jpg');
@@ -6,6 +12,8 @@
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
+<<<<<<< HEAD
+=======
 
 /* FOOTER STYLE */
 .page-footer{
@@ -76,6 +84,7 @@ body {
     background: #fafafa;
 }
 
+>>>>>>> 4971386dbf9597553b21cacf9ec14a6677967f00
 p {
     font-family: 'Poppins', sans-serif;
     font-size: 1.1em;
@@ -83,7 +92,6 @@ p {
     line-height: 1.7em;
     color:white;
 }
-
 a,
 a:hover,
 a:focus {
@@ -94,11 +102,13 @@ a:focus {
 .navbar {
     background-color: rgb(36, 0, 0);
     padding: 15px;
+<<<<<<< HEAD
+=======
 
+>>>>>>> 4971386dbf9597553b21cacf9ec14a6677967f00
 }
 .nav-link {
     color: white;
-
 }
 .navbar-btn {
     box-shadow: none;
@@ -109,7 +119,6 @@ a:focus {
     width: 100%;
     height: 1px;
     border-bottom: 1px dashed #ddd;
-
 }
 .wrapper {
     display: flex;
@@ -117,7 +126,6 @@ a:focus {
     align-items: stretch;
     perspective: 1500px;
 }
-
 /* ---------------------------------------------------
     SIDEBAR STYLE
 ----------------------------------------------------- */
@@ -151,7 +159,6 @@ a:focus {
     font-size: 1.1em;
     display: block;
 }
-
 #sidebar ul li a:hover {
     color: #7386D5;
     background: #fff;
@@ -195,8 +202,6 @@ a.article:hover {
     background: #6d7fcc !important;
     color: #fff !important;
 }
-
-
 /* ---------------------------------------------------
     CONTENT STYLE
 ----------------------------------------------------- */
@@ -205,14 +210,12 @@ a.article:hover {
     min-height: 100vh;
     transition: all 0.3s;
 }
-
 #sidebarCollapse {
     width: 40px;
     height: 40px;
     background: #f5f5f5;
     cursor: pointer;
 }
-
 #sidebarCollapse span {
     width: 80%;
     height: 2px;
@@ -222,33 +225,26 @@ a.article:hover {
     transition: all 0.8s cubic-bezier(0.810, -0.330, 0.345, 1.375);
     transition-delay: 0.2s;
 }
-
 #sidebarCollapse span:first-of-type {
     transform: rotate(45deg) translate(2px, 2px);
 }
-
 #sidebarCollapse span:nth-of-type(2) {
     opacity: 0;
 }
-
 #sidebarCollapse span:last-of-type {
     transform: rotate(-45deg) translate(1px, -1px);
 }
-
-
 #sidebarCollapse.active span {
     transform: none;
     opacity: 1;
     margin: 5px auto;
 }
-
 #registerBody {
     margin: auto;
     margin-bottom: 15px;
     width: 50%;
     background: #f5f5f5;
 }
-
 #here{
     color: deepskyblue;
     text-decoration: underline;
@@ -261,12 +257,10 @@ a.article:hover {
         margin-left: -250px;
         transform: rotateY(90deg);
     }
-
     #sidebar.active {
         margin-left: 0;
         transform: none;
     }
-
     #sidebarCollapse span:first-of-type,
     #sidebarCollapse span:nth-of-type(2),
     #sidebarCollapse span:last-of-type {
@@ -274,21 +268,119 @@ a.article:hover {
         opacity: 1;
         margin: 5px auto;
     }
-
     #sidebarCollapse.active span {
         margin: 0 auto;
     }
-
     #sidebarCollapse.active span:first-of-type {
         transform: rotate(45deg) translate(2px, 2px);
     }
-
     #sidebarCollapse.active span:nth-of-type(2) {
         opacity: 0;
     }
-
     #sidebarCollapse.active span:last-of-type {
         transform: rotate(-45deg) translate(1px, -1px);
     }
-
 }
+/* style for the search bar */
+.active-cyan input[type=text] {
+    border-bottom: 1px solid #4dd0e1;
+    box-shadow: 0 1px 0 0 #4dd0e1;
+}
+/* body of the blog data */
+.blog {
+    padding: 30px;
+    background-color: rgb(10, 32, 44);
+    color: white;
+    font-weight: bold;
+    border-style: solid;
+    border-color: rgb(255, 255, 255);
+    border-width: 2px;
+}
+/* FOOTER STYLE */
+.page-footer{
+    width:100%;
+    background-color: rgba(61, 0, 0, 0.904);
+ }
+.footer-copyright{
+width:100%;
+background-color: rgb(36, 0, 0);
+}
+/* end footer style */
+/* ============================= */
+
+/* AUTHOR.HANDLEBARS STYLING */
+.card-header {
+    background-color: rgba(61, 0, 0);
+    border: 2px white solid;
+    color:white;
+}
+.expand {
+    min-width:100%;
+}
+/* ============================= */
+/* LOGIN.HANDLEBARS STYLING */
+#loginHeading{
+    font-size:32px;
+    font-weight: bolder;
+    -webkit-animation:colorchange 5s infinite alternate;
+    font-family: 'Montserrat';
+}
+@-webkit-keyframes colorchange {
+    0% {
+      
+      color:crimson;
+    }
+    
+    10% {
+      
+      color:rgb(45, 45, 148);
+    }
+    
+    20% {
+      
+      color:deeppink;
+    }
+    
+    30% {
+      
+      color: #3560bb;
+    }
+    
+    40% {
+      
+      color:rgb(209, 209, 57);
+    }
+    
+    50% {
+      
+      color:chocolate;
+    }
+    
+    60% {
+      
+      color: rgb(78, 194, 194);
+    }
+    
+    70% {
+      
+      color: rgb(190, 15, 117);
+    }
+    80% {
+   
+      color: rgb(75, 12, 134);
+    }
+    
+    90% {
+   
+      color: #c22c38;
+    }
+    
+    100% {
+      
+      color:rgb(209, 58, 38);
+    }
+  }
+  #securityQs{
+    color: gray;
+  }
+  /* =========================== */

@@ -98,11 +98,32 @@ router.get('/about', function (req, res) {
 
 //routes for posting blogs
 router.post("/blog/create", function(req, res) {
-    db.blog.create(req.body).then(function(dbPost) {
-        res.json(dbPost);
-        res.redirect("/home");
+    console.log(req.body);
+db.blogs.create(
+    {
+        title: req.body.title,
+        isVisible: req.body.isVisible,
+        mustHaves: req.body.mustHaves,
+        stayAt: req.body.stayAt,
+        placesVisited: req.body.placesVisited,
+        photos: req.body.photos,
+        experience: req.body.experience,
+        bestTime: req.body.bestTime,
+        countryVisited: req.body.countryVisited,
+        cityVisited: req.body.cityVisited,
+        category: req.body.category,
+
+    })
+    .then(function() {
+        res.redirect(307, "/blog/viewall");
+    })
+    .catch(function(err) {
+        console.log(err);
+        res.json(err);
+        // res.status(422).json(err.errors[0].message);
     });
 });
+
 //routes for Blogger
 router.post("/api/signup", function(req, res) {
     console.log(req.body);

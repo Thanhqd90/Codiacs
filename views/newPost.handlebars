@@ -5,16 +5,16 @@
 </head>
 
 <div id="formbg" class="container">
+    
     <!-- Default form register -->
     <form id="blog-form" action="/blog/create" method="POST" class="text-center p-5">
 <h1 class="h1-responsive font-weight-bold text-white text-center mb-5 pt-2">Create new post</h1>
 <hr>
-
         <div class="form-row mb-4 justify-content-center">
             <div class="col-md-5 border-focus">
                 <label class="h3" for="inputPrefilledEx">TITLE</label>
                 <!-- title-->
-                <input type="text" id="title" id="inputPrefilledEx" class="form-control" value="My Experience">
+                <input type="text" name="title" id="title" id="inputPrefilledEx" class="form-control" value="My Experience">
             </div>
         </div>
 
@@ -23,7 +23,7 @@
             <div class="col-md-6">
                 <div class="form-group border-focus">
                     <label class="h4" for="countryVisited">COUNTRY VISITED</label>
-                    <select id="countryVisited" class="mdb-select p-2 col-md-12 border-focus">
+                    <select name="countryVisited" id="countryVisited" class="mdb-select p-2 col-md-12 border-focus">
                         <option value="" disabled selected>Select country</option>
                         <option value="AFG">Afghanistan</option>
                         <option value="ALA">Åland Islands</option>
@@ -281,7 +281,7 @@
             <div class="col-md-6">
             <label class="h4" for="bestTime">BEST TIME TO VISIT</label>
                 <div class="form-group border-focus">
-                    <select id="bestTime" class="mdb-select p-2 col-md-12 border-focus">
+                    <select title="bestTime" id="bestTime" class="mdb-select p-2 col-md-12 border-focus">
                         <option value="" disabled selected>SELECT MONTH</option>
                         <option value="Jan">Jan</option>
                         <option value="Feb">Feb</option>
@@ -306,14 +306,14 @@
             <div class="col-md-6">
                 <div class="form-group border-focus">
                     <label class="h4" for="cityVisited">CITY VISITED</label>
-                    <textarea class="form-control" id="cityVisited" rows="1"></textarea>
+                    <textarea name="cityVisited" class="form-control" id="cityVisited" rows="1"></textarea>
                 </div>
             </div>
             {{!-- place/places stayed at --}}
             <div class="col-md-6">
                 <div class="form-group border-focus">
                     <label class="h4" for="stayAt">STAYED AT</label>
-                    <textarea class="form-control" id="stayAt" rows="2"></textarea>
+                    <textarea name="stayAt" class="form-control" id="stayAt" rows="2"></textarea>
                 </div>
             </div>
         </div>
@@ -321,14 +321,14 @@
             {{!-- places visited --}}
             <div class="col-md-6">
                 <div class="form-group border-focus">
-                    <label class="h4" for="placesVisited">PLACES VISITED</label>
+                    <label class="h4" name="placesVisited" for="placesVisited">PLACES VISITED</label>
                     <textarea class="form-control" id="placesVisited" rows="2"></textarea>
                 </div>
             </div>
             {{!-- must haves for trip --}}
             <div class="col-md-6">
                 <div class="form-group border-focus">
-                    <label class="h4" for="mustHaves">ITEMS NEEDED FOR THE TRIP</label>
+                    <label class="h4" name="mustHaves" for="mustHaves">ITEMS NEEDED FOR THE TRIP</label>
                     <textarea class="form-control" id="mustHaves" rows="2"></textarea>
                 </div>
             </div>
@@ -341,7 +341,7 @@
             <div class="col-md-12">
                 <div class="form-group border-focus">
                     <label class="h4" for="experience">ABOUT YOUR EXPERIENCE</label>
-                    <textarea class="form-control" id="experience" rows="12"></textarea>
+                    <textarea name="experience" class="form-control" id="experience" rows="12"></textarea>
                 </div>
             </div>
         </div>
@@ -353,14 +353,14 @@
                         <span class="input-group-text black-text" id="inputGroupFileAddon01">TRAVEL PHOTOS</span>
                     </div>
                     <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="photos" aria-describedby="inputGroupFileAddon01">
+                        <input name="photos" type="file" class="custom-file-input" id="photos" aria-describedby="inputGroupFileAddon01">
                         <label class="custom-file-label" for="photos"></label>
                     </div>
                 </div>
             </div>
             <!-- blog private or public -->
             <div class="col-md-6">
-                <select id="isVisible" value="varify" class="browser-default custom-select">
+                <select name="isVisibile" id="isVisible" value="varify" class="browser-default custom-select">
                     <option selected>MAKE BLOG PUBLIC/PRIVATE</option>
                     <option value="1">PUBLIC</option>
                     <option value="0">PRIVATE</option>
@@ -372,26 +372,26 @@
             <h4>CATEGORY OF YOUR EXPERIENCE</h4>
         </div>
         <div class="row">
-            <section class="my- col-md-12">
+            <section class="col-md-12">
                 <!-- Default unchecked -->
                 <div class="card">
                     <div class="card-body">
                         <div class="row black-text">
                             <div class="col-md-4">
                                 <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="defaultUnchecked">
+                                    <input name="category" type="checkbox" class="custom-control-input" id="defaultUnchecked">
                                     <label class="custom-control-label" for="defaultUnchecked">Amusement</label>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="defaultUnchecked1">
+                                    <input name="category" type="checkbox" class="custom-control-input" id="defaultUnchecked1">
                                     <label class="custom-control-label" for="defaultUnchecked1">Entertainment</label>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="defaultUnchecked2">
+                                    <input name="category" type="checkbox" class="custom-control-input" id="defaultUnchecked2">
                                     <label class="custom-control-label" for="defaultUnchecked2">Romantic</label>
                                 </div>
                             </div>
