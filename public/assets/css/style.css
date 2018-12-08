@@ -12,6 +12,20 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
+/* MODAL STYLE */
+.modal-header{
+    background-color: rgb(36, 0, 0);
+    color: white;
+    font-weight: bold;
+}
+.modal-content{
+    color:white;
+    background-color: rgb(10, 32, 44); 
+}
+.modal-footer{
+    background-color: rgb(36, 0, 0);
+    
+}
 p {
     font-family: 'Cardo', serif;
     font-size: 1.1em;
