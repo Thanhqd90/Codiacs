@@ -2,7 +2,7 @@ let express = require("express");
 let bodyParser = require("body-parser");
 let session = require("express-session");
 let path = require("path");
-// Requiring passport as we've configured it
+// Requiring passport as we"ve configured it
 let passport = require("./config/passport");
 let PORT = process.env.PORT || 8080;
 let exphbs = require("express-handlebars");
@@ -23,9 +23,9 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 app.engine(
-    'handlebars',
+    "handlebars",
     exphbs({
-        defaultLayout: 'main'
+        defaultLayout: "main"
     })
 );
 app.set("view engine", "handlebars");
