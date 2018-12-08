@@ -63,13 +63,4 @@ $(document).ready(function() {
         $("#alert .msg").text(err.responseJSON);
         $("#alert").fadeIn(500);
     }
-
-    function resetValues() {
-        firstName.val("");
-        lastName.val("");
-        username.val("");
-        emailInput.val("");
-        passwordInput.val("");
-        answer.val("");
-    }
 });

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Codiacs</title>
+  <title>Codiacs Project 2</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Font Awesome -->
@@ -17,12 +17,63 @@
     {{/each}} --}}
 </head>
 <body id="body-style">
-  <div class="wrapper">
-    <!-- Sidebar Holder -->
-    <nav id="sidebar">
-      <div class="sidebar-header">
-        <h3>Codiacs</h3>
+
+  {{!-- modal contact form --}}
+  <div class="modal fade" id="modalContactForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-full-height modal-right" role="document">
+      <div class="modal-content">
+        <div class="modal-header text-center blue darken-4">
+          <h4 class="modal-title w-100 font-weight-bold">CONTACT US</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span class="white-text" aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body mx-3">
+          <div class="md-form mb-5">
+            <i class="fa fa-user prefix black-text"></i>
+            <input type="text" id="form34" class="form-control validate">
+            <label data-error="wrong" data-success="right" for="form34">Your name</label>
+          </div>
+
+          <div class="md-form mb-5">
+            <i class="fa fa-envelope prefix black-text"></i>
+            <input type="email" id="form29" class="form-control validate">
+            <label data-error="wrong" data-success="right" for="form29">Your email</label>
+          </div>
+
+          <div class="md-form mb-5">
+            <i class="fa fa-tag prefix black-text"></i>
+            <input type="text" id="form32" class="form-control validate">
+            <label data-error="wrong" data-success="right" for="form32">Subject</label>
+          </div>
+
+          <div class="md-form">
+            <i class="fa fa-pencil prefix black-text"></i>
+            <textarea type="text" id="form8" class="md-textarea form-control" rows="4"></textarea>
+            <label data-error="wrong" data-success="right" for="form8">Your message</label>
+          </div>
+
+        </div>
+        <div class="modal-footer d-flex justify-content-center">
+          <button class="btn blue darken-4 z-depth-3">Send
+            <i class="fa fa-paper-plane-o ml-1"></i>
+          </button>
+        </div>
       </div>
+    </div>
+  </div>
+  {{!-- end modal contact --}}
+
+  <div class="wrapper">
+    <!--Content wrapper-->
+    <nav id="sidebar">
+      <!-- Sidebar Start -->
+      <div class="sidebar-header">
+        <h3>
+          <a href="/home">Clickable Logo</a>
+        </h3>
+      </div>
+
       <!-- Side nav -->
       <section class="mt-5 pt-4">
         <!-- Side nav Links -->
@@ -37,25 +88,36 @@
               <a href="/home">Home</a>
             </li>
             <li>
-              <a href="/blog/author">Dashboard</a>
+              <a href="/blog/author">
+                <i class="fa fa-id-card-o" aria-hidden="true"></i>
+                Dashboard</a>
             </li>
             <li>
-              <a href="/blog/new">Create new post</a>
+              <a href="/blog/new">
+                <i class="fa fa-edit" aria-hidden="true"></i> Create new post</a>
             </li>
+
              --}}
             {{!-- <li>
               <a href="/blog/viewall">My Blogs</a>
             </li> --}}
+
           </ul>
-          <div class="row justify-content-center">
-            <section id="img-bg">
-              <section id="intro-bg" class="mt-3">
-              </section>
-            </section>
-          </div>
+          <p>You are not signed in
+            <br> Click
+            <a href="/login">
+              <u>here</u>
+            </a> to sign in
+            <br> Click
+            <a href="/register">
+              <u>here</u>
+            </a> to register
+            <br>
+          </p>
     </nav>
-    <!-- Page Content Holder -->
+    <!-- Sidebar end-->
     <div id="content">
+
       <button type="button" id="sidebarCollapse" class="navbar-btn">
         <span></span>
         <span></span>
@@ -108,6 +170,7 @@
           </div>
           <!-- Copyright -->
       </footer>
+
       <!-- Footer -->
       {{!-- jQuery --}}
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -123,5 +186,6 @@
       {{/each}}  --}}
        <script type="text/javascript" src="/assets/js/script.js"></script>
         <script src="/assets/js/register.js"></script>
+
 </body>
 </HTML>
