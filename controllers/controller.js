@@ -58,8 +58,8 @@ router.post("api/login", passport.authenticate("local"), function(req, res) {
     res.json("login");
 });
 // about us page
-router.get("/about", function(req, res) {
-    res.render("about");
+router.get('/about', function (req, res) {
+    res.render('about');
 });
 
 //routes for posting blogs
