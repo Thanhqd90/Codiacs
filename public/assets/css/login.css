@@ -8,16 +8,88 @@
 }
 /* login form style */
 #login-form{
-    width: 20rem;
-    height: 25rem;
+    width: 40%;
+    height: 60%;
     margin-top: 50px;
     background-color: rgba(134, 134, 134, 0.829);
     font-weight: bold;
 }
 /* footer style */
-.page-footer{
+/* .page-footer{
     background-color: rgba(59, 59, 59, 0.918);
     margin-top: 30px;
     position: fixed;
     width: 100%;
 }
+
+#signUp{
+    color: blue;
+    text-decoration: underline;
+}
+
+#loginHeading{
+    font-size:32px;
+    font-weight: bolder;
+    -webkit-animation:colorchange 5s infinite alternate;
+    font-family: 'Montserrat';
+}
+
+@-webkit-keyframes colorchange {
+    0% {
+      
+      color:crimson;
+    }
+    
+    10% {
+      
+      color:rgb(45, 45, 148);
+    }
+    
+    20% {
+      
+      color:deeppink;
+    }
+    
+    30% {
+      
+      color: #3560bb;
+    }
+    
+    40% {
+      
+      color:rgb(209, 209, 57);
+    }
+    
+    50% {
+      
+      color:chocolate;
+    }
+    
+    60% {
+      
+      color: rgb(78, 194, 194);
+    }
+    
+    70% {
+      
+      color: rgb(190, 15, 117);
+    }
+    80% {
+   
+      color: rgb(75, 12, 134);
+    }
+    
+    90% {
+   
+      color: #c22c38;
+    }
+    
+    100% {
+      
+      color:rgb(209, 58, 38);
+    }
+  }
+
+  #securityQs{
+    color: gray;
+  }

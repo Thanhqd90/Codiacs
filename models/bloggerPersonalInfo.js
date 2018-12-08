@@ -1,42 +1,15 @@
+let bcrypt = require("bcrypt-nodejs");
 module.exports = function(sequelize, DataTypes) {
     let bloggerPersonalInfo = sequelize.define(
         'bloggerPersonalInfo',
         {
             firstName: {
                 type: DataTypes.STRING,
-                allowNull: false,
-                validate: {
-                    is: {
-                        args: [['^[a-z]+$', 'i']],
-                        msg: 'Numbers not allowed.'
-                    },
-                    min: {
-                        args: [[2]],
-                        msg: 'Name cannot be too short.'
-                    },
-                    max: {
-                        args: [[20]],
-                        msg: 'Name cannot be to long.'
-                    }
-                }
+                allowNull: false
             },
             lastName: {
                 type: DataTypes.STRING,
-                allowNull: false,
-                validate: {
-                    is: {
-                        args: [['^[a-z]+$', 'i']],
-                        msg: 'Numbers not allowed.'
-                    },
-                    min: {
-                        args: [[2]],
-                        msg: 'Name cannot be too short.'
-                    },
-                    max: {
-                        args: [[20]],
-                        msg: 'Name cannot be to long.'
-                    }
-                }
+                allowNull: false
             },
             email: {
                 type: DataTypes.STRING,
@@ -48,17 +21,11 @@ module.exports = function(sequelize, DataTypes) {
             },
             username: {
                 type: DataTypes.STRING,
-                allowNull: false,
-                validate: {
-                    length: [5, 10]
-                }
+                allowNull: false
             },
             password: {
                 type: DataTypes.STRING,
-                allowNull: false,
-                validate: {
-                    length: [7, 10]
-                }
+                allowNull: false
             },
             securityQuestion: {
                 type: DataTypes.STRING,
@@ -66,10 +33,7 @@ module.exports = function(sequelize, DataTypes) {
             },
             answer: {
                 type: DataTypes.STRING,
-                allowNull: false,
-                validate: {
-                    length: [1]
-                }
+                allowNull: false
             },
             acceptTerm: {
                 type: DataTypes.BOOLEAN,
@@ -84,5 +48,15 @@ module.exports = function(sequelize, DataTypes) {
     bloggerPersonalInfo.associate = function(models) {
         models.bloggerPersonalInfo.hasMany(models.blogs);
     };
+    bloggerPersonalInfo.prototype.validPassword = function(password) {
+        return bcrypt.compareSync(password, this.password);
+    };
+    bloggerPersonalInfo.hook("beforeCreate", function(user) {
+        user.password = bcrypt.hashSync(
+            user.password,
+            bcrypt.genSaltSync(10),
+            null
+        );
+    });
     return bloggerPersonalInfo;
 };
