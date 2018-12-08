@@ -28,6 +28,39 @@ router.get("/login", function(req, res) {
     res.render("login");
 });
 
+app.post("/login", passport.authenticate("local"), function(req, res) {
+    db.bloggerPersonalInfo
+        .findAll({
+            attributes: ["id", "firstName", "lastName", "password"],
+            where: { email: req.body.email }
+        })
+        .then(results => {
+            // Compare hashes to verify the user
+            bcrypt.compare(
+                req.body.password,
+                results[0].password,
+                (error, isMatch) => {
+                    if (isMatch) {
+                        db.blogs
+                            .findAll({
+                                include: [db.bloggerPersonalInfo],
+                                where: { id: results[0].id }
+                            })
+                            .then(function(dbBlogs) {
+                                let hbsObject = {
+                                    blogs: dbBlogs
+                                };
+                                res.redirect("viewall", hbsObject);
+                            });
+                        // If the username or password does not match, display an error message
+                    } else {
+                        res.redirect("error");
+                    }
+                }
+            );
+        });
+});
+
 //logout redirects back to homepage
 router.get("/logout", function(req, res) {
     req.logout();
@@ -54,9 +87,6 @@ router.get("/blog/new", function(req, res) {
     res.render("newPost");
 });
 
-router.post("api/login", passport.authenticate("local"), function(req, res) {
-    res.json("login");
-});
 // about us page
 router.get("/about", function(req, res) {
     res.render("about");
