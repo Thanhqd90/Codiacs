@@ -7,59 +7,38 @@ let passport = require("../config/passport");
 router.get("/", function(req, res) {
     res.redirect("/home");
 });
-
 router.get("/home", function(req, res) {
-    db.blogs
-        .findAll({
-            include: [db.bloggerPersonalInfo],
-            order: [["title", "DESC"]]
-        })
-        .then(function(dbBlogs) {
-            let hbsObject = {
-                blogs: dbBlogs
-            };
-            return res.render("index",hbsObject);
+    console.log(req.user);
+    if (req.user) {
+        db.bloggerPersonalInfo.findOne({
+            where: {
+                id: req.user
+            },
+            raw: true
+        }).then((dbUser) => {
+            // send data to handlebars and render
+            res.render("index", {
+                loginStatus: true,
+                dbUser
+            });
         });
+        // db.blogs.findAll({
+        //     where: query,
+        //     include: [db.bloggerPersonalInfo]
+        //   }).then(function(dbPost) {
+        //     res.json(dbPost);
+        //   });
+    } else {
+        res.render("index");
+    }
 });
-// });
 
 // login page
 router.get("/login", function(req, res) {
     res.render("login");
 });
-
 router.post("/login", passport.authenticate("local"), function(req, res) {
-    console.log("this is: " +db.bloggerPersonalInfo);
-    db.bloggerPersonalInfo
-        .findOne({
-            attributes: ["id", "firstName", "lastName", "password"],
-            where: { email: req.body.email }
-        })
-        .then(results => {
-            // Compare hashes to verify the user
-            bcrypt.compare(
-                req.body.password,
-                results[0].password,
-                (error, isMatch) => {
-                    if (isMatch) {
-                        db.blogs
-                            .findAll({
-                                include: [db.bloggerPersonalInfo],
-                                where: { id: results[0].id }
-                            })
-                            .then(function(dbBlogs) {
-                                let hbsObject = {
-                                    blogs: dbBlogs
-                                };
-                                res.redirect("viewall", hbsObject);
-                            });
-                        // If the username or password does not match, display an error message
-                    } else {
-                        res.redirect("error");
-                    }
-                }
-            );
-        });
+    res.redirect("/home");
 });
 
 //logout redirects back to homepage
@@ -69,14 +48,12 @@ router.get("/logout", function(req, res) {
 });
 
 router.get("/register", function(req, res) {
-    res.render("register",{
-        "customJavascript": ["register"],
-    });
+    res.render("register");
 });
 
-router.get("/settings", function(req, res) {
-    res.render("settings");
-});
+// router.get("/settings", function(req, res) {
+//     res.render("settings");
+// });
 
 router.get("/blog/author", function(req, res) {
     res.render("author");
@@ -102,33 +79,33 @@ router.get("/about", function (req, res) {
 //routes for posting blogs
 router.post("/blog/create", function(req, res) {
     console.log(req.body);
-db.blogs.create(
-    {
-        title: req.body.title,
-        isVisible: req.body.isVisible,
-        mustHaves: req.body.mustHaves,
-        stayAt: req.body.stayAt,
-        placesVisited: req.body.placesVisited,
-        photos: req.body.photos,
-        experience: req.body.experience,
-        bestTime: req.body.bestTime,
-        countryVisited: req.body.countryVisited,
-        cityVisited: req.body.cityVisited,
-        category: req.body.category,
+    db.blogs.create(
+        {
+            title: req.body.title,
+            isVisible: req.body.isVisible,
+            mustHaves: req.body.mustHaves,
+            stayAt: req.body.stayAt,
+            placesVisited: req.body.placesVisited,
+            photos: req.body.photos,
+            experience: req.body.experience,
+            bestTime: req.body.bestTime,
+            countryVisited: req.body.countryVisited,
+            cityVisited: req.body.cityVisited,
+            category: req.body.category,
 
-    })
-    .then(function() {
-        res.redirect(307, "/blog/viewall");
-    })
-    .catch(function(err) {
-        console.log(err);
-        res.json(err);
+        })
+        .then(function() {
+            res.redirect(307, "/blog/viewall");
+        })
+        .catch(function(err) {
+            console.log(err);
+            res.json(err);
         // res.status(422).json(err.errors[0].message);
-    });
+        });
 });
 
 //routes for Blogger
-router.post("/api/signup", function(req, res) {
+router.post("/register", function(req, res) {
     console.log(req.body);
     db.bloggerPersonalInfo
         .create({
@@ -141,6 +118,7 @@ router.post("/api/signup", function(req, res) {
             answer: req.body.answer
         })
         .then(function() {
+            console.log("I am redirecting");
             res.redirect(307, "/login");
         })
         .catch(function(err) {
