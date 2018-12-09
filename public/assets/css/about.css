@@ -1,30 +1,50 @@
 /* entire body layout style */
 #body-container{
+<<<<<<< HEAD
 color: white;
-background-color: rgba(0, 0, 0, 0.89);
+background-color: rgb(10, 32, 44);
 }
 #body-style{
-    background-image: url('/assets/images/aboutbg.jpg');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+   background-image: url('/assets/images/aboutbg.jpg');
+   background-position: center;
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-attachment: fixed;
 }
 /* card style */
 .card{
-    width: 12rem;
-    height: 20rem;
-    margin: 10px;
-    color: white;
-    background-color: rgba(59, 59, 59, 0.918);
-
+   width: 12rem;
+   height: 20rem;
+   margin: 10px;
+   color: white;
+   background-color: rgb(61, 0, 0);
 }
 #social-button{
-    border-radius: 40px;
-    color: black;
+   border-radius: 40px;
+   color: black;
 }
-/* FOOTER STYLE */
-.page-footer{
-    width: 100%;
-    background-color: rgba(59, 59, 59, 0.918);
-}
+=======
+    color: white;
+    background-color: rgb(10, 32, 44);
+    }
+    #body-style{
+       background-image: url('/assets/images/aboutbg.jpg');
+       background-position: center;
+       background-size: cover;
+       background-repeat: no-repeat;
+       background-attachment: fixed;
+    }
+    /* card style */
+    .card{
+       width: 12rem;
+       height: 20rem;
+       margin: 10px;
+       color: white;
+       background-color: rgb(61, 0, 0);
+    }
+    #social-button{
+       border-radius: 40px;
+       color: black;
+    }
+
+>>>>>>> 4971386dbf9597553b21cacf9ec14a6677967f00

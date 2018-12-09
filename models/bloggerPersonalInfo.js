@@ -1,4 +1,4 @@
-let bcrypt = require("bcrypt-nodejs");
+
 module.exports = function(sequelize, DataTypes) {
     let bloggerPersonalInfo = sequelize.define(
         "bloggerPersonalInfo",
@@ -9,7 +9,7 @@ module.exports = function(sequelize, DataTypes) {
             },
             lastName: {
                 type: DataTypes.STRING,
-                allowNull: false
+                allowNull: false  
             },
             email: {
                 type: DataTypes.STRING,
@@ -34,11 +34,11 @@ module.exports = function(sequelize, DataTypes) {
             answer: {
                 type: DataTypes.STRING,
                 allowNull: false
-            },
-            acceptTerm: {
-                type: DataTypes.BOOLEAN,
-                defaultValue: false
             }
+            // acceptTerm: {
+            //     type: DataTypes.STRING,
+            //     defaultValue: "off"
+            // }
         },
         {
             freezeTableName: true,
@@ -48,15 +48,5 @@ module.exports = function(sequelize, DataTypes) {
     bloggerPersonalInfo.associate = function(models) {
         models.bloggerPersonalInfo.hasMany(models.blogs);
     };
-    bloggerPersonalInfo.prototype.validPassword = function(password) {
-        return bcrypt.compareSync(password, this.password);
-    };
-    bloggerPersonalInfo.hook("beforeCreate", function(user) {
-        user.password = bcrypt.hashSync(
-            user.password,
-            bcrypt.genSaltSync(10),
-            null
-        );
-    });
     return bloggerPersonalInfo;
 };

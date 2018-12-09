@@ -31,14 +31,10 @@ app.engine(
 app.set("view engine", "handlebars");
 app.use(express.static(path.join(__dirname, "/public")));
 let routes = require("./controllers/controller");
-
 app.use(routes);
-db.sequelize.sync().then(function() {
+
+db.sequelize.sync({ force: false }).then(function() {
     app.listen(PORT, function() {
-        console.log(
-            "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
-            PORT,
-            PORT
-        );
+        console.log("listening on port %s", PORT);
     });
 });
