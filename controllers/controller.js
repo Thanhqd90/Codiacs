@@ -16,23 +16,23 @@ router.get("/home", function(req, res) {
             },
             raw: true
         }).then((dbUser) => {
+            db.blogs.findAll({
+                order: ["createdAt" ,"DESC"],
+                limit: 5
+            }).then(function(dbPost) {
+                res.json(dbPost);
+            });
             // send data to handlebars and render
             res.render("index", {
                 loginStatus: true,
-                dbUser
+                dbUser,
+                dbPost
             });
         });
-        // db.blogs.findAll({
-        //     where: query,
-        //     include: [db.bloggerPersonalInfo]
-        //   }).then(function(dbPost) {
-        //     res.json(dbPost);
-        //   });
     } else {
         res.render("index");
     }
 });
-
 // login page
 router.get("/login", function(req, res) {
     res.render("login");
@@ -50,10 +50,6 @@ router.get("/logout", function(req, res) {
 router.get("/register", function(req, res) {
     res.render("register");
 });
-
-// router.get("/settings", function(req, res) {
-//     res.render("settings");
-// });
 
 router.get("/blog/author", function(req, res) {
     res.render("author");
@@ -92,7 +88,6 @@ router.post("/blog/create", function(req, res) {
             countryVisited: req.body.countryVisited,
             cityVisited: req.body.cityVisited,
             category: req.body.category,
-
         })
         .then(function() {
             res.redirect(307, "/blog/viewall");
@@ -100,7 +95,6 @@ router.post("/blog/create", function(req, res) {
         .catch(function(err) {
             console.log(err);
             res.json(err);
-        // res.status(422).json(err.errors[0].message);
         });
 });
 
