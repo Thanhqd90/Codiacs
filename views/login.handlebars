@@ -1,53 +1,16 @@
-<head>
-    <link rel="stylesheet" href="/assets/css/login.css">
-    <script src="/assets/js/login.js"></script>
-</head>
-
-
 <div class="container">
     <div class="row justify-content-center">
-<!-- Default form login -->
-<form id="login-form" class="text-center border border-light p-5">
+<form id="login-form" action="/login" method="POST" class=" blog text-center border border-light p-5">
 
-    <p class="h4 mb-4">Sign in</p>
+    <p class="h4 mb-4" id="loginHeading">Let's Blog!</p>
+    <input type="email" name="email" id="email" class="form-control mb-4" placeholder="E-mail" required>
+    <input type="password" name="password" id="password" class="form-control mb-4" placeholder="Password" required>
 
-    <!-- Email -->
-    <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail">
-
-    <!-- Password -->
-    <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password">
-
-    <div class="d-flex justify-content-around">
-        <div>
-            <!-- Remember me -->
-            {{!-- <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="defaultLoginFormRemember">
-                <label class="custom-control-label" for="defaultLoginFormRemember">Remember me</label>
-            </div> --}}
-        </div>
-        <div>
-            <!-- Forgot password -->
-            <a href="">Forgot password?</a>
-        </div>
-    </div>
-
-    <!-- Sign in button -->
-    <button class="btn white black-text btn-block my-4" type="submit">SIGN IN</button>
-
-    <!-- Register -->
-    <p>Not a member?
-        <a href="">Register</a>
+    <button class="btn btn-light black-text my-4" name="action" type="submit" id="log_in_btn">LogIn</button>
+    <p class="white-text">Not a member?
+        <a href="/register" id="here">Register</a>
     </p>
-
-    <!-- Social login -->
-    <p class="white-text">or sign in with:</p>
-<!--Twitter-->
-<a class="tw-ic mr-3 blue-text" role="button"><i class="fa fa-lg fa-twitter"></i></a>
-<!--Google +-->
-<a class="gplus-ic mr-3 red-text" role="button"><i class="fa fa-lg fa-google-plus"></i></a>
-    <!--Facebook-->
-    <a class="fb-ic mr-3 blue-text" role="button"><i class="fa fa-lg fa-facebook"></i></a>
-
+    
 </form>
 <!-- Default form login -->
 </div>

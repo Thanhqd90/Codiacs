@@ -1,0 +1,13 @@
+.highcharts-title {
+    fill: #00635A;
+    font-weight: bold;
+    font-size: 200em;
+    font-family: 'Oswald', sans-serif;
+    color: #00635A;
+}
+
+.highcharts-subtitle {
+    font-family: 'Century', sans-serif;
+    font-style: italic;
+    fill: #7cb5ec;
+}

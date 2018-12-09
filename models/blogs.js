@@ -1,58 +1,55 @@
-module.exports = function (sequelize, DataTypes) {
-    const blogs = sequelize.define('blogs', {
-        blogId: {
-            type: DataTypes.INTEGER,
-            autoIncrement: true,
-            primaryKey: true,
-            allowNull: false
-        },
-        bloggerId: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: bloggerPersonalInfo,
-                key: 'blogger_id'
+module.exports = function(sequelize, DataTypes) {
+    let blogs = sequelize.define(
+        "blogs",
+        {
+            title: {
+                type: DataTypes.STRING,
+                defaultValue: "My Experience"
+            },
+            isVisible: {
+                type: DataTypes.BOOLEAN,
+                defaultValue: false
+            },
+            mustHaves: {
+                type: DataTypes.STRING
+            },
+            stayAt: {
+                type: DataTypes.STRING
+            },
+            placesVisited: {
+                type: DataTypes.STRING
+            },
+            photos: {
+                type: DataTypes.BLOB
+            },
+            experience: {
+                type: DataTypes.TEXT
+            },
+            bestTime: {
+                type: DataTypes.STRING
+            },
+            countryVisited: {
+                type: DataTypes.STRING
+            },
+            cityVisited: {
+                type: DataTypes.STRING
+            },
+            category: {
+                type: DataTypes.STRING
             }
         },
-        createdAt: {
-            type: DataTypes.DATETIME
-        },
-        updatedAt: {
-            type: DataTypes.DATETIME
-        },
-        isVisible: {
-            type: DataTypes.BOOLEAN,
-            defaultValue: false
-        },
-        mustHaves: {
-            type: DataTypes.VARCHAR
-        },
-        stayAt: {
-            type: DataTypes.VARCHAR
-        },
-        placesVisited: {
-            type: DataTypes.VARCHAR
-        },
-        photos: {
-            type: DataTypes.BLOB
-        },
-        experience: {
-            type: DataTypes.TEXT
-        },
-        bestTime: {
-            type: DataTypes.VARCHAR
-        },
-        countryVisited: {
-            type: DataTypes.VARCHAR
-        },
-        cityVisited: {
-            type: DataTypes.VARCHAR
-        },
-        category: {
-            type: DataTypes.VARCHAR
+        {
+            freezeTableName: true,
+            tableName: "blogs"
         }
-    }, {
-        freezeTableName: true,
-        tableName: 'blogs'
-    });
+    );
+    blogs.associate = function(models) {
+        blogs.belongsTo(models.bloggerPersonalInfo, {
+            onDelete: "CASCADE",
+            foreignKey: {
+                allowNull: false
+            }
+        });
+    };
     return blogs;
 };
