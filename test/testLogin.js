@@ -1,9 +1,9 @@
-require('mocha');
+require("mocha");
 //require('chai');
-let Nightmare = require('nightmare');
+let Nightmare = require("nightmare");
 
-describe('Login Page', function () {
-    this.timeout('20s');
+describe("Login Page", function () {
+    this.timeout("20s");
 
     let nightmare = null;
     beforeEach(() => {
@@ -13,19 +13,19 @@ describe('Login Page', function () {
         });
     });
 
-    describe('given bad data', () => {
-        it('should work', (done) => {
+    describe("given bad data", () => {
+        it("should work", (done) => {
             nightmare
-                .goto('http://localhost:8080/home')
-                .on('page', (type, message) => {
+                .goto("http://localhost:8080/home")
+                .on("page", (type, message) => {
                     console.log(message);
-                    if (type === 'alert') {
+                    if (type === "alert") {
                         done();
                     }
                 })
-                .click('#about')
+                .click("#about")
                 .wait(7000)
-                .wait ('#about-page')
+                .wait ("#about-page")
                 .end()
                 .then(function (result) {
                     //console.log ('Result: ', result);

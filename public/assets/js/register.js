@@ -4,9 +4,8 @@ $(document).ready(function() {
     let username = $("#username");
     let email = $("#email");
     let password = $("#password");
-    let securityQuestion = $("#securityQs");
+    let securityQuestion = $("#securityQuestion");
     let answer = $("#answer");
-    let acceptTerm = $("#acceptTerm").prop("checked");
     let signUpForm = $("form.newUser");
 
     signUpForm.on("submit", function(event) {
@@ -19,7 +18,6 @@ $(document).ready(function() {
             password: password.val().trim(),
             securityQuestion: securityQuestion.val().trim(),
             answer: answer.val().trim(),
-            acceptTerm: $("#acceptTerm").prop("checked")
         };
         if (
             !(
@@ -29,8 +27,7 @@ $(document).ready(function() {
                 email.val().trim() ||
                 password.val().trim() ||
                 securityQuestion.val().trim() ||
-                answer.val().trim() ||
-                $("#acceptTerm").prop("checked")
+                answer.val().trim()
             )
         ) {
             return;
@@ -43,27 +40,14 @@ $(document).ready(function() {
     // Does a post to the signup route. If successful, we are redirected to the members page
     // Otherwise we log any errors
     function signUpUser(userData) {
-        $.post("/api/signup", {
-            firstName: userData.firstName,
-            lastName: userData.lastName,
-            username: userData.username,
-            email: userData.email,
-            password: userData.password,
-            securityQuestion: userData.securityQuestion,
-            answer: userData.answer,
-            acceptTerm: userData.acceptTerm
-        })
-            .then(function(data) {
-                window.location.replace(data);
-            })
-            .catch(handleLoginErr);
+        $.ajax({
+            method: "PUT",
+            url: "/register",
+            data: userData
+        }).then(function(data) {
+            window.location.replace(data);
+        });
     }
-
-    function handleLoginErr(err) {
-        $("#alert .msg").text(err.responseJSON);
-        $("#alert").fadeIn(500);
-    }
-
     function resetValues() {
         firstName.val("");
         lastName.val("");
@@ -71,5 +55,5 @@ $(document).ready(function() {
         emailInput.val("");
         passwordInput.val("");
         answer.val("");
-
+    }
 });
