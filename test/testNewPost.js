@@ -20,7 +20,7 @@ describe("newPost", function () {
             });
             nightmare
                 .goto("http://localhost:8080/blog/new")
-                .type("input[id='bestTime']", dataStrings[0])
+                //.type("input[id='bestTime']", dataStrings[0])
                 .type("input[id='cityVisited']", dataStrings[1])
                 .type("input[id='stayedAt']", dataStrings[2])
                 .type("input[id='placesVisited']", dataStrings[3])
@@ -29,7 +29,7 @@ describe("newPost", function () {
                 //            .click("#terms")
                 .click("#newPostSubmit")
                 .wait(3000)
-                .wait("#blog-form") // should find this
+                .wait("#formbg") // should find this
                 .end()
                 .then(function () {
                     done();
