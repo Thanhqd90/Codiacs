@@ -56,7 +56,17 @@ router.get("/blog/author", function(req, res) {
 });
 
 router.get("/blog/viewall", function(req, res) {
-    res.render("viewall");
+    db.blogs.findAll({
+        include: [
+            { model: db.bloggerPersonalInfo }
+        ],
+        order: ["createdAt" ,"DESC"],
+        raw: true
+    }).then((dbPost) => {
+        res.render("viewall", {
+            dbPost
+        });
+    });
 });
 
 router.get("/blog/single", function(req, res) {
