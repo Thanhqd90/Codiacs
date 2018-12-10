@@ -48,7 +48,6 @@
         </div>
         <!--/.Card-->
         <!--Grid column-->
-        <!--Grid column-->
         <div class="col-md-12 mb-2">
 
             <!--Card-->
@@ -73,95 +72,20 @@
                 <!--Card content-->
                 <div class="card-body blog">
                     <div class="row">
-                        <div class="col-md-6">
-                            <ul class="list-unstyled">
-                                <li class="media">
-                                    <img class="d-flex mr-3" src="https://mdbootstrap.com/img/Photos/Others/placeholder7.jpg"
-                                        alt="Generic placeholder image" width="100px">
-                                    <div class="media-body">
-                                        <a href="">
-                                            <h5 class="mt-0 mb-1 font-weight-bold">Title of post</h5>
-                                        </a>
-                                        Cras sit amet nibh libero, in gravida nulla (...)
-                                    </div>
-                                </li>
-                                <li class="media my-4">
-                                    <img class="d-flex mr-3" src="https://mdbootstrap.com/img/Photos/Others/placeholder6.jpg"
-                                        alt="An image" width="100px">
-                                    <div class="media-body">
-                                        <a href="">
-                                            <h5 class="mt-0 mb-1 font-weight-bold">Title of post</h5>
-                                        </a>
-                                        Cras sit amet nibh libero, in gravida nulla (...)
-                                    </div>
-                                </li>
-                                <li class="media">
-                                    <img class="d-flex mr-3" src="https://mdbootstrap.com/img/Photos/Others/placeholder5.jpg"
-                                        alt="Generic placeholder image" width="100px">
-                                    <div class="media-body">
-                                        <a href="">
-                                            <h5 class="mt-0 mb-1 font-weight-bold">Title of post</h5>
-                                        </a>
-                                        Cras sit amet nibh libero, in gravida nulla (...)
-                                    </div>
-                                </li>
-                                <li class="media my-4">
-                                    <img class="d-flex mr-3" src="https://mdbootstrap.com/img/Photos/Others/placeholder6.jpg"
-                                        alt="An image" width="100px">
-                                    <div class="media-body">
-                                        <a href="">
-                                            <h5 class="mt-0 mb-1 font-weight-bold">Title of post</h5>
-                                        </a>
-                                        Cras sit amet nibh libero, in gravida nulla (...)
-                                    </div>
-                                </li>
-
-                            </ul>
-                        </div>
-                        <div class="col-md-6">
-                            <ul class="list-unstyled">
-                                <li class="media">
-                                    <img class="d-flex mr-3" src="https://mdbootstrap.com/img/Photos/Others/placeholder7.jpg"
-                                        alt="Generic placeholder image" width="100px">
-                                    <div class="media-body">
-                                        <a href="">
-                                            <h5 class="mt-0 mb-1 font-weight-bold">Title of post</h5>
-                                        </a>
-                                        Cras sit amet nibh libero, in gravida nulla (...)
-                                    </div>
-                                </li>
-                                <li class="media my-4">
-                                    <img class="d-flex mr-3" src="https://mdbootstrap.com/img/Photos/Others/placeholder6.jpg"
-                                        alt="An image" width="100px">
-                                    <div class="media-body">
-                                        <a href="">
-                                            <h5 class="mt-0 mb-1 font-weight-bold">Title of post</h5>
-                                        </a>
-                                        Cras sit amet nibh libero, in gravida nulla (...)
-                                    </div>
-                                </li>
-                                <li class="media">
-                                    <img class="d-flex mr-3" src="https://mdbootstrap.com/img/Photos/Others/placeholder5.jpg"
-                                        alt="Generic placeholder image" width="100px">
-                                    <div class="media-body">
-                                        <a href="">
-                                            <h5 class="mt-0 mb-1 font-weight-bold">Title of post</h5>
-                                        </a>
-                                        Cras sit amet nibh libero, in gravida nulla (...)
-                                    </div>
-                                </li>
-                                <li class="media my-4">
-                                    <img class="d-flex mr-3" src="https://mdbootstrap.com/img/Photos/Others/placeholder6.jpg"
-                                        alt="An image" width="100px">
-                                    <div class="media-body">
-                                        <a href="">
-                                            <h5 class="mt-0 mb-1 font-weight-bold">Title of post</h5>
-                                        </a>
-                                        Cras sit amet nibh libero, in gravida nulla (...)
-                                    </div>
-                                </li>
-
-                            </ul>
+                        <div class="col-md-12">
+                            {{#each blogs}}
+                            <div>
+                                <h5 class="mt-0 mb-1 font-weight-bold">Handlebar Post #{{this.id}} display
+                                    successful!!</h5>
+                                <h2>Title: {{this.title}}</h2>
+                                <h2>Country Visited: {{this.countryVisited}}</h2>
+                                <h2>City Visited: {{this.cityVisited}}</h2>
+                                <h2>Stayed At: {{this.stayAt}}</h2>
+                                <h2>Experience: {{this.experience}}</h2>
+                            </div>
+                            <br>
+                            <hr>
+                            {{/each}}
                         </div>
                     </div>
                 </div>
@@ -190,11 +114,7 @@
                 </div>
             </div>
             <!--/.Card-->
-
-
             <!--Grid column-->
         </div>
     </div>
-
-
 </div>
