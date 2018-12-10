@@ -7,7 +7,7 @@ $(document).ready(function() {
     let placesVisited = $("#placesVisited");
     let mustHaves = $("#mustHaves");
     let experience = $("#experience");
-    let photos = $("#photos");
+    // let photos = $("#photos");
     let isVisible = $("#isVisible");
     let defaultUnchecked = $("#defaultUnchecked");
     let defaultUnchecked1 = $("#defaultUnchecked1");
@@ -25,7 +25,7 @@ $(document).ready(function() {
             placesVisited: placesVisited.val().trim(),
             mustHaves: mustHaves.val().trim(),
             experience:experience.val().trim(),
-            photos: photos.val().trim(),
+            // photos: photos.val().trim(),
             isVisible: isVisible.val().trim(),
             defaultUnchecked:defaultUnchecked,
             defaultUnchecked1:defaultUnchecked1,
@@ -41,7 +41,7 @@ $(document).ready(function() {
                 placesVisited.val().trim() ||
                 mustHaves.val().trim() ||
                 experience.val().trim() ||
-                photos.val().trim() ||
+                // photos.val().trim() ||
                 isVisible.val().trim() ||
                 defaultUnchecked ||
                 defaultUnchecked1 ||
