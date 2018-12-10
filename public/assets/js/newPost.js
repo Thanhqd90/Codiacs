@@ -1,4 +1,5 @@
-$(document).ready(function() {
+$(document).ready(function () {
+    let bloggerPersonalInfoId = $("#bloggerPersonalInfoId");
     let title = $("#title");
     let countryVisited = $("#countryVisited");
     let bestTime = $("#bestTime");
@@ -14,29 +15,30 @@ $(document).ready(function() {
     let defaultUnchecked2 = $("#defaultUnchecked2");
     let blogForm = $("blog-form");
 
-    blogForm.on("submit", function(event) {
+    blogForm.on("submit", function (event) {
         event.preventDefault();
         let userData = {
+            bloggerPersonalInfoId: bloggerPersonalInfoId.val(),
             title: title.val().trim(),
-            countryVisited:countryVisited,
-            bestTime: bestTime,
+            countryVisited: countryVisited.val(),
+            bestTime: bestTime.val(),
             cityVisited: cityVisited,
             stayAt: stayAt.val().trim(),
             placesVisited: placesVisited.val().trim(),
             mustHaves: mustHaves.val().trim(),
-            experience:experience.val().trim(),
-            // photos: photos.val().trim(),
+            experience: experience.val().trim(),
+            photos: photos.val().trim(),
             isVisible: isVisible.val().trim(),
-            defaultUnchecked:defaultUnchecked,
-            defaultUnchecked1:defaultUnchecked1,
-            defaultUnchecked2:defaultUnchecked2
+            defaultUnchecked: defaultUnchecked.val(),
+            defaultUnchecked1: defaultUnchecked1.val(),
+            defaultUnchecked2: defaultUnchecked2.val()
         };
         if (
             !(
                 title.val().trim() ||
                 countryVisited ||
-                bestTime ||
-                cityVisited ||
+                bestTime.val() ||
+                cityVisited.val() ||
                 stayAt.val().trim() ||
                 placesVisited.val().trim() ||
                 mustHaves.val().trim() ||
@@ -62,7 +64,7 @@ $(document).ready(function() {
             method: "PUT",
             url: "/blog/create",
             data: userData
-        }).then(function(data) {
+        }).then(function (data) {
             window.location.replace(data);
         });
     }

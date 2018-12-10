@@ -4,13 +4,13 @@ $(document).ready(function() {
         $(this).toggleClass("active");
     });
 });
-//email function!!
-// function sendMail() {
-//     let link = "mailto:jeffreyvh@ymail.com";
-//     "?cc=" +
-//         "&subject=" +
-//         escape(document.getElementById("m-subject").value) +
-//         "&body=" +
-//         escape(document.getElementById("m-message").value);
-//     window.location.href = link;
-// }
+
+// layout variable for email
+const space = "         |        ";
+// email function for users to contact
+// error is showing due to eslint but works fine
+function send() {
+    setTimeout(function() {
+        window.open("mailto:jeffreyvh@ymail.com" + "?subject=" + document.getElementById("subject").value + "&body=" + document.getElementById("name").value + space + document.getElementById("email").value + space + document.getElementById("message").value);
+    }, 320);
+}
