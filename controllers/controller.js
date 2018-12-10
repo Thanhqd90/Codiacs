@@ -17,17 +17,17 @@ router.get("/home", function(req, res) {
             raw: true
         }).then((dbUser) => {
             db.blogs.findAll({
-                order: ["createdAt" ,"DESC"],
-                limit: 5
+                order: [
+                    ["createdAt" ,"DESC"]
+                ]
             }).then(function(dbPost) {
-                res.json(dbPost);
+                res.render("index", {
+                    loginStatus: true,
+                    dbUser,
+                    dbPost
+                });
             });
             // send data to handlebars and render
-            res.render("index", {
-                loginStatus: true,
-                dbUser,
-                dbPost
-            });
         });
     } else {
         res.render("index");
