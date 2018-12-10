@@ -4,11 +4,11 @@ color: white;
 background-color: rgb(10, 32, 44);
 }
 #body-style{
-    background-image: url('/assets/images/aboutbg.jpg');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+   background-image: url('/assets/images/aboutbg.jpg');
+   background-position: center;
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-attachment: fixed;
 }
 /* card style */
 .card{
