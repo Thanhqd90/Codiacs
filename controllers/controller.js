@@ -132,8 +132,7 @@ router.get("/about", function (req, res) {
 router.post("/create", function (req, res) {
     var userId = req.user;
     console.log(req.body);
-    db.blogs.create(
-        {
+    db.blogs.create({
             title: req.body.title,
             isVisible: req.body.isVisible,
             mustHaves: req.body.mustHaves,
@@ -158,9 +157,28 @@ router.post("/create", function (req, res) {
         });
 });
 
+function isAlpha(str) {
+    let code, i, len;
+    for (i = 0, len = str.length; i < len; i++) {
+        code = str.charCodeAt(i);
+        if (!(code > 64 && code < 91) && // upper alpha (A-Z)
+            !(code > 96 && code < 123)) { // lower alpha (a-z)
+            console.log("isAlpha false");
+            return false;
+        }
+    }
+    console.log("isAlpha true");
+    return true;
+}
+
+
 //routes for Blogger
 router.post("/register", function (req, res) {
-    console.log(req.body);
+    if (!isAlpha(req.body.firstName) || !isAlpha(req.body.lastName)) {
+        res.render("register");
+        return;
+    }
+
     db.bloggerPersonalInfo
         .create({
             firstName: req.body.firstName,
