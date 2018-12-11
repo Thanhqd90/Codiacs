@@ -1,17 +1,33 @@
-<div class="container">
+<div class="container" id="container">
+    <!--Grid row-->
     <div class="row justify-content-center">
-<form id="login-form" action="/login" method="POST" class=" blog text-center border border-light p-5">
+        <!--Card-->
+        <div class="card mb-2 wow fadeIn">
+            <div class="card-header font-weight-bold">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 id="header" class="h1-responsive font-weight-bold text-white text-center pt-2">Log-in</h1>
+                    </div>
+                </div>
+            </div>
 
-    <p class="h4 mb-4" id="loginHeading">Let's Blog!</p>
-    <input type="email" name="email" id="email" class="form-control mb-4" placeholder="E-mail" required>
-    <input type="password" name="password" id="password" class="form-control mb-4" placeholder="Password" required>
+            <!--Card content-->
+            <form id="login-form" action="/login" method="POST" class=" blog text-center border border-light p-4">
 
-    <button class="btn btn-light black-text my-4" name="action" type="submit" id="log_in_btn">LogIn</button>
-    <p class="white-text">Not a member?
-        <a href="/register" id="here">Register</a>
-    </p>
-    
-</form>
-<!-- Default form login -->
-</div>
+                <p class="h4 mb-4" id="loginHeading">Let's Blog!</p>
+                <input type="email" name="email" id="email" class="form-control mb-4" placeholder="E-mail" required>
+                <input type="password" name="password" id="password" class="form-control mb-4" placeholder="Password"
+                    required>
+
+                <button class="btn btn-light black-text my-4" name="action" type="submit" id="log_in_btn">LogIn</button>
+                <p class="white-text">Not a member?
+                    <a href="/register" id="here">Register</a>
+                </p>
+
+            </form>
+            <!-- Default form login -->
+        </div>
+    </div>
+    <!--/.Card-->
+
 </div>

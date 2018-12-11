@@ -1,8 +1,8 @@
 /* ============================= */
-@import "https://fonts.googleapis.com/css?family=Cardo";
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 /* MAIN.HANDLEBARS STYLING */
 body {
-    font-family: 'Cardo', serif;
+    font-family: 'Poppins', sans-serif;
 }
 /* responsive mediaqueries for different screens */
 #body-style {
@@ -12,27 +12,84 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
-/* MODAL STYLE */
-.modal-header{
-    background-color: rgb(36, 0, 0);
+/* header text style */
+#header{
+    text-shadow: 0px 3px 6px rgb(0, 0, 0);
+}
+/* FOOTER STYLE */
+.page-footer{
+    width:100%;
+
+    background-color: rgba(61, 0, 0, 0.904);
+ }
+
+.footer-copyright{
+
+width:100%;
+background-color: rgb(36, 0, 0);
+
+}
+
+hr.style2 {
+	border-top: 3px double #8c8b8b;
+}
+.card-header {
+    background-color: rgba(61, 0, 0);
+    border: 2px white solid;
+    color:white;
+}
+.expand {
+    min-width:100%;
+}
+@media (max-width: 740px) {
+
+    html,
+    body,
+    header,
+    .intro-2 {
+        height: 1100px;
+    }
+}
+
+@media (min-width: 800px) and (max-width: 850px) {
+
+    html,
+    body,
+    header,
+    .intro-2 {
+        height: 950px;
+    }
+}
+
+/* style for the search bar */
+.active-cyan input[type=text] {
+    border-bottom: 1px solid #4dd0e1;
+    box-shadow: 0 1px 0 0 #4dd0e1;
+}
+
+
+
+/* body of the blog data */
+.blog {
+    padding: 30px;
+    background-color: rgb(10, 32, 44);
     color: white;
     font-weight: bold;
+    border-style: solid;
+    border-color: rgb(255, 255, 255);
+    border-width: 2px;
 }
-.modal-content{
-    color:white;
-    background-color: rgb(10, 32, 44); 
+/*
+    DEMO STYLE
+*/
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #fafafa;
 }
-/* contact button */
-#send-message{
-    background-color: rgb(36, 0, 0);
-    border: 1px solid white;
-}
-#send-message:hover{
-    background-color: rgb(255, 255, 255);
-    color:black;
-}
+
 p {
-    font-family: 'Cardo', serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 1.1em;
     font-weight: 300;
     line-height: 1.7em;
@@ -48,6 +105,7 @@ a:focus {
 .navbar {
     background-color: rgb(36, 0, 0);
     padding: 15px;
+
 }
 .nav-link {
     color: white;
@@ -102,7 +160,7 @@ a:focus {
     display: block;
 }
 #sidebar ul li a:hover {
-    color: black;
+    color: #7386D5;
     background: #fff;
 }
 #sidebar ul li.active>a,
@@ -246,15 +304,6 @@ a.article:hover {
 .footer-copyright{
 width:100%;
 background-color: rgb(36, 0, 0);
-}
-.list-unstyled a {
-    padding: 10px;
-    font-size: 1.1em;
-    display: block;
-}
-.list-unstyled a:hover {
-    color: black;
-    background: #fff;
 }
 /* end footer style */
 /* ============================= */

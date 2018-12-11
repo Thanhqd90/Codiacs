@@ -1,32 +1,38 @@
-<!--Section: -->
-<div id="home-page"></div>
-  <section id="blog">
-<div class="container">
-  <section class="blog">
-    <!--Section: Blog v.1-->
-    <!--Section heading-->
-    {{!-- Start---> Error heading incase highchart not found--}}
-    <h1 class="errorHeading" id="errorHeading"></h1>
-    {{!-- End ---> Error heading incase highchart not found --}}
-    <h1 class="h1-responsive font-weight-bold text-white text-center mb-5 pt-2">Recent posts by all users</h1>
-    <!--Section description-->
+<div class="container" id="container">
+  <!--Grid row-->
+  <div class="row">
+    <!--Card-->
+    <div class="card mb-2 wow fadeIn">
+      <div class="card-header font-weight-bold">
+        <div class="row">
+          <div class="col-md-12">
+            <h1 id="header" class="h1-responsive font-weight-bold text-white text-center pt-2">All recent post by all users</h1>
+          </div>
+        </div>
+      </div>
 
-    <!--Grid row-->
-    {{#each data}}
-    <div class="row">
-      <ul>
-        <h5 class="mt-0 mb-1 font-weight-bold">Handlebar Post #{{id}} display
-          successful!!</h5>
-        <li>Title: {{title}}</li>
-        <li>Country Visited: {{countryVisited}}</li>
-        <li>City Visited: {{cityVisited}}</li>
-        <li>Stayed At: {{stayAt}}</li>
-        <li>Experience: {{experience}}</li>
-
+      <!--Card content-->
+      <div class="card-body blog">
+        <div class="row">
+          <div class="col-md-12">
+            <h1 class="errorHeading" id="errorHeading"></h1>
+            {{#each data}}
+            <div class="expand">
+              <h5 class="mt-0 mb-1 font-weight-bold">Handlebar Post #{{this.id}} display
+                successful!!</h5>
+              <h2>Title: {{title}}</h2>
+              <h2>Country Visited: {{countryVisited}}</h2>
+              <h2>City Visited: {{cityVisited}}</h2>
+              <h2>Stayed At: {{stayAt}}</h2>
+              <h2>Experience: {{experience}}</h2>
+            </div>
+            <hr class="style2">
+            {{/each}}
+          </div>
+        </div>
+      </div>
     </div>
-    {{/each}}
-    </ul>
+    <!--/.Card-->
 
+  </div>
 </div>
-</section>
-<!--/Section: -->
