@@ -62,7 +62,7 @@ $(document).ready(function () {
     function blog(userData) {
         $.ajax({
             method: "PUT",
-            url: "/blog/create",
+            url: "/create",
             data: userData
         }).then(function (data) {
             window.location.replace(data);
