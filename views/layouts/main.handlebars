@@ -98,7 +98,7 @@
             <li><a href="/login">Login</a></li>
             {{/unless}}
             {{#if loginStatus}}
-            <li> Hello {{dbUser.firstName}}</li>
+            <li> Hello {{#each data}} {{bloggerPersonalInfo.firstName}} {{/each}}</li>
             <li>
               <a href="/blog/author">
                 <i class="fa fa-id-card-o" aria-hidden="true"></i>
@@ -157,40 +157,15 @@
               {{!-- col 1 --}}
               <div class="col-md">
                 <!-- Links -->
-                <h3 class="text-uppercase text-underline">
-                  <u>LINK</u>
-                </h3>
                 <ul class="list-unstyled">
                   <li>
-                    <a href="/register">SIGN UP</a>
-                  </li>
-                  <li>
-                    <a href="/login">LOG IN</a>
-                  </li>
-                  <li>
-                    <a href="/blog/author">MY DASHBOARD</a>
-                  </li>
-                  <li>
-                    <a href="/blog/new">CREATE POST</a>
-                  </li>
-                </ul>
-              </div>
-              <!-- End col 1 -->
-              {{!-- col 2 --}}
-              <div class="col-md">
-                <!-- Links -->
-                <h3 class="text-uppercase">
-                  <u>CONTENT</u>
-                </h3>
-                <ul class="list-unstyled">
-                  <li>
-                    <a href="/home">HOME</a>
+                    <a href="/home">HOME PAGE</a>
                   </li>
                   <li>
                     <a href="/about">MEET THE DEVS</a>
                   </li>
                   <li>
-                    <a href="#" data-toggle="modal" data-target="#modalContactForm">HELP</a>
+                    <a href="#" data-toggle="modal" data-target="#modalContactForm">CONTACT US</a>
                   </li>
                 </ul>
               </div>
@@ -203,7 +178,6 @@
           </div>
         </div>
         <!-- Footer Links -->
-        <!-- Copyright -->
         <!-- Copyright -->
       </footer>
       <!--End Footer -->
