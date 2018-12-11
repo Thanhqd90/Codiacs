@@ -37,9 +37,8 @@ router.get("/home", function (req, res) {
 router.get("/login", function (req, res) {
     res.render("login");
 });
-router.post("/login", passport.authenticate("local"), function (req, res) {
-    res.redirect("/home");
-});
+router.post("/login", passport.authenticate("local", { successRedirect:"/home",
+    failureRedirect: "/login" }));
 
 //logout redirects back to homepage
 router.get("/logout", function (req, res) {
