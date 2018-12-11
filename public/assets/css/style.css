@@ -19,15 +19,21 @@ body {
 /* FOOTER STYLE */
 .page-footer{
     width:100%;
-
     background-color: rgba(61, 0, 0, 0.904);
  }
+.page-footer a{
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+}
+.page-footer a:hover{
+    color: #7386D5;
+    background: #fff;
+}
 
 .footer-copyright{
-
 width:100%;
 background-color: rgb(36, 0, 0);
-
 }
 
 hr.style2 {
