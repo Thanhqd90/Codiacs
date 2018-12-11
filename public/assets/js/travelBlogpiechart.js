@@ -3,7 +3,8 @@ $(document).ready(function() {
         return res.redirect("/home");
     });
     Highcharts.setOptions({
-        colors: ["#33ccff", "#ff99cc", "#E5CCFF", "#FF3333", "#0080FF", "#FFFF66"]
+        colors: ["#f3ccff", "#e180ff", "#cf33ff", "#9c00cc", "##4e0066", "#14001a"]
+        // colors: ["#33ccff", "#ff99cc", "#E5CCFF", "#FF3333", "#0080FF", "#FFFF66"]
     });
 
     $("#search").on("click", function(event) {

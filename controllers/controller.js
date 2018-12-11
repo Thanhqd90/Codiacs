@@ -37,9 +37,8 @@ router.get("/home", function (req, res) {
 router.get("/login", function (req, res) {
     res.render("login");
 });
-router.post("/login", passport.authenticate("local"), function (req, res) {
-    res.redirect("/home");
-});
+router.post("/login", passport.authenticate("local", { successRedirect:"/home",
+    failureRedirect: "/login" }));
 
 //logout redirects back to homepage
 router.get("/logout", function (req, res) {
@@ -99,19 +98,19 @@ router.post("/blog/create", function (req, res) {
     var userId = req.user;
     console.log(req.body);
     db.blogs.create({
-            title: req.body.title,
-            isVisible: req.body.isVisible,
-            mustHaves: req.body.mustHaves,
-            stayAt: req.body.stayAt,
-            placesVisited: req.body.placesVisited,
-            photos: req.body.photos,
-            experience: req.body.experience,
-            bestTime: req.body.bestTime,
-            countryVisited: req.body.countryVisited,
-            cityVisited: req.body.cityVisited,
-            category: req.body.category,
-            bloggerPersonalInfoId: userId
-        })
+        title: req.body.title,
+        isVisible: req.body.isVisible,
+        mustHaves: req.body.mustHaves,
+        stayAt: req.body.stayAt,
+        placesVisited: req.body.placesVisited,
+        photos: req.body.photos,
+        experience: req.body.experience,
+        bestTime: req.body.bestTime,
+        countryVisited: req.body.countryVisited,
+        cityVisited: req.body.cityVisited,
+        category: req.body.category,
+        bloggerPersonalInfoId: userId
+    })
         .then(function (dbBlog) {
             console.log(dbBlog);
             console.log("I am redirecting");

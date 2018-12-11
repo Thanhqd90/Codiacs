@@ -1,7 +1,6 @@
 
 // Grab key from .env file applies to Twiiter and facebook Oauth
 require("dotenv").config();
-
 // =================================================================
 // Dependencies
 // =================================================================
@@ -64,7 +63,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 let routes = require("./controllers/controller");
 app.use(routes);
-
 db.sequelize.sync({ force: false }).then(function() {
     app.listen(PORT, function() {
         console.log("listening on port %s", PORT);
