@@ -32,7 +32,6 @@ app.set("view engine", "handlebars");
 app.use(express.static(path.join(__dirname, "/public")));
 let routes = require("./controllers/controller");
 app.use(routes);
-
 db.sequelize.sync({ force: false }).then(function() {
     app.listen(PORT, function() {
         console.log("listening on port %s", PORT);

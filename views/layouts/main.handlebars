@@ -20,6 +20,25 @@
   {{/each}} --}}
 </head>
 <body id="body-style">
+  <div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">No Data Found</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        No data found.<br>
+        Please try later or look for another city.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
   {{!-- modal contact form --}}
   <div class="modal fade" id="modalContactForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-full-height modal-right" role="document">
@@ -67,7 +86,7 @@
       <!-- Sidebar Start -->
       <div class="sidebar-header">
         <h3>
-          <a href="/home">Clickable Logo</a>
+          <a href="/home">Menu</a>
         </h3>
       </div>
       <!-- Side nav -->
@@ -80,7 +99,6 @@
             {{/unless}}
             {{#if loginStatus}}
             <li> Hello {{dbUser.firstName}}</li>
-
             <li>
               <a href="/blog/author">
                 <i class="fa fa-id-card-o" aria-hidden="true"></i>
@@ -125,20 +143,6 @@
           <input class="form-control autocomplete" type="search" placeholder="City Graphs" aria-label="Search" id="search-term">
           <button class="btn btn-outline-white btn-md my-2 my-sm-0 ml-3" id="search" type="submit">Search</button>
         </form>
-        {{!-- <ul class="navbar-nav ml-auto nav-flex-icons">
-          <li class="nav-item avatar dropdown">
-            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-5" data-toggle="dropdown" aria-haspopup="true"
-              aria-expanded="false">
-              <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" class="rounded-circle z-depth-0"
-                height="50px" alt="avatar image">
-            </a>
-            <div class="dropdown-menu dropdown-menu-right dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-5">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-          </li>
-        </ul> --}}
       </nav>
       <!--/.Navbar-->
       {{{ body }}}
@@ -205,9 +209,9 @@
       <!--End Footer -->
       <!-- Footer -->
       {{!-- jQuery --}}
-        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+      <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
       <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  
+
       {{!--
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
       --}}
@@ -217,7 +221,13 @@
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
       <!-- MDB core JavaScript -->
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.15/js/mdb.min.js"></script>
-      {{!-- code for autocomplete--}}
+      {{!-- Scripts for highcharts starts --}}
+      <script src="https://code.highcharts.com/highcharts.js"></script>
+      <script src="https://code.highcharts.com/highcharts-3d.js"></script>
+      <script src="https://code.highcharts.com/modules/exporting.js"></script>
+      <script src="https://code.highcharts.com/modules/export-data.js"></script>
+      {{!-- Scripts for highcharts ends --}}
+      {{!-- code for autocomplete using Google Places API--}}
       {{!--
       <script>
         function activatePlacesSearch() {
@@ -234,6 +244,7 @@
       <script type="text/javascript" src="/assets/js/login.js"></script>
       <script type="text/javascript" src="assets/js/register.js"></script>
       <script type="text/javascript" src="assets/js/autocomplete.js"></script>
+      <script type="text/javascript" src="assets/js/travelBlogpiechart.js"></script>
 </body>
 
 </HTML>
