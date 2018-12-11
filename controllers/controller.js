@@ -105,6 +105,7 @@ router.get("/new", function (req, res) {
 
 // about us page
 router.get("/about", function (req, res) {
+    if (req.user) {
     var userId = req.user;
     db.blogs.findAll({
         where: {
@@ -121,6 +122,10 @@ router.get("/about", function (req, res) {
             data: dbPost
         });
     });
+} else {
+
+        res.render("about")
+}
 });
 
 //routes for posting blogs
