@@ -30,12 +30,13 @@ body {
     color: #7386D5;
     background: #fff;
 }
-
 .footer-copyright{
 width:100%;
 background-color: rgb(36, 0, 0);
 }
-
+.modal-content{
+    background-color:rgb(10, 32, 44);
+}
 hr.style2 {
 	border-top: 3px double #8c8b8b;
 }
