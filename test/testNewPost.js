@@ -20,16 +20,16 @@ describe("newPost", function () {
             });
             nightmare
                 .goto("http://localhost:8080/blog/new")
-                //.type("input[id='bestTime']", dataStrings[0])
-                .type("input[id='cityVisited']", dataStrings[1])
-                .type("input[id='stayedAt']", dataStrings[2])
-                .type("input[id='placesVisited']", dataStrings[3])
-                .type("input[id='mustHaves']", dataStrings[4])
-                .type("input[id='experience']", dataStrings[5])
-                //            .click("#terms")
+                .select ("#countryVisited", "AFG")
+                .select ("#bestTime", "Feb")
+                .type("textarea[id='cityVisited']", dataStrings[1])
+                .type("textarea[id='stayAt']", dataStrings[2])
+                .type("textarea[id='placesVisited']", dataStrings[3])
+                .type("textarea[id='mustHaves']", dataStrings[4])
+                .type("textarea[id='experience']", dataStrings[5])
                 .click("#newPostSubmit")
                 .wait(3000)
-                .wait("#formbg") // should find this
+                .wait("#viewall") // should find this
                 .end()
                 .then(function () {
                     done();
