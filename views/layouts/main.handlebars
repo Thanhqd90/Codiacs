@@ -15,11 +15,10 @@
   <link href="/assets/css/style.css" rel="stylesheet">
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <!-- Bootstrap tooltips -->
-  {{!-- {{#each customCSS}}
-  <link rel="stylesheet" type="text/css" href="/assets/css/{{this}}.css">
-  {{/each}} --}}
+  {{!-- {{#each customCSS
+  <link rel="stylesheet" type="text/css" href="/assets/css/{{this.css">
+  /each --}}
 </head>
-
 <body id="body-style">
 <div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -120,6 +119,17 @@
             {{/if}}
 
           </ul>
+          <p>You are not signed in
+            <br> Click
+            <a href="/login">
+              <u>here</u>
+            </a> to sign in
+            <br> Click
+            <a id="register" href="/register">
+              <u>here</u>
+            </a> to register
+            <br>
+          </p>
     </nav>
     <!-- Sidebar end-->
     <div id="content">

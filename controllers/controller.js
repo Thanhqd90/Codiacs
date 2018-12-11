@@ -127,7 +127,8 @@ router.get("/about", function (req, res) {
 router.post("/create", function (req, res) {
     var userId = req.user;
     console.log(req.body);
-    db.blogs.create({
+    db.blogs.create(
+        {
             title: req.body.title,
             isVisible: req.body.isVisible,
             mustHaves: req.body.mustHaves,
