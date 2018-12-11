@@ -131,4 +131,22 @@ router.post("/register", function(req, res) {
             // res.status(422).json(err.errors[0].message);
         });
 });
+
+// highchart code starts
+
+router.get("/cityData/:city", function(req, res) {
+    db.blogs.findAll({
+        attributes: [
+            "category",
+            [db.Sequelize.literal("COUNT((category))"), "countOfCategory"]
+        ],
+        where: {
+            cityVisited:req.params.city
+        },
+        group: "category"
+    }).then(function(data) {
+        console.log(data);
+        res.json(data);
+    });
+});
 module.exports = router;
