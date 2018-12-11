@@ -1,32 +1,32 @@
 <!--Section: -->
 <div id="home-page"></div>
-<section id="blog">
-  <div class="container">
-    <section class="blog">
-      <!--Section: Blog v.1-->
-      <!--Section heading-->
-      {{!-- Start---> Error heading incase highchart not found--}}
-      <h1 class="errorHeading" id="errorHeading"></h1>
-      {{!-- End ---> Error heading incase highchart not found --}}
-      <h1 class="h1-responsive font-weight-bold text-white text-center mb-5 pt-2">Recent posts by all users</h1>
-      <!--Section description-->
+  <section id="blog">
+<div class="container">
+  <section class="blog">
+    <!--Section: Blog v.1-->
+    <!--Section heading-->
+    {{!-- Start---> Error heading incase highchart not found--}}
+    <h1 class="errorHeading" id="errorHeading"></h1>
+    {{!-- End ---> Error heading incase highchart not found --}}
+    <h1 class="h1-responsive font-weight-bold text-white text-center mb-5 pt-2">Recent posts by all users</h1>
+    <!--Section description-->
 
-      <!--Grid row-->
-      {{#each data}}
-      <div class="row">
-        <ul>
-          <h5 class="mt-0 mb-1 font-weight-bold">Handlebar Post #{{id}} display successful!!
-          </h5>
-          <li>Title: {{title}}</li>
-          <li>Country Visited: {{countryVisited}}</li>
-          <li>City Visited: {{cityVisited}}</li>
-          <li>Stayed At: {{stayAt}}</li>
-          <li>Experience: {{experience}}</li>
+    <!--Grid row-->
+    {{#each data}}
+    <div class="row">
+      <ul>
+        <h5 class="mt-0 mb-1 font-weight-bold">Handlebar Post #{{id}} display
+          successful!!</h5>
+        <li>Title: {{title}}</li>
+        <li>Country Visited: {{countryVisited}}</li>
+        <li>City Visited: {{cityVisited}}</li>
+        <li>Stayed At: {{stayAt}}</li>
+        <li>Experience: {{experience}}</li>
 
-      </div>
-      {{/each}}
-      </ul>
+    </div>
+    {{/each}}
+    </ul>
 
-  </div>
-  </section>
-  <!--/Section: -->
+</div>
+</section>
+<!--/Section: -->

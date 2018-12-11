@@ -334,4 +334,7 @@ background-color: rgb(36, 0, 0);
   #securityQs{
     color: gray;
   }
+  .red {
+    color: red;
+}
   /* =========================== */
