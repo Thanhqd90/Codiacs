@@ -10,22 +10,25 @@ router.get("/", function (req, res) {
 router.get("/home", function (req, res) {
     console.log(req.user);
     if (req.user) {
-            db.blogs.findAll({
-                order: [
-                    ["createdAt", "DESC"]
-                ],
+        db.blogs.findAll({
+            order: [
+                ["createdAt", "DESC"]
+            ],
             where: {
                 bloggerPersonalInfoId: req.user
             },
-            include:[{model:db.bloggerPersonalInfo}] }).then(function (dbPost) {
-                //  res.json(dbPost);
+            include: [{
+                model: db.bloggerPersonalInfo
+            }]
+        }).then(function (dbPost) {
+            //  res.json(dbPost);
 
-                res.render("index", {
-                  loginStatus: true,
-                   data: dbPost
-               });
+            res.render("index", {
+                loginStatus: true,
+                data: dbPost
             });
-            // send data to handlebars and render
+        });
+        // send data to handlebars and render
     } else {
         res.render("index");
     }
@@ -95,7 +98,8 @@ router.get("/about", function (req, res) {
 router.post("/blog/create", function (req, res) {
     var userId = req.user;
     console.log(req.body);
-    db.blogs.create({
+    db.blogs.create(
+        {
             title: req.body.title,
             isVisible: req.body.isVisible,
             mustHaves: req.body.mustHaves,
@@ -146,17 +150,17 @@ router.post("/register", function (req, res) {
 
 // highchart code starts
 
-router.get("/cityData/:city", function(req, res) {
+router.get("/cityData/:city", function (req, res) {
     db.blogs.findAll({
         attributes: [
             "category",
             [db.Sequelize.literal("COUNT((category))"), "countOfCategory"]
         ],
         where: {
-            cityVisited:req.params.city
+            cityVisited: req.params.city
         },
         group: "category"
-    }).then(function(data) {
+    }).then(function (data) {
         console.log(data);
         res.json(data);
     });
