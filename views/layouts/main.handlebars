@@ -15,41 +15,66 @@
   <link href="/assets/css/style.css" rel="stylesheet">
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <!-- Bootstrap tooltips -->
-  {{!-- {{#each customCSS}}
-  <link rel="stylesheet" type="text/css" href="/assets/css/{{this}}.css"> {{/each}} --}}
+  {{!-- {{#each customCSS
+  <link rel="stylesheet" type="text/css" href="/assets/css/{{this.css">
+  /each --}}
 </head>
-
 <body id="body-style">
+  <div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">No Data Found</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        No data found.<br>
+        Please try later or look for another city.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
   {{!-- modal contact form --}}
   <div class="modal fade" id="modalContactForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-full-height modal-right" role="document">
       <div class="modal-content">
-        <div class="modal-header text-center">
+        <div class="modal-header text-center blue darken-4">
           <h4 class="modal-title w-100 font-weight-bold">CONTACT US</h4>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span class="white-text" aria-hidden="true">&times;</span>
           </button>
         </div>
-        <label>FULL NAME</label>
-        <input id="name" placeholder="Name"> </input>
-        <br>
-        <label>EMAIL</label>
-        <input id="email" type="email" placeholder="youremail@yahoo.com"> </input>
-        <br>
-        <label>SUBJECT</label>
-        <input id="subject" placeholder="Subject"></input>
-
-        <br>
-        <label>YOUR MESSAGE</label>
-        <textarea id="message" placeholder="Message" rows="5"></textarea>
-        <br>
-        <div class="container">
-          <div class="row justify-content-center">
-            <button id="send-message" onclick="send(); return true;" class="btn btn-lg">
-              SEND
-              <i class="fa fa-send ml-1 fa-lg" aria-hidden="true"></i>
-            </button>
+        <div class="modal-body mx-3">
+          <div class="md-form mb-5">
+            <i class="fa fa-user prefix black-text"></i>
+            <input type="text" id="name" class="form-control validate">
+            <label data-error="wrong" data-success="right" for="name">Your name</label>
           </div>
+          <div class="md-form mb-5">
+            <i class="fa fa-envelope prefix black-text"></i>
+            <input type="email" id="email" class="form-control validate">
+            <label data-error="wrong" data-success="right" for="email">Your email</label>
+          </div>
+          <div class="md-form mb-5">
+            <i class="fa fa-tag prefix black-text"></i>
+            <input type="text" id="subject" class="form-control validate">
+            <label data-error="wrong" data-success="right" for="subject">Subject</label>
+          </div>
+          <div class="md-form">
+            <i class="fa fa-pencil prefix black-text"></i>
+            <textarea type="text" id="message" class="md-textarea form-control" rows="4"></textarea>
+            <label data-error="wrong" data-success="right" for="message">Your message</label>
+          </div>
+        </div>
+        <div class="modal-footer d-flex justify-content-center">
+          <button id="send-message"onclick="send(); return true;"class="btn blue darken-4 z-depth-3">Send
+            <i class="fa fa-paper-plane-o ml-1"></i>
+          </button>
         </div>
       </div>
     </div>
@@ -61,7 +86,7 @@
       <!-- Sidebar Start -->
       <div class="sidebar-header">
         <h3>
-          <a href="/home">Clickable Logo</a>
+          <a href="/home">Menu</a>
         </h3>
       </div>
       <!-- Side nav -->
@@ -70,12 +95,10 @@
         <div class="container-fluid text-center text-md-left">
           <ul class="list-unstyled components">
             {{#unless loginStatus}}
-            <li>
-              <a href="/login">Login</a>
-            </li>
-            {{/unless}} {{#if loginStatus}}
-            <li> Hello {{dbUser.firstName}}</li>
-
+            <li><a href="/login">Login</a></li>
+            {{/unless}}
+            {{#if loginStatus}}
+            <li> Hello {{#each data}} {{#if @first}} {{bloggerPersonalInfo.firstName}} {{/if}} {{/each}}</li>
             <li>
               <a href="/blog/author">
                 <i class="fa fa-id-card-o" aria-hidden="true"></i>
@@ -96,6 +119,17 @@
               <a href="/home">Home</a>
             </li>
           </ul>
+          <p>You are not signed in
+            <br> Click
+            <a href="/login">
+              <u>here</u>
+            </a> to sign in
+            <br> Click
+            <a id="register" href="/register">
+              <u>here</u>
+            </a> to register
+            <br>
+          </p>
     </nav>
     <!-- Sidebar end-->
     <div id="content">
@@ -109,19 +143,6 @@
           <input class="form-control autocomplete" type="search" placeholder="City Graphs" aria-label="Search" id="search-term">
           <button class="btn btn-outline-white btn-md my-2 my-sm-0 ml-3" id="search" type="submit">Search</button>
         </form>
-        {{!--
-        <ul class="navbar-nav ml-auto nav-flex-icons">
-          <li class="nav-item avatar dropdown">
-            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" class="rounded-circle z-depth-0" height="50px" alt="avatar image">
-            </a>
-            <div class="dropdown-menu dropdown-menu-right dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-5">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-          </li>
-        </ul> --}}
       </nav>
       <!--/.Navbar-->
       {{{ body }}}
@@ -130,45 +151,21 @@
         <div class="container-fluid">
           <!-- Footer Links -->
           <div class="row justify-content-center text-center">
-            <hr class="clearfix w-100 d-md-none pb-3"> {{!-- row with link data --}}
+            <hr class="clearfix w-100 d-md-none pb-3">
+            {{!-- row with link data --}}
             <div class="row">
               {{!-- col 1 --}}
               <div class="col-md">
                 <!-- Links -->
-                <h3 class="text-uppercase text-underline">
-                  <u>LINK</u>
-                </h3>
                 <ul class="list-unstyled">
                   <li>
-                    <a href="/register">SIGN UP</a>
-                  </li>
-                  <li>
-                    <a href="/login">LOG IN</a>
-                  </li>
-                  <li>
-                    <a href="/blog/author">MY DASHBOARD</a>
-                  </li>
-                  <li>
-                    <a href="/blog/new">CREATE POST</a>
-                  </li>
-                </ul>
-              </div>
-              <!-- End col 1 -->
-              {{!-- col 2 --}}
-              <div class="col-md">
-                <!-- Links -->
-                <h3 class="text-uppercase">
-                  <u>CONTENT</u>
-                </h3>
-                <ul class="list-unstyled">
-                  <li>
-                    <a href="/home">HOME</a>
+                    <a href="/home">HOME PAGE</a>
                   </li>
                   <li>
                     <a href="/about">MEET THE DEVS</a>
                   </li>
                   <li>
-                    <a href="#" data-toggle="modal" data-target="#modalContactForm">HELP</a>
+                    <a href="#" data-toggle="modal" data-target="#modalContactForm">CONTACT US</a>
                   </li>
                 </ul>
               </div>
@@ -182,20 +179,30 @@
         </div>
         <!-- Footer Links -->
         <!-- Copyright -->
-        <!-- Copyright -->
       </footer>
       <!--End Footer -->
       <!-- Footer -->
       {{!-- jQuery --}}
       <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> {{!--
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> --}}
+      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+      {{!--
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      --}}
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
       <script src='https://cdn.rawgit.com/pguso/jquery-plugin-circliful/master/js/jquery.circliful.min.js'></script>
       <!-- Bootstrap core JavaScript -->
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
       <!-- MDB core JavaScript -->
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.15/js/mdb.min.js"></script> {{!-- code for autocomplete--}} {{!--
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.15/js/mdb.min.js"></script>
+      {{!-- Scripts for highcharts starts --}}
+      <script src="https://code.highcharts.com/highcharts.js"></script>
+      <script src="https://code.highcharts.com/highcharts-3d.js"></script>
+      <script src="https://code.highcharts.com/modules/exporting.js"></script>
+      <script src="https://code.highcharts.com/modules/export-data.js"></script>
+      {{!-- Scripts for highcharts ends --}}
+      {{!-- code for autocomplete using Google Places API--}}
+      {{!--
       <script>
         function activatePlacesSearch() {
           var input = document.getElementById("search-term");
@@ -205,11 +212,13 @@
       </script>
       <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAsIt0DhPEwluc6rlQL5-ODirkIafqq1MA&libraries=places&callback=activatePlacesSearch"
         type="text/javascript">
-        </script> --}} {{!-- code for autocomplete ends --}}
+        </script> --}}
+      {{!-- code for autocomplete ends --}}
       <script type="text/javascript" src="/assets/js/script.js"></script>
       <script type="text/javascript" src="/assets/js/login.js"></script>
       <script type="text/javascript" src="assets/js/register.js"></script>
       <script type="text/javascript" src="assets/js/autocomplete.js"></script>
+      <script type="text/javascript" src="assets/js/travelBlogpiechart.js"></script>
 </body>
 
 </HTML>
