@@ -27,7 +27,16 @@ router.get("/home", function (req, res) {
             });
             // send data to handlebars and render
     } else {
-        res.render("index");
+        db.blogs.findAll({
+            order: [
+                ["createdAt", "DESC"]
+            ]}).then(function (dbPost) {
+            //  res.json(dbPost);
+
+            res.render("index", {
+               data: dbPost
+           });
+        });
     }
 });
 // login page

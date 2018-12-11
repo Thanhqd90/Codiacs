@@ -99,7 +99,7 @@
             <li><a href="/login">Login</a></li>
             {{/unless}}
             {{#if loginStatus}}
-            <li> Hello {{#each data}} {{bloggerPersonalInfo.firstName}} {{/each}}</li>
+            <li> Hello {{#each data}} {{#if @first}} {{bloggerPersonalInfo.firstName}} {{/if}} {{/each}}</li>
             <li>
               <a href="/blog/author">
                 <i class="fa fa-id-card-o" aria-hidden="true"></i>
