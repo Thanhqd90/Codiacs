@@ -10,32 +10,36 @@ router.get("/", function (req, res) {
 router.get("/home", function (req, res) {
     console.log(req.user);
     if (req.user) {
-            db.blogs.findAll({
-                order: [
-                    ["createdAt", "DESC"]
-                ],
+        db.blogs.findAll({
+            order: [
+                ["createdAt", "DESC"]
+            ],
             where: {
                 bloggerPersonalInfoId: req.user
             },
-            include:[{model:db.bloggerPersonalInfo}] }).then(function (dbPost) {
-                //  res.json(dbPost);
+            include: [{
+                model: db.bloggerPersonalInfo
+            }]
+        }).then(function (dbPost) {
+            //  res.json(dbPost);
 
-                res.render("index", {
-                  loginStatus: true,
-                   data: dbPost
-               });
+            res.render("index", {
+                loginStatus: true,
+                data: dbPost
             });
-            // send data to handlebars and render
+        });
+        // send data to handlebars and render
     } else {
         db.blogs.findAll({
             order: [
                 ["createdAt", "DESC"]
-            ]}).then(function (dbPost) {
+            ]
+        }).then(function (dbPost) {
             //  res.json(dbPost);
 
             res.render("index", {
-               data: dbPost
-           });
+                data: dbPost
+            });
         });
     }
 });
@@ -65,18 +69,22 @@ router.get("/blog/viewall", function (req, res) {
     // grab the user id that matches with users table
     var userId = req.user;
     db.blogs.findAll({
+        order: [
+            ["createdAt", "DESC"]
+        ],
         where: {
             bloggerPersonalInfoId: userId
         },
-        // order: ["createdAt" ,"DESC"],
-        // raw: true
-    }).then(function (dbBlogs) {
+        include: [{
+            model: db.bloggerPersonalInfo
+        }]
+    }).then(function (dbPost) {
+        //  res.json(dbPost);
 
-        var hbsObject = {
+        res.render("viewall", {
             loginStatus: true,
-            blogs: dbBlogs
-        };
-        return res.render("viewall", hbsObject);
+            data: dbPost
+        });
     });
 });
 
@@ -85,19 +93,42 @@ router.get("/blog/single", function (req, res) {
 });
 
 router.get("/blog/new", function (req, res) {
-    // grab the user id that matches with users table
     var userId = req.user;
-    console.log(userId);
-    var hbsObject = {
-        loginStatus: true,
-        bloggerPersonalInfoId: userId
-    };
-    return res.render("newPost", hbsObject);
+    db.blogs.findAll({
+        where: {
+            bloggerPersonalInfoId: userId
+        },
+        include: [{
+            model: db.bloggerPersonalInfo
+        }]
+    }).then(function (dbPost) {
+        //  res.json(dbPost);
+
+        res.render("newPost", {
+            loginStatus: true,
+            data: dbPost
+        });
+    });
 });
 
 // about us page
 router.get("/about", function (req, res) {
-    res.render("about");
+    var userId = req.user;
+    db.blogs.findAll({
+        where: {
+            bloggerPersonalInfoId: userId
+        },
+        include: [{
+            model: db.bloggerPersonalInfo
+        }]
+    }).then(function (dbPost) {
+        //  res.json(dbPost);
+
+        res.render("about", {
+            loginStatus: true,
+            data: dbPost
+        });
+    });
 });
 
 //routes for posting blogs
@@ -155,17 +186,17 @@ router.post("/register", function (req, res) {
 
 // highchart code starts
 
-router.get("/cityData/:city", function(req, res) {
+router.get("/cityData/:city", function (req, res) {
     db.blogs.findAll({
         attributes: [
             "category",
             [db.Sequelize.literal("COUNT((category))"), "countOfCategory"]
         ],
         where: {
-            cityVisited:req.params.city
+            cityVisited: req.params.city
         },
         group: "category"
-    }).then(function(data) {
+    }).then(function (data) {
         console.log(data);
         res.json(data);
     });
