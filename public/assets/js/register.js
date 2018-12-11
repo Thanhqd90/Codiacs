@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
     let firstName = $("#firstName");
     let lastName = $("#lastName");
     let username = $("#username");
@@ -8,7 +8,8 @@ $(document).ready(function() {
     let answer = $("#answer");
     let signUpForm = $("form.newUser");
 
-    signUpForm.on("submit", function(event) {
+
+    signUpForm.on("submit", function (event) {
         event.preventDefault();
         let userData = {
             firstName: firstName.val().trim(),
@@ -44,10 +45,11 @@ $(document).ready(function() {
             method: "PUT",
             url: "/register",
             data: userData
-        }).then(function(data) {
+        }).then(function (data) {
             window.location.replace(data);
         });
     }
+
     function resetValues() {
         firstName.val("");
         lastName.val("");
