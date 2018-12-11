@@ -61,11 +61,7 @@ router.get("/register", function (req, res) {
     res.render("register");
 });
 
-router.get("/blog/author", function (req, res) {
-    res.render("author");
-});
-
-router.get("/blog/viewall", function (req, res) {
+router.get("/viewall", function (req, res) {
     // grab the user id that matches with users table
     var userId = req.user;
     db.blogs.findAll({
@@ -88,11 +84,7 @@ router.get("/blog/viewall", function (req, res) {
     });
 });
 
-router.get("/blog/single", function (req, res) {
-    res.render("single");
-});
-
-router.get("/blog/new", function (req, res) {
+router.get("/new", function (req, res) {
     var userId = req.user;
     db.blogs.findAll({
         where: {
@@ -132,7 +124,7 @@ router.get("/about", function (req, res) {
 });
 
 //routes for posting blogs
-router.post("/blog/create", function (req, res) {
+router.post("/create", function (req, res) {
     var userId = req.user;
     console.log(req.body);
     db.blogs.create({
@@ -152,7 +144,7 @@ router.post("/blog/create", function (req, res) {
         .then(function (dbBlog) {
             console.log(dbBlog);
             console.log("I am redirecting");
-            res.redirect("/blog/viewall");
+            res.redirect("/viewall");
         })
         .catch(function (err) {
             console.log(err);
