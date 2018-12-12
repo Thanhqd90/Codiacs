@@ -1,12 +1,23 @@
+<div class="container" id="registerBody container">
 
-<div id="registerBody">
-    <!-- Default form register -->
+    <!--Card-->
+    <div class="card mb-2 wow fadeIn">
+      <div class="card-header font-weight-bold">
+        <div class="row">
+          <div class="col-md-12">
+            <h1 class="h1-responsive font-weight-bold text-white text-center pt-2">Register</h1>
+          </div>
+        </div>
+      </div>
+
+ <!-- Default form register -->
     <form id="newUser" class="blog text-center border border-light p-5" action="/register" method="POST">
         <p id="header" class="h4 mb-4">Sign up</p>
         <div class="form-row mb-4">
             <div class="col">
                 <!-- First name -->
-                <input type="text" name="firstName" id="firstName" value="" class="form-control" placeholder="First name" required>
+                <input type="text" name="firstName" id="firstName" value="" class="form-control" placeholder="First name"
+                    required>
             </div>
             <div class="col">
                 <!-- Last name -->
@@ -35,10 +46,10 @@
             <input type="checkbox" class="custom-control-input" name="acceptTerm" id="acceptTerm" required>
             <label class="custom-control-label" for="acceptTerm">I agree to terms of service</label>
         </div> --}}
-          <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+        <div style="display: none" id="alert" class="alert alert-danger" role="alert">
             <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
             <span class="sr-only">Error:</span> <span class="msg"></span>
-          </div>
+        </div>
         <!-- Sign up button -->
         <button id="signUpButton" class="btn btn-info my-4 btn-block" type="submit">Sign up</button>
         <a href="/views/login.handlebars">Have an account? Log in.</a>
@@ -50,5 +61,7 @@
 
     </form>
     <!-- Default form register -->
-</div>
 
+  </div>
+
+</div>

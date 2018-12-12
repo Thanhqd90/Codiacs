@@ -2,23 +2,23 @@
 #body-container{
     color: white;
     background-color: rgb(10, 32, 44);
-    }
-    #body-style{
-       background-image: url('/assets/images/aboutbg.jpg');
-       background-position: center;
-       background-size: cover;
-       background-repeat: no-repeat;
-       background-attachment: fixed;
-    }
-    /* card style */
-    .card-pic {
-       width: 12rem;
-       height: 20rem;
-       margin: 10px;
-       color: white;
-       background-color: rgb(61, 0, 0);
-    }
-    #social-button{
-       border-radius: 40px;
-       color: black;
-    }
+}
+#body-style{
+    background-image: url('/assets/images/aboutbg.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+/* card style */
+.card-pic {
+    width: 12rem;
+    height: 20rem;
+    margin: 10px;
+    color: white;
+    background-color: rgb(61, 0, 0);
+}
+#social-button{
+    border-radius: 40px;
+    color: black;
+}
