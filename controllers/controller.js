@@ -30,11 +30,15 @@ router.get("/home", function (req, res) {
         db.blogs.findAll({
             order: [
                 ["createdAt", "DESC"]
-            ]
+            ],
+            include: [{
+                model: db.bloggerPersonalInfo
+            }]
         }).then(function (dbPost) {
             //  res.json(dbPost);
 
             res.render("index", {
+                loginStatus: false,
                 data: dbPost
             });
         });
@@ -125,11 +129,6 @@ router.get("/about", function (req, res) {
 router.post("/create", function (req, res) {
     var userId = req.user;
     console.log(req.body);
-
-    let catSum = 0;
-    for (let i = 0; i < req.body.category.length; i++) {
-        catSum += parseInt (req.body.category[i]);
-    }
     db.blogs.create({
             title: req.body.title,
             isVisible: req.body.isVisible,
@@ -141,7 +140,7 @@ router.post("/create", function (req, res) {
             bestTime: req.body.bestTime,
             countryVisited: req.body.countryVisited,
             cityVisited: req.body.cityVisited,
-            category: catSum,
+            category: req.body.category,
             bloggerPersonalInfoId: userId
         })
         .then(function (dbBlog) {
