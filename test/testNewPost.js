@@ -19,9 +19,9 @@ describe("newPost", function () {
                 show: true
             });
             nightmare
-                .goto("http://localhost:8080/blog/new")
-                .select ("#countryVisited", "AFG")
-                .select ("#bestTime", "Feb")
+                .goto("http://localhost:8080/new")
+                .select ("#countryVisited", "Afghanistan")
+                .select ("#bestTime", "Anytime")
                 .type("textarea[id='cityVisited']", dataStrings[1])
                 .type("textarea[id='stayAt']", dataStrings[2])
                 .type("textarea[id='placesVisited']", dataStrings[3])
