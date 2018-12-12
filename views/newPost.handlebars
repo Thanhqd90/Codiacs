@@ -7,6 +7,7 @@
 
     <!-- Default form register -->
     <form id="blog-form" action="/blog/create" method="POST" class="text-center p-5">
+<!--    <form id="blog-form" class="text-center p-5">-->
         <h1 class="h1-responsive font-weight-bold text-white text-center mb-5 pt-2">Create new post</h1>
         <hr>
         <input type="hidden" type="text" name="bloggerPersonalInfoId" class="bloggerPersonalInfoId" value={{this.id}}>
@@ -380,19 +381,19 @@
                         <div class="row black-text">
                             <div class="col-md-4">
                                 <div class="custom-control custom-checkbox">
-                                    <input name="category" type="checkbox" class="custom-control-input" id="defaultUnchecked">
+                                    <input name="category" value="1" type="checkbox" class="custom-control-input" id="defaultUnchecked">
                                     <label class="custom-control-label" for="defaultUnchecked">Amusement</label>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="custom-control custom-checkbox">
-                                    <input name="category" type="checkbox" class="custom-control-input" id="defaultUnchecked1">
+                                    <input name="category" value="2" type="checkbox" class="custom-control-input" id="defaultUnchecked1">
                                     <label class="custom-control-label" for="defaultUnchecked1">Entertainment</label>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="custom-control custom-checkbox">
-                                    <input name="category" type="checkbox" class="custom-control-input" id="defaultUnchecked2">
+                                    <input name="category" value="4" type="checkbox" class="custom-control-input" id="defaultUnchecked2">
                                     <label class="custom-control-label" for="defaultUnchecked2">Romantic</label>
                                 </div>
                             </div>

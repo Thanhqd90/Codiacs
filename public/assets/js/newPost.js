@@ -15,8 +15,12 @@ $(document).ready(function () {
     let defaultUnchecked2 = $("#defaultUnchecked2");
     let blogForm = $("blog-form");
 
+    // not running because we have an action on the form.
     blogForm.on("submit", function (event) {
         event.preventDefault();
+        let buttons = parseint(defaultUnchecked, 10) +
+            parseInt(defaultUnchecked1, 10) +
+            parseInt(defaultUnchecked2, 10);
         let userData = {
             bloggerPersonalInfoId: bloggerPersonalInfoId.val(),
             title: title.val().trim(),
@@ -29,11 +33,12 @@ $(document).ready(function () {
             experience: experience.val().trim(),
             photos: photos.val().trim(),
             isVisible: isVisible.val().trim(),
-            defaultUnchecked: defaultUnchecked.val(),
-            defaultUnchecked1: defaultUnchecked1.val(),
-            defaultUnchecked2: defaultUnchecked2.val()
+            category: buttons
+            //            defaultUnchecked: defaultUnchecked.val(),
+            //            defaultUnchecked1: defaultUnchecked1.val(),
+            //            defaultUnchecked2: defaultUnchecked2.val()
         };
-        if (
+        if ( // completely blank form
             !(
                 title.val().trim() ||
                 countryVisited ||
@@ -57,6 +62,7 @@ $(document).ready(function () {
         resetValues();
     });
 
+    // Not running because we have an action on the form
     // Does a post to the signup route. If successful, we are redirected to the members page
     // Otherwise we log any errors
     function blog(userData) {
