@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <title>Codiacs Project 2</title>
   <meta charset="UTF-8">
@@ -43,8 +42,8 @@
   <div class="modal fade" id="modalContactForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-full-height modal-right" role="document">
       <div class="modal-content">
-        <div class="modal-header text-center">
-          <h4 id="header" class="modal-title w-100 font-weight-bold white-text">CONTACT US</h4>
+        <div class="modal-header text-center blue darken-4">
+          <h4 class="modal-title w-100 font-weight-bold">CONTACT US</h4>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span class="white-text" aria-hidden="true">&times;</span>
           </button>
@@ -95,7 +94,7 @@
         <div class="container-fluid text-center text-md-left">
           <ul class="list-unstyled components">
             {{#if loginStatus}}
-            <li> Hello {{#each data}} {{#if @first}} {{bloggerPersonalInfo.firstName}} {{/if}} {{/each}}</li>
+            <li> Hello {{dbUser.firstName}}</li>
             {{/if}}
             <li>
               <a href="/home"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
@@ -107,7 +106,7 @@
             <li>
               <a href="/viewall">
                 <i class="fa fa-id-card-o" aria-hidden="true"></i>
-                My Blogs</a>
+                View all blogs</a>
             </li>
             <li>
               <a href="/new">
@@ -117,7 +116,6 @@
               <a href="/logout"><i class="fa fa-sign-out"></i> Logout</a>
             </li>
             {{/if}}
-
           </ul>
     </nav>
     <!-- Sidebar end-->
@@ -161,7 +159,8 @@
               <!-- End col 2 -->
             </div>
             <!-- end of link row-->
-            <div id="footer-copyright" class="footer-copyright text-center py-3">© 2018 Copyright: The Codiacs
+            <div id="footer-copyright" class="footer-copyright text-center py-3">© 2018 Copyright:
+              <a href=""> The Codiacs</a>
             </div>
           </div>
         </div>
@@ -169,10 +168,10 @@
         <!-- Copyright -->
       </footer>
       <!--End Footer -->
+      <!-- Footer -->
       {{!-- jQuery --}}
       <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
       <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
       {{!--
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
       --}}
@@ -207,5 +206,5 @@
       <script type="text/javascript" src="assets/js/autocomplete.js"></script>
       <script type="text/javascript" src="assets/js/travelBlogpiechart.js"></script>
 </body>
-
 </HTML>
+

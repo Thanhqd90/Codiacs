@@ -14,9 +14,6 @@ router.get("/home", function (req, res) {
             order: [
                 ["createdAt", "DESC"]
             ],
-            where: {
-                bloggerPersonalInfoId: req.user
-            },
             include: [{
                 model: db.bloggerPersonalInfo
             }]
@@ -33,11 +30,15 @@ router.get("/home", function (req, res) {
         db.blogs.findAll({
             order: [
                 ["createdAt", "DESC"]
-            ]
+            ],
+            include: [{
+                model: db.bloggerPersonalInfo
+            }]
         }).then(function (dbPost) {
             //  res.json(dbPost);
 
             res.render("index", {
+                loginStatus: false,
                 data: dbPost
             });
         });
@@ -47,10 +48,8 @@ router.get("/home", function (req, res) {
 router.get("/login", function (req, res) {
     res.render("login");
 });
-router.post("/login", passport.authenticate("local"), function (req, res) {
-    res.redirect("/home");
-});
-
+router.post("/login", passport.authenticate("local", { successRedirect:"/home",
+    failureRedirect: "/login" }));
 //logout redirects back to homepage
 router.get("/logout", function (req, res) {
     req.logout();
@@ -105,30 +104,32 @@ router.get("/new", function (req, res) {
 
 // about us page
 router.get("/about", function (req, res) {
-    var userId = req.user;
-    db.blogs.findAll({
-        where: {
-            bloggerPersonalInfoId: userId
-        },
-        include: [{
-            model: db.bloggerPersonalInfo
-        }]
-    }).then(function (dbPost) {
+    if (req.user) {
+        var userId = req.user;
+        db.blogs.findAll({
+            where: {
+                bloggerPersonalInfoId: userId
+            },
+            include: [{
+                model: db.bloggerPersonalInfo
+            }]
+        }).then(function (dbPost) {
         //  res.json(dbPost);
-
-        res.render("about", {
-            loginStatus: true,
-            data: dbPost
+            res.render("about", {
+                loginStatus: true,
+                data: dbPost
+            });
         });
-    });
+    } else {
+        res.render("about");
+    }
 });
 
 //routes for posting blogs
 router.post("/create", function (req, res) {
     var userId = req.user;
     console.log(req.body);
-    db.blogs.create(
-        {
+    db.blogs.create({
             title: req.body.title,
             isVisible: req.body.isVisible,
             mustHaves: req.body.mustHaves,
