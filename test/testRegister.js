@@ -3,7 +3,7 @@ require("mocha");
 let Nightmare = require("nightmare");
 //const nightmare = null;
 
-describe("home page click register", function () {
+describe("register page", function () {
     console.log("home page");
     this.timeout(15000);
     it("should work", (done) => {
