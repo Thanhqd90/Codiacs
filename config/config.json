@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "root",
-    "password": "0921",
-    "port": 3306,
+    "password": "root",
+    "port": 8889,
     "database": "codiacs",
     "host": "127.0.0.1",
     "dialect": "mysql"
