@@ -11,12 +11,8 @@ router.get("/home", function (req, res) {
     console.log(req.user);
     if (req.user) {
         db.blogs.findAll({
-            order: [
-                ["createdAt", "DESC"]
-            ],
-            include: [{
-                model: db.bloggerPersonalInfo
-            }]
+            order: [['createdAt', 'DESC']],
+            include: [{model: db.bloggerPersonalInfo}]
         }).then(function (dbPost) {
             //  res.json(dbPost);
 
