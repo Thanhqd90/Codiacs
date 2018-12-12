@@ -14,9 +14,6 @@ router.get("/home", function (req, res) {
             order: [
                 ["createdAt", "DESC"]
             ],
-            where: {
-                bloggerPersonalInfoId: req.user
-            },
             include: [{
                 model: db.bloggerPersonalInfo
             }]
@@ -105,6 +102,7 @@ router.get("/new", function (req, res) {
 
 // about us page
 router.get("/about", function (req, res) {
+    if (req.user) {
     var userId = req.user;
     db.blogs.findAll({
         where: {
@@ -121,26 +119,31 @@ router.get("/about", function (req, res) {
             data: dbPost
         });
     });
+} else {
+
+        res.render("about")
+}
 });
 
 //routes for posting blogs
 router.post("/create", function (req, res) {
     var userId = req.user;
     console.log(req.body);
-    db.blogs.create({
-        title: req.body.title,
-        isVisible: req.body.isVisible,
-        mustHaves: req.body.mustHaves,
-        stayAt: req.body.stayAt,
-        placesVisited: req.body.placesVisited,
-        photos: req.body.photos,
-        experience: req.body.experience,
-        bestTime: req.body.bestTime,
-        countryVisited: req.body.countryVisited,
-        cityVisited: req.body.cityVisited,
-        category: req.body.category,
-        bloggerPersonalInfoId: userId
-    })
+    db.blogs.create(
+        {
+            title: req.body.title,
+            isVisible: req.body.isVisible,
+            mustHaves: req.body.mustHaves,
+            stayAt: req.body.stayAt,
+            placesVisited: req.body.placesVisited,
+            photos: req.body.photos,
+            experience: req.body.experience,
+            bestTime: req.body.bestTime,
+            countryVisited: req.body.countryVisited,
+            cityVisited: req.body.cityVisited,
+            category: req.body.category,
+            bloggerPersonalInfoId: userId
+        })
         .then(function (dbBlog) {
             console.log(dbBlog);
             console.log("I am redirecting");
@@ -152,28 +155,9 @@ router.post("/create", function (req, res) {
         });
 });
 
-function isAlpha(str) {
-    let code, i, len;
-    for (i = 0, len = str.length; i < len; i++) {
-        code = str.charCodeAt(i);
-        if (!(code > 64 && code < 91) && // upper alpha (A-Z)
-            !(code > 96 && code < 123)) { // lower alpha (a-z)
-            console.log("isAlpha false");
-            return false;
-        }
-    }
-    console.log("isAlpha true");
-    return true;
-}
-
-
 //routes for Blogger
 router.post("/register", function (req, res) {
-    if (!isAlpha(req.body.firstName) || !isAlpha(req.body.lastName)) {
-        res.render("register");
-        return;
-    }
-
+    console.log(req.body);
     db.bloggerPersonalInfo
         .create({
             firstName: req.body.firstName,
