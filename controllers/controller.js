@@ -14,9 +14,6 @@ router.get("/home", function (req, res) {
             order: [
                 ["createdAt", "DESC"]
             ],
-            where: {
-                bloggerPersonalInfoId: req.user
-            },
             include: [{
                 model: db.bloggerPersonalInfo
             }]
