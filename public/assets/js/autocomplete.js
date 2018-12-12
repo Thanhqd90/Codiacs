@@ -19,6 +19,7 @@ $(document).ready(function() {
             "Haryana" ,
             "Hidalgo" ,
             "New York" ,
+            "New Delhi"
         ];
         $( "#search-term" ).autocomplete({
             source: availableTags
