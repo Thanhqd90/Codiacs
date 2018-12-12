@@ -3,18 +3,6 @@ require("mocha");
 let Nightmare = require("nightmare");
 //const nightmare = null;
 
-//this.timeout("20s");
-describe("Login Page", function () {
-    //var nightmare = null;
-    beforeEach(() => {
-        console.log("beforeEach");
-        // show true lets you see wth is actually happening :)
-        // nightmare = new Nightmare({
-        //     show: true
-        // });
-    });
-});
-
 describe("home page click register", function () {
     console.log("home page");
     this.timeout(15000);
@@ -23,10 +11,10 @@ describe("home page click register", function () {
             show: true
         });
         nightmare
-            .goto("http://localhost:8080/home")
-            .click("#register")
+            .goto("http://localhost:8080/login")
+            .click("#here")
             .wait(3000)
-            .wait("#registerBody")
+            .wait("#registerPage")
             .end()
             .then(function () {
                 done();
@@ -83,7 +71,7 @@ describe("home page click register", function () {
                 //            .click("#terms")
                 .click("#signUpButton")
                 .wait(3000)
-                .wait("#registerBody") // should find this
+                .exists ("#signUpButton")
                 .end()
                 .then(function () {
                     done();

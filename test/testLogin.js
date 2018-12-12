@@ -12,11 +12,10 @@ describe("login page", function () {
         });
         nightmare
             .goto("http://localhost:8080/login")
-            .type("input[id='email']", "rgbyford@gmail.com")
             .type("input[id='password']", "password")
+            .type("input[id='email']", "rgbyford@gmail.com")
             .click("#log_in_btn")
-            .wait(3000)
-            .wait("#home-page")
+            .wait("#home-page", 3000)
             .end()
             .then(function () {
                 done();
