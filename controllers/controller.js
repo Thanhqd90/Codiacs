@@ -14,9 +14,6 @@ router.get("/home", function (req, res) {
             order: [
                 ["createdAt", "DESC"]
             ],
-            where: {
-                bloggerPersonalInfoId: req.user
-            },
             include: [{
                 model: db.bloggerPersonalInfo
             }]
@@ -47,10 +44,8 @@ router.get("/home", function (req, res) {
 router.get("/login", function (req, res) {
     res.render("login");
 });
-router.post("/login", passport.authenticate("local"), function (req, res) {
-    res.redirect("/home");
-});
-
+router.post("/login", passport.authenticate("local", { successRedirect:"/home",
+    failureRedirect: "/login" }));
 //logout redirects back to homepage
 router.get("/logout", function (req, res) {
     req.logout();
@@ -61,11 +56,7 @@ router.get("/register", function (req, res) {
     res.render("register");
 });
 
-router.get("/blog/author", function (req, res) {
-    res.render("author");
-});
-
-router.get("/blog/viewall", function (req, res) {
+router.get("/viewall", function (req, res) {
     // grab the user id that matches with users table
     var userId = req.user;
     db.blogs.findAll({
@@ -88,11 +79,7 @@ router.get("/blog/viewall", function (req, res) {
     });
 });
 
-router.get("/blog/single", function (req, res) {
-    res.render("single");
-});
-
-router.get("/blog/new", function (req, res) {
+router.get("/new", function (req, res) {
     var userId = req.user;
     db.blogs.findAll({
         where: {
@@ -113,28 +100,32 @@ router.get("/blog/new", function (req, res) {
 
 // about us page
 router.get("/about", function (req, res) {
-    var userId = req.user;
-    db.blogs.findAll({
-        where: {
-            bloggerPersonalInfoId: userId
-        },
-        include: [{
-            model: db.bloggerPersonalInfo
-        }]
-    }).then(function (dbPost) {
+    if (req.user) {
+        var userId = req.user;
+        db.blogs.findAll({
+            where: {
+                bloggerPersonalInfoId: userId
+            },
+            include: [{
+                model: db.bloggerPersonalInfo
+            }]
+        }).then(function (dbPost) {
         //  res.json(dbPost);
-
-        res.render("about", {
-            loginStatus: true,
-            data: dbPost
+            res.render("about", {
+                loginStatus: true,
+                data: dbPost
+            });
         });
-    });
+    } else {
+        res.render("about");
+    }
 });
 
 //routes for posting blogs
-router.post("/blog/create", function (req, res) {
+router.post("/create", function (req, res) {
     var userId = req.user;
     console.log(req.body);
+
     let catSum = 0;
     for (let i = 0; i < req.body.category.length; i++) {
         catSum += parseInt (req.body.category[i]);
@@ -156,7 +147,7 @@ router.post("/blog/create", function (req, res) {
         .then(function (dbBlog) {
             console.log(dbBlog);
             console.log("I am redirecting");
-            res.redirect("/blog/viewall");
+            res.redirect("/viewall");
         })
         .catch(function (err) {
             console.log(err);
@@ -164,28 +155,9 @@ router.post("/blog/create", function (req, res) {
         });
 });
 
-function isAlpha(str) {
-    let code, i, len;
-    for (i = 0, len = str.length; i < len; i++) {
-        code = str.charCodeAt(i);
-        if (!(code > 64 && code < 91) && // upper alpha (A-Z)
-            !(code > 96 && code < 123)) { // lower alpha (a-z)
-            console.log("isAlpha false");
-            return false;
-        }
-    }
-    console.log("isAlpha true");
-    return true;
-}
-
-
 //routes for Blogger
 router.post("/register", function (req, res) {
-    if (!isAlpha(req.body.firstName) || !isAlpha(req.body.lastName)) {
-        res.render("register");
-        return;
-    }
-
+    console.log(req.body);
     db.bloggerPersonalInfo
         .create({
             firstName: req.body.firstName,

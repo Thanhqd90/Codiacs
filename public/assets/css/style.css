@@ -27,6 +27,9 @@ background-color: rgb(36, 0, 0);
 
 }
 
+hr.style2 {
+	border-top: 3px double #8c8b8b;
+}
 .card-header {
     background-color: rgba(61, 0, 0);
     border: 2px white solid;
