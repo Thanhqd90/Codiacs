@@ -14,3 +14,5 @@ function send() {
         window.open("mailto:jeffreyvh@ymail.com" + "?subject=" + document.getElementById("subject").value + "&body=" + document.getElementById("name").value + space + document.getElementById("email").value + space + document.getElementById("message").value);
     }, 320);
 }
+
+module.exports= send;
