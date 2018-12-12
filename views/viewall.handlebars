@@ -4,69 +4,78 @@
     <!--Grid row-->
     <div class="row">
 
-            <!--Card-->
-            <div class="card mb-2 wow fadeIn">
+        <!--Card-->
+        <div class="card mb-2 wow fadeIn expand">
 
-                <div class="card-header font-weight-bold">
-                    <div class="row">
+            <div class="card-header font-weight-bold">
+                <div class="row">
 
-                        <div class="col-md-12">
-                            <h1 class="h1-responsive font-weight-bold text-white text-center pt-2">View all blogs written by me</h1>
-                        </div>
-                        {{!-- <div class="col-md-6">
-                            <form class="form-inline justify-content-end">
-                                <input class="form-control form-control-sm mr-3 w-50" type="text" placeholder="Search posts made by author"
-                                    aria-label="Search">
-                                <i class="fa fa-search" aria-hidden="true"></i>
-                            </form>
-                        </div> --}}
+                    <div class="col-md-12">
+                        <h1 id="header" class="h1-responsive font-weight-bold text-white text-center pt-2">View all blogs written by me</h1>
                     </div>
-                </div>
-
-                <!--Card content-->
-                <div class="card-body blog">
-                    <div class="row">
-                        <div class="col-md-12">
-                            {{#each data}}
-                            <div class="expand">
-                                <h5 class="mt-0 mb-1 font-weight-bold">Handlebar Post #{{this.id}} display
-                                    successful!!</h5>
-                                <h2>Title: {{title}}</h2>
-                                <h2>Country Visited: {{countryVisited}}</h2>
-                                <h2>City Visited: {{cityVisited}}</h2>
-                                <h2>Stayed At: {{stayAt}}</h2>
-                                <h2>Experience: {{experience}}</h2>
-                            </div>
-                            <hr class="style2">
-                            {{/each}}
-                        </div>
-                    </div>
-                </div>
-                <div class="card-header">
-                    <nav>
-                        <ul class="pagination pagination-lgpg-darkgrey justify-content-center">
-                            <li class="page-item">
-                                <a class="page-link" aria-label="Previous">
-                                    <span aria-hidden="true">&laquo;</span>
-                                    <span class="sr-only">Previous</span>
-                                </a>
-                            </li>
-                            <li class="page-item active"><a class="page-link">1</a></li>
-                            <li class="page-item"><a class="page-link">2</a></li>
-                            <li class="page-item"><a class="page-link">3</a></li>
-                            <li class="page-item"><a class="page-link">4</a></li>
-                            <li class="page-item"><a class="page-link">5</a></li>
-                            <li class="page-item">
-                                <a class="page-link" aria-label="Next">
-                                    <span aria-hidden="true">&raquo;</span>
-                                    <span class="sr-only">Next</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
+                    {{!--
+                    <div class="col-md-6">
+                        <form class="form-inline justify-content-end">
+                            <input class="form-control form-control-sm mr-3 w-50" type="text" placeholder="Search posts made by author" aria-label="Search">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </form>
+                    </div> --}}
                 </div>
             </div>
-            <!--/.Card-->
 
+            <!--Card content-->
+            <div class="card-body blog">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="errorHeading" id="errorHeading"></h1>
+                        {{#each data}}
+                        <div class="expand">
+                            <hr class="style2">
+                            <div class="row">
+                                <div class="col-md-3">
+                                </div>
+                                <div class="col-md-6">
+                                    <h1 id="title" class="text-center">
+                                        <u>{{title}}</u>
+                                    </h1>
+                                </div>
+                            </div>
+                            <hr class="style2">
+                            <h5 class="mt-3" id="category">
+                                <i class="fa fa-tag blue-text" aria-hidden="true"></i>
+                                <u>CATEGORY</u>
+                            </h5>
+                            <p>{{category}}</p>
+
+                            <h2 id="place" class="mt-5">
+                                <i class="fa fa-hotel blue-text" aria-hidden="true"></i>
+                                <u>PLACE</u>
+                            </h2>
+                            <p class="white-text">{{stayAt}}, {{cityVisited}}, {{countryVisited}}</p>
+                            {{!-- besttime to visit --}}
+                            <h2 id="best-time" class="mt-5">
+                                <i class="fa fa-tree blue-text" aria-hidden="true"></i>
+                                <u>BEST TIME TO VISIT</u>
+                            </h2>
+                            <p class="white-text">{{bestTime}}</p>
+                            {{!-- must haves --}}
+                            <h2 id="must-haves" class="mt-5">
+                                <i class="fa fa-thumbs-up blue-text" aria-hidden="true"></i>
+                                <u>THINGS NEEDED FOR TRIP</u>
+                            </h2>
+                            <p class="white-text">{{mustHaves}}</p>
+                            <h2 id="experience" class="mt-5">
+                                <i class="fa fa-suitcase blue-text" aria-hidden="true"></i>
+                                <u>EXPERIENCE</u>
+                            </h2>
+                            <p class="white-text mb-5">{{experience}}</p>
+                            <h5>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/.Card-->
     </div>
 </div>

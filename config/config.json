@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "0921",
+    "password": "root",
     "port": 3306,
     "database": "codiacs",
     "host": "127.0.0.1",
