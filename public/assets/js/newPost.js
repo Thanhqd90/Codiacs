@@ -18,9 +18,16 @@ $(document).ready(function () {
     // not running because we have an action on the form.
     blogForm.on("submit", function (event) {
         event.preventDefault();
-        let buttons = parseint(defaultUnchecked, 10) +
-            parseInt(defaultUnchecked1, 10) +
-            parseInt(defaultUnchecked2, 10);
+        let sButtons = "";
+        if (defaultUnchecked.val() !== "") {
+            sButtons = defaultUnchecked.val();
+        }
+        else if (defaultUnchecked1.val() !== "") {
+            sButtons = defaultUnchecked1.val();
+        }
+        else if (defaultUnchecked2.val() !== "") {
+            sButtons = defaultUnchecked2.val();
+        }
         let userData = {
             bloggerPersonalInfoId: bloggerPersonalInfoId.val(),
             title: title.val().trim(),
@@ -33,10 +40,7 @@ $(document).ready(function () {
             experience: experience.val().trim(),
             photos: photos.val().trim(),
             isVisible: isVisible.val().trim(),
-            category: buttons
-            //            defaultUnchecked: defaultUnchecked.val(),
-            //            defaultUnchecked1: defaultUnchecked1.val(),
-            //            defaultUnchecked2: defaultUnchecked2.val()
+            category: sButtons
         };
         if ( // completely blank form
             !(

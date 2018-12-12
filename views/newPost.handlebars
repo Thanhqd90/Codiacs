@@ -3,19 +3,17 @@
     <!-- Custom Script -->
 </head>
 
-<div id="formbg" class="container">
-
-    <!-- Default form register -->
-    <form id="blog-form" action="/blog/create" method="POST" class="text-center p-5">
-<!--    <form id="blog-form" class="text-center p-5">-->
-        <h1 class="h1-responsive font-weight-bold text-white text-center mb-5 pt-2">Create new post</h1>
-        <hr>
-        <input type="hidden" type="text" name="bloggerPersonalInfoId" class="bloggerPersonalInfoId" value={{this.id}}>
-        <div class="form-row mb-4 justify-content-center">
-            <div class="col-md-5 border-focus">
-                <label class="h3" for="inputPrefilledEx">TITLE</label>
-                <!-- title-->
-                <input type="text" name="title" id="title" id="inputPrefilledEx" class="form-control" value="My Experience">
+<div id="formbg" class="container" id="container">
+    <!--Grid row-->
+    <div class="row">
+        <!--Card-->
+        <div class="card mb-2 wow fadeIn expand">
+            <div class="card-header font-weight-bold">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="h1-responsive font-weight-bold text-white text-center pt-2">Create new post</h1>
+                    </div>
+                </div>
             </div>
 
             <!--Card content-->
@@ -30,6 +28,7 @@
                             <input type="text" name="title" id="title" id="inputPrefilledEx" class="form-control" value="My Experience">
                         </div>
                     </div>
+
 
                     <div class="row">
                         {{!-- country visited --}}
@@ -301,20 +300,12 @@
                             <label class="h4" for="bestTime">BEST TIME TO VISIT</label>
                             <div class="form-group border-focus">
                                 <select title="bestTime" id="bestTime" class="mdb-select p-2 col-md-12 border-focus">
-                                    <option value="" disabled selected>SELECT MONTH</option>
-                                    <option value="Jan">Jan</option>
-                                    <option value="Feb">Feb</option>
-                                    <option value="Mar">Mar</option>
-                                    <option value="Apr">Apr</option>
-                                    <option value="May">May</option>
-                                    <option value="Jun">Jun</option>
-                                    <option value="Jul">Jul</option>
-                                    <option value="Aug">Aug</option>
-                                    <option value="Sep">Sep</option>
-                                    <option value="Oct">Oct</option>
-                                    <option value="Nov">Nov</option>
-                                    <option value="Dec">Dec</option>
-
+                                    <option value="" disabled selected>SELECT SEASON</option>
+                                    <option value="January">Spring</option>
+                                    <option value="February">Summer</option>
+                                    <option value="March">Autumn</option>
+                                    <option value="April">Winter</option>
+                                    <option value="Anytime">Anytime</option>
                                 </select>
                             </div>
                         </div>
@@ -332,7 +323,7 @@
                         <div class="col-md-6">
                             <div class="form-group border-focus">
                                 <label class="h4" for="stayAt">STAYED AT</label>
-                                <textarea name="stayAt" class="form-control" id="stayAt" rows="2"></textarea>
+                                <textarea name="stayAt" class="form-control" id="stayAt" rows="1"></textarea>
                             </div>
                         </div>
                     </div>
@@ -340,15 +331,15 @@
                         {{!-- places visited --}}
                         <div class="col-md-6">
                             <div class="form-group border-focus">
-                                <label class="h4" name="placesVisited" for="placesVisited">PLACES VISITED</label>
-                                <textarea class="form-control" id="placesVisited" rows="2"></textarea>
+                                <label class="h4" for="placesVisited">PLACES VISITED</label>
+                                <textarea name="placesVisited" class="form-control" id="placesVisited" rows="1"></textarea>
                             </div>
                         </div>
                         {{!-- must haves for trip --}}
                         <div class="col-md-6">
                             <div class="form-group border-focus">
-                                <label class="h4" name="mustHaves" for="mustHaves">ITEMS NEEDED FOR THE TRIP</label>
-                                <textarea class="form-control" id="mustHaves" rows="2"></textarea>
+                                <label class="h4" for="mustHaves">ITEMS NEEDED FOR THE TRIP</label>
+                                <textarea name="mustHaves" class="form-control" id="mustHaves" rows="1"></textarea>
                             </div>
                         </div>
 
@@ -364,48 +355,27 @@
                             </div>
                         </div>
                     </div>
-
-                </div>
-            </div>
-            <!-- blog private or public -->
-            <div class="col-md-6">
-                <select name="isVisibile" id="isVisible" value="varify" class="browser-default custom-select">
-                    <option selected>MAKE BLOG PUBLIC/PRIVATE</option>
-                    <option value="1">PUBLIC</option>
-                    <option value="0">PRIVATE</option>
-                </select>
-            </div>
-        </div>
-        <hr>
-        <div class="row justify-content-center">
-            <h4>CATEGORY OF YOUR EXPERIENCE</h4>
-        </div>
-        <div class="row">
-            <section class="col-md-12">
-                <!-- Default unchecked -->
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row black-text">
-                            <div class="col-md-4">
-                                <div class="custom-control custom-checkbox">
-                                    <input name="category" value="1" type="checkbox" class="custom-control-input" id="defaultUnchecked">
-                                    <label class="custom-control-label" for="defaultUnchecked">Amusement</label>
-                                </div>
+                    {{!-- image upload --}}
+                    <div class="row">
+                        <!-- blog private or public -->
+                        <div class="col-md-6">
+                            <h4><br></h4>
+                            <select name="isVisibile" id="isVisible" value="varify" class="browser-default custom-select">
+                                <option selected>MAKE BLOG PUBLIC/PRIVATE</option>
+                                <option value="1">PUBLIC</option>
+                                <option value="0">PRIVATE</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group border-focus">
+                                <label class="h4" for="category">EXPERIENCE CATEGORY</label>
+                                <textarea name="category" class="form-control" id="category" rows="1"></textarea>
                             </div>
-                            <div class="col-md-4">
-                                <div class="custom-control custom-checkbox">
-                                    <input name="category" value="2" type="checkbox" class="custom-control-input" id="defaultUnchecked1">
-                                    <label class="custom-control-label" for="defaultUnchecked1">Entertainment</label>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="custom-control custom-checkbox">
-                                    <input name="category" value="4" type="checkbox" class="custom-control-input" id="defaultUnchecked2">
-                                    <label class="custom-control-label" for="defaultUnchecked2">Romantic</label>
-                                </div>
-                            </div>
-                        </section>
+                        </div>
                     </div>
+                    <hr>
+
+
                     <div class="row justify-content-center my-4">
                         <button id="newPostSubmit" type="submit" class="btn btn-lg black-text white">FINISH</button>
                         <a href="/new" class="btn btn-lg black-text white">CLEAR</a>
