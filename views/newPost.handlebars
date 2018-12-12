@@ -3,17 +3,19 @@
     <!-- Custom Script -->
 </head>
 
-<div id="formbg" class="container" id="container">
-    <!--Grid row-->
-    <div class="row">
-        <!--Card-->
-        <div class="card mb-2 wow fadeIn">
-            <div class="card-header font-weight-bold">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h1 class="h1-responsive font-weight-bold text-white text-center pt-2">Create new post</h1>
-                    </div>
-                </div>
+<div id="formbg" class="container">
+
+    <!-- Default form register -->
+    <form id="blog-form" action="/blog/create" method="POST" class="text-center p-5">
+<!--    <form id="blog-form" class="text-center p-5">-->
+        <h1 class="h1-responsive font-weight-bold text-white text-center mb-5 pt-2">Create new post</h1>
+        <hr>
+        <input type="hidden" type="text" name="bloggerPersonalInfoId" class="bloggerPersonalInfoId" value={{this.id}}>
+        <div class="form-row mb-4 justify-content-center">
+            <div class="col-md-5 border-focus">
+                <label class="h3" for="inputPrefilledEx">TITLE</label>
+                <!-- title-->
+                <input type="text" name="title" id="title" id="inputPrefilledEx" class="form-control" value="My Experience">
             </div>
 
             <!--Card content-->
@@ -28,7 +30,6 @@
                             <input type="text" name="title" id="title" id="inputPrefilledEx" class="form-control" value="My Experience">
                         </div>
                     </div>
-
 
                     <div class="row">
                         {{!-- country visited --}}
@@ -363,58 +364,44 @@
                             </div>
                         </div>
                     </div>
-                    {{!-- image upload --}}
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text black-text" id="inputGroupFileAddon01">TRAVEL PHOTOS</span>
-                                </div>
-                                <div class="custom-file">
-                                    <input name="photos" type="file" class="custom-file-input" id="photos"
-                                        aria-describedby="inputGroupFileAddon01">
-                                    <label class="custom-file-label" for="photos"></label>
+
+                </div>
+            </div>
+            <!-- blog private or public -->
+            <div class="col-md-6">
+                <select name="isVisibile" id="isVisible" value="varify" class="browser-default custom-select">
+                    <option selected>MAKE BLOG PUBLIC/PRIVATE</option>
+                    <option value="1">PUBLIC</option>
+                    <option value="0">PRIVATE</option>
+                </select>
+            </div>
+        </div>
+        <hr>
+        <div class="row justify-content-center">
+            <h4>CATEGORY OF YOUR EXPERIENCE</h4>
+        </div>
+        <div class="row">
+            <section class="col-md-12">
+                <!-- Default unchecked -->
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row black-text">
+                            <div class="col-md-4">
+                                <div class="custom-control custom-checkbox">
+                                    <input name="category" value="1" type="checkbox" class="custom-control-input" id="defaultUnchecked">
+                                    <label class="custom-control-label" for="defaultUnchecked">Amusement</label>
                                 </div>
                             </div>
-                        </div>
-                        <!-- blog private or public -->
-                        <div class="col-md-6">
-                            <select name="isVisibile" id="isVisible" value="varify" class="browser-default custom-select">
-                                <option selected>MAKE BLOG PUBLIC/PRIVATE</option>
-                                <option value="1">PUBLIC</option>
-                                <option value="0">PRIVATE</option>
-                            </select>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="row justify-content-center">
-                        <h4>CATEGORY OF YOUR EXPERIENCE</h4>
-                    </div>
-                    <div class="row">
-                        <section class="col-md-12">
-                            <!-- Default unchecked -->
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="row black-text">
-                                        <div class="col-md-4">
-                                            <div class="custom-control custom-checkbox">
-                                                <input name="category" type="checkbox" class="custom-control-input" id="defaultUnchecked">
-                                                <label class="custom-control-label" for="defaultUnchecked">Amusement</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="custom-control custom-checkbox">
-                                                <input name="category" type="checkbox" class="custom-control-input" id="defaultUnchecked1">
-                                                <label class="custom-control-label" for="defaultUnchecked1">Entertainment</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="custom-control custom-checkbox">
-                                                <input name="category" type="checkbox" class="custom-control-input" id="defaultUnchecked2">
-                                                <label class="custom-control-label" for="defaultUnchecked2">Romantic</label>
-                                            </div>
-                                        </div>
-                                    </div>
+                            <div class="col-md-4">
+                                <div class="custom-control custom-checkbox">
+                                    <input name="category" value="2" type="checkbox" class="custom-control-input" id="defaultUnchecked1">
+                                    <label class="custom-control-label" for="defaultUnchecked1">Entertainment</label>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="custom-control custom-checkbox">
+                                    <input name="category" value="4" type="checkbox" class="custom-control-input" id="defaultUnchecked2">
+                                    <label class="custom-control-label" for="defaultUnchecked2">Romantic</label>
                                 </div>
                             </div>
                         </section>

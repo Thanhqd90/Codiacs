@@ -125,8 +125,12 @@ router.get("/about", function (req, res) {
 router.post("/create", function (req, res) {
     var userId = req.user;
     console.log(req.body);
-    db.blogs.create(
-        {
+
+    let catSum = 0;
+    for (let i = 0; i < req.body.category.length; i++) {
+        catSum += parseInt (req.body.category[i]);
+    }
+    db.blogs.create({
             title: req.body.title,
             isVisible: req.body.isVisible,
             mustHaves: req.body.mustHaves,
@@ -137,7 +141,7 @@ router.post("/create", function (req, res) {
             bestTime: req.body.bestTime,
             countryVisited: req.body.countryVisited,
             cityVisited: req.body.cityVisited,
-            category: req.body.category,
+            category: catSum,
             bloggerPersonalInfoId: userId
         })
         .then(function (dbBlog) {
