@@ -101,26 +101,24 @@ router.get("/new", function (req, res) {
 // about us page
 router.get("/about", function (req, res) {
     if (req.user) {
-    var userId = req.user;
-    db.blogs.findAll({
-        where: {
-            bloggerPersonalInfoId: userId
-        },
-        include: [{
-            model: db.bloggerPersonalInfo
-        }]
-    }).then(function (dbPost) {
+        var userId = req.user;
+        db.blogs.findAll({
+            where: {
+                bloggerPersonalInfoId: userId
+            },
+            include: [{
+                model: db.bloggerPersonalInfo
+            }]
+        }).then(function (dbPost) {
         //  res.json(dbPost);
-
-        res.render("about", {
-            loginStatus: true,
-            data: dbPost
+            res.render("about", {
+                loginStatus: true,
+                data: dbPost
+            });
         });
-    });
-} else {
-
-        res.render("about")
-}
+    } else {
+        res.render("about");
+    }
 });
 
 //routes for posting blogs
